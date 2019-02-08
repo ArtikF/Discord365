@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Authors>Discord365 Dev Team</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/discord365/Discord365</RepositoryUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <NoWarn>$(NoWarn);CS1573;CS1591</NoWarn>
+        <WarningsAsErrors>true</WarningsAsErrors>
+    </PropertyGroup>
+</Project>
