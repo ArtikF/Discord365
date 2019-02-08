@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Rectangle Stroke="#66000000" Height="1" VerticalAlignment="Top"></Rectangle>
-        <Rectangle Stroke="#3F000000" Height="1" VerticalAlignment="Top" Margin="0,1,0,0"></Rectangle>
+        <Rectangle Stroke="#FF292C30" Height="1" VerticalAlignment="Top"></Rectangle>
+        <Rectangle Stroke="#FF33363C" Height="1" VerticalAlignment="Top" Margin="0,1,0,0"></Rectangle>
     </Grid>
 </UserControl>
