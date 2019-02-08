@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Discord365.UI.User.DMPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="69" Background="#FF202225">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <WrapPanel Orientation="Vertical">
+                <ScrollViewer VerticalScrollBarVisibility="Disabled">
+                    <WrapPanel x:Name="PanelDM" Orientation="Vertical">
+                    </WrapPanel>
+                </ScrollViewer>
+                <TextBlock x:Name="tbOnline" Text="0 online" Foreground="#26FFFFFF" Margin="0,2,0,2" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Stretch" Width="68"/>
+                <Rectangle Stroke="#26FFFFFF"  Margin="0,2,0,0" Width="30" Height="1"/>
+                <ScrollViewer VerticalScrollBarVisibility="Disabled">
+                    <WrapPanel x:Name="ServerPanel">
+                    </WrapPanel>
+                </ScrollViewer>
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

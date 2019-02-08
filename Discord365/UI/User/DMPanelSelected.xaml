@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Discord365.UI.User.DMPanelSelected"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50" IsHitTestVisible="False">
+    <Grid>
+        <Rectangle Fill="White" Width="4" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" RadiusY="3.938" RadiusX="3.938"></Rectangle>
+        <Grid Background="White" Width="2" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5"></Grid>
+    </Grid>
+</UserControl>

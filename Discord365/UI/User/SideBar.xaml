@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Discord365.UI.User.SideBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="240" MaxWidth="240">
+    <Grid>
+        <Rectangle Fill="#FF2F3136" RadiusX="5" RadiusY="5"/>
+        <Grid Background="#FF2F3136" Margin="203,0,0,0"></Grid>
+
+        <Grid>
+            <local:ContentSeparator VerticalAlignment="Top" Margin="0,49,0,0" Height="2"></local:ContentSeparator>
+
+            <local:SidebarUserInfo x:Name="CurrentUserInfo" VerticalAlignment="Bottom" Height="53"></local:SidebarUserInfo>
+        </Grid>
+    </Grid>
+</UserControl>

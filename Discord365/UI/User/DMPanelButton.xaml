@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Discord365.UI.User.DMPanelButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="69" Cursor="Hand">
+    <Grid>
+        <local:DMPanelSelected x:Name="MarkSelected" IsHitTestVisible="False" Visibility="Hidden"></local:DMPanelSelected>
+        <local:DMPanelMessages x:Name="MarkNewMsg" IsHitTestVisible="False" Visibility="Hidden"></local:DMPanelMessages>
+        
+        <local:ServerAvatar x:Name="Avatar" Height="50" Width="50"></local:ServerAvatar>
+    </Grid>
+</UserControl>
