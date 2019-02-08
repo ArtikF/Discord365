@@ -10,6 +10,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Copyright>(C) Discord365 Dev Team 2018</Copyright>
 <RuntimeIdentifiers>win;linux;linux-arm;linux-x86;linux-x64</RuntimeIdentifiers>
+<AssemblyName>Discord365</AssemblyName>
   </PropertyGroup>
   
   <ItemGroup>
@@ -22,12 +23,17 @@
     <Folder Include="Core\" />
     <Folder Include="Debug\" />
     <Folder Include="Resources\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.7.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.7.0" />
+	<PackageReference Include="Avalonia.ReactiveUI" Version="0.7.0" />
     <PackageReference Include="Discord.Net" Version="2.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Discord365.UI\Discord365.UI.csproj" />
   </ItemGroup>
 
 </Project>
