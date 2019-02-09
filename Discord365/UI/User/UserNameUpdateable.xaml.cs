@@ -68,9 +68,15 @@ namespace Discord365.UI.User
             set
             {
                 if (value)
+                {
                     tbAdditional.Visibility = Visibility.Visible;
+                    panel.Children.Add(tbAdditional);
+                }
                 else
+                {
                     tbAdditional.Visibility = Visibility.Hidden;
+                    panel.Children.Remove(tbAdditional);
+                }
             }
         }
 

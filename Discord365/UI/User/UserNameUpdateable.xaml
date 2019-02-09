@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Discord365.UI.User"
              mc:Ignorable="d" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
     <Grid>
-        <WrapPanel Orientation="Vertical">
-            <TextBlock x:Name="tbUser" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="User Or Group" VerticalAlignment="Top" Foreground="White"/>
-            <TextBlock x:Name="tbAdditional" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Additional Information" VerticalAlignment="Top" Foreground="#26FFFFFF" FontSize="8" FontWeight="Bold"/>
+        <WrapPanel x:Name="panel" Orientation="Vertical">
+            <TextBlock x:Name="tbUser" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Text="User Or Group" VerticalAlignment="Top" Foreground="White"/>
+            <TextBlock x:Name="tbAdditional" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Text="Additional Information" VerticalAlignment="Top" Foreground="#26FFFFFF" FontSize="8" FontWeight="Bold"/>
         </WrapPanel>
     </Grid>
 </UserControl>

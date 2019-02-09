@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -21,21 +22,47 @@ namespace Discord365.UI.User.DirectMsgsContents
     /// </summary>
     public partial class DirectMessagesSidebarContent : UserControl
     {
+        public DMUserEntry[] UserEntries
+        {
+            get
+            {
+                List<DMUserEntry> result = new List<DMUserEntry>();
+
+                foreach(var o in DMList.Items)
+                {
+                    if(o is DMUserEntry)
+                    {
+                        result.Add(o as DMUserEntry);
+                    }
+                }
+
+                return result.ToArray();
+            }
+        }
+
+        private string authorFilter = "";
+
+        public string AuthorFilter
+        {
+            get => authorFilter;
+            set
+            {
+                authorFilter = value;
+            }
+        }
+
         public DirectMessagesSidebarContent()
         {
             InitializeComponent();
 
-            var avatar = new UserAvatar();
-            avatar.OnlineMark = UserAvatar.UserOnlineMarks.None;
-            var username = new UserNameUpdateable();
-            username.tbUser.Text = "Friends";
-
-            var friends = new DMListEntry(avatar, username);
+            DMUserEntry friends = new DMUserEntry();
+            friends.Avatar.OnlineMark = UserAvatar.UserOnlineMarks.None;
+            friends.User.tbUser.Text = "Friends";
 
             Add(friends);
         }
 
-        public void Add(DMListEntry e)
+        public void Add(DMUserEntry e)
         {
             if(!Dispatcher.CheckAccess())
             {
@@ -43,7 +70,9 @@ namespace Discord365.UI.User.DirectMsgsContents
                 return;
             }
 
-            DMList.Items.Add(e.Convert());
+            DMList.Items.Add(e);
+
+            ResortMessages();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -55,7 +84,7 @@ namespace Discord365.UI.User.DirectMsgsContents
         {
             new Thread(() =>
             {
-                List<DMListEntry> list = new List<DMListEntry>();
+                List<DMUserEntry> list = new List<DMUserEntry>();
 
                 var client = App.MainWnd.client;
 
@@ -64,14 +93,10 @@ namespace Discord365.UI.User.DirectMsgsContents
                 {
                     Dispatcher.Invoke(() =>
                     {
-                        var avatar = new UserAvatar();
-                        avatar.RelatedUser = c.Recipient;
+                        DMUserEntry e = new DMUserEntry();
+                        e.RelatedUser = c.Recipient;
+                        e.Channel = c;
 
-                        var username = new UserNameUpdateable();
-                        username.RelatedUser = c.Recipient;
-
-                        DMListEntry e = new DMListEntry(avatar, username);
-                        e.DMChannel = c;
                         list.Add(e);
                     });
                 }
@@ -80,15 +105,12 @@ namespace Discord365.UI.User.DirectMsgsContents
                 {
                     Dispatcher.Invoke(() =>
                     {
-                        var avatar = new UserAvatar();
+                        DMUserEntry e = new DMUserEntry();
+                        e.User.tbUser.Text = c.Name;
+                        e.User.ShowAdditional = true;
+                        e.User.tbAdditional.Text = c.Recipients.Count + " members";
+                        e.Channel = c;
 
-                        var username = new UserNameUpdateable();
-                        username.tbUser.Text = c.Name;
-                        username.ShowAdditional = true;
-                        username.tbAdditional.Text = c.Recipients.Count + " members";
-
-                        DMListEntry e = new DMListEntry(avatar, username);
-                        e.GroupChannel = c;
                         list.Add(e);
                     });
                 }
@@ -118,6 +140,63 @@ namespace Discord365.UI.User.DirectMsgsContents
                 }
 
             }).Start();
+        }
+
+        public void ResortMessages()
+        {
+            return; // idk
+
+            //if (!Dispatcher.CheckAccess())
+            //{
+            //    Dispatcher.Invoke(() => ResortMessages());
+            //    return;
+            //}
+
+            //List<DMListEntry> SortedMessages = new List<DMListEntry>();
+            //Dictionary<DateTime, DMListEntry> UnsortedMessages = new Dictionary<DateTime, DMListEntry>();
+
+            //foreach(var element in DMList.Items)
+            //{
+            //    if(element is Grid)
+            //    {
+            //        if (((Grid)element).Tag == null)
+            //            continue;
+
+            //        DMListEntry e = (DMListEntry)((Grid)element).Tag;
+
+            //        if (e.DMChannel != null)
+            //        {
+            //            var d = e.DMChannel.CreatedAt.Date;
+            //            UnsortedMessages.Add(d, e);
+            //        }
+            //        else if (e.GroupChannel != null)
+            //        {
+            //            var d = e.GroupChannel.CreatedAt.Date;
+            //            UnsortedMessages.Add(d, e);
+            //        }
+            //    }
+            //}
+
+            //DateTime[] Dates = UnsortedMessages.Keys.ToArray();
+            //Array.Sort(Dates);
+
+            //foreach(var time in Dates)
+            //{
+            //    SortedMessages.Add(UnsortedMessages[time]);
+            //}
+
+            //SortedMessages.Reverse();
+
+            
+            //for (int i = 1; i < DMList.Items.Count; i++)
+            //{
+            //    DMList.Items.Remove(DMList.Items[i]);
+            //}
+
+            //foreach(var e in SortedMessages)
+            //{
+            //    Add(e);
+            //}
         }
     }
 }

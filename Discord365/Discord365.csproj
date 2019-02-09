@@ -156,7 +156,9 @@
     <Compile Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml.cs">
       <DependentUpon>DirectMessagesSidebarContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\User\DirectMsgsContents\DMListEntry.cs" />
+    <Compile Include="UI\User\DirectMsgsContents\DMUserEntry.xaml.cs">
+      <DependentUpon>DMUserEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\DirectMsgsContents\SidebarHeaderSerach.xaml.cs">
       <DependentUpon>SidebarHeaderSerach.xaml</DependentUpon>
     </Compile>
@@ -175,6 +177,15 @@
     </Compile>
     <Compile Include="UI\User\DMPanelSelected.xaml.cs">
       <DependentUpon>DMPanelSelected.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\MessageSendTextBox.xaml.cs">
+      <DependentUpon>MessageSendTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\MessagesPageBody.xaml.cs">
+      <DependentUpon>MessagesPageBody.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\MessagesPageHeader.xaml.cs">
+      <DependentUpon>MessagesPageHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\ServerAvatar.xaml.cs">
       <DependentUpon>ServerAvatar.xaml</DependentUpon>
@@ -197,6 +208,9 @@
     <Page Include="UI\MainClientWnd.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\ContentBasic.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +218,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\DirectMsgsContents\DMUserEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\DirectMsgsContents\SidebarHeaderSerach.xaml">
@@ -219,6 +236,15 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\DMPanelSelected.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\MessageSendTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\MessagesPageBody.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\MessagesPageHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\ServerAvatar.xaml">

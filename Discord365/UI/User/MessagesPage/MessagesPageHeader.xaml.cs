@@ -13,21 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.DirectMsgsContents
+namespace Discord365.UI.User.MessagesPage
 {
     /// <summary>
-    /// Interaction logic for SidebarHeaderSerach.xaml
+    /// Interaction logic for MessagesPageHeader.xaml
     /// </summary>
-    public partial class SidebarHeaderSerach : UserControl
+    public partial class MessagesPageHeader : UserControl
     {
-        public SidebarHeaderSerach()
+        public MessagesPageHeader()
         {
             InitializeComponent();
         }
 
-        private void TbSearchText_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ((DirectMessagesSidebarContent)App.MainWnd.Sidebar.GridContent.Children[0]).AuthorFilter = tbSearchText.Text;
-        }
+        public string Title { get => tbChannelName.Text; set => tbChannelName.Text = value; }
     }
 }

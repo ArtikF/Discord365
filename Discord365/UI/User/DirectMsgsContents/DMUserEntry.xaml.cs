@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Discord.WebSocket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +17,24 @@ using System.Windows.Shapes;
 namespace Discord365.UI.User.DirectMsgsContents
 {
     /// <summary>
-    /// Interaction logic for SidebarHeaderSerach.xaml
+    /// Interaction logic for DMUserEntry.xaml
     /// </summary>
-    public partial class SidebarHeaderSerach : UserControl
+    public partial class DMUserEntry : UserControl
     {
-        public SidebarHeaderSerach()
+        public SocketChannel Channel = null;
+
+        public DMUserEntry()
         {
             InitializeComponent();
         }
 
-        private void TbSearchText_TextChanged(object sender, TextChangedEventArgs e)
+        public SocketUser RelatedUser
         {
-            ((DirectMessagesSidebarContent)App.MainWnd.Sidebar.GridContent.Children[0]).AuthorFilter = tbSearchText.Text;
+            set
+            {
+                Avatar.RelatedUser = value;
+                User.RelatedUser = value;
+            }
         }
     }
 }

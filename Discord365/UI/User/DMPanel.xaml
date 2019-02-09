@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:Discord365.UI.User"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="69" Background="#FF202225">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <WrapPanel Orientation="Vertical">
