@@ -29,6 +29,8 @@ namespace Discord365.UI.User
             ShowAdditional = false;
         }
 
+        public bool IsCurrentUserInfo = false;
+
         private SocketUser relatedUser = null;
 
         public SocketUser RelatedUser
@@ -60,7 +62,7 @@ namespace Discord365.UI.User
         {
             get
             {
-                if (tbAdditional.Visibility == Visibility.Hidden)
+                if (tbAdditional.Visibility == Visibility.Collapsed)
                     return false;
                 else
                     return true;
@@ -70,12 +72,12 @@ namespace Discord365.UI.User
                 if (value)
                 {
                     tbAdditional.Visibility = Visibility.Visible;
-                    panel.Children.Add(tbAdditional);
+                   // panel.Children.Add(tbAdditional);
                 }
                 else
                 {
-                    tbAdditional.Visibility = Visibility.Hidden;
-                    panel.Children.Remove(tbAdditional);
+                    tbAdditional.Visibility = Visibility.Collapsed;
+                   // panel.Children.Remove(tbAdditional);
                 }
             }
         }
@@ -94,6 +96,7 @@ namespace Discord365.UI.User
                 return;
 
             tbUser.Text = RelatedUser.Username;
+            tbAdditional.Text = "#" + RelatedUser.Discriminator;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

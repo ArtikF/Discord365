@@ -110,6 +110,8 @@ namespace Discord365.UI
             Dispatcher.Invoke(() =>
             {
                 Sidebar.CurrentUserInfo.RelatedUser = arg1;
+                Sidebar.CurrentUserInfo.e.User.IsSelected = true;
+                Sidebar.CurrentUserInfo.e.User.ShowAdditional = true;
             });
 
             return Task.CompletedTask;
