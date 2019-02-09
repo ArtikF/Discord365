@@ -75,8 +75,6 @@ namespace Discord365.UI
 
             InitializeComponent();
 
-            Sidebar.CurrentUserInfo.client = client;
-
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;
             client.Disconnected += Client_Disconnected;
@@ -111,8 +109,7 @@ namespace Discord365.UI
 
             Dispatcher.Invoke(() =>
             {
-                Sidebar.CurrentUserInfo.tbUserName.Text = arg1.Username;
-                Sidebar.CurrentUserInfo.CurrentUserAvatar.RelatedUser = arg1;
+                Sidebar.CurrentUserInfo.RelatedUser = arg1;
             });
 
             return Task.CompletedTask;

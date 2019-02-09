@@ -22,17 +22,27 @@ namespace Discord365.UI.User
     /// </summary>
     public partial class SidebarUserInfo : UserControl
     {
-        public DiscordSocketClient client = null;
+        public DiscordSocketClient client
+        {
+            get => App.MainWnd.client;
+        }
 
         public SidebarUserInfo()
         {
             InitializeComponent();
         }
 
+        public SocketUser RelatedUser
+        {
+            set
+            {
+                e.RelatedUser = value;
+                CurrentUserAvatar.RelatedUser = value;
+            }
+        }
+
         private void CurrentUserAvatar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var UserContext = FindVisualChildren<ContextMenu>(this).Where(x => x.Tag != null && x.Tag.ToString() == "UserContext");
-            UserContext.FirstOrDefault().IsOpen = true;
         }
 
         private void MenuStatusOnline_Click(object sender, RoutedEventArgs e)
@@ -59,25 +69,6 @@ namespace Discord365.UI.User
         {
             SetStatus(Discord.UserStatus.Invisible);
         }
-
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj != null)
-            {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T)
-                    {
-                        yield return (T)child;
-                    }
-
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
-                    }
-                }
-            }
-        }
+        
     }
 }

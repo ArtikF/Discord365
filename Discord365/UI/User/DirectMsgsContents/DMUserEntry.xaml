@@ -9,6 +9,6 @@
     <Grid>
         <Rectangle x:Name="rectBackground" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  RadiusY="9" RadiusX="9" Fill="#00000000"></Rectangle>
         <user:UserAvatar x:Name="Avatar" Width="33" Height="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"></user:UserAvatar>
-        <user:UserNameUpdateable x:Name="User" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="48,0,8,0"></user:UserNameUpdateable>
+        <user:UserNameUpdateable x:Name="User" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="50,0,8,0"></user:UserNameUpdateable>
     </Grid>
 </UserControl>
