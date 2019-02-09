@@ -23,6 +23,20 @@ namespace Discord365.UI.User.MessagesPage
         public MessageSendTextBox()
         {
             InitializeComponent();
+            tbMessage.Text = "";
+        }
+
+        public void SendMessage()
+        {
+
+        }
+
+        private void TbMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                SendMessage();
+            }
         }
     }
 }
