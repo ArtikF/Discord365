@@ -43,6 +43,9 @@ namespace Discord365.UI
             get => discordWindowContent;
             set
             {
+                if (discordWindowContent == value)
+                    return;
+
                 discordWindowContent = value;
 
                 if (value == DiscordWndConent.Content)
@@ -61,7 +64,7 @@ namespace Discord365.UI
                 {
                     DiscordStatus.Visibility = Visibility.Visible;
                     DiscordContent.Visibility = Visibility.Visible;
-                    ContentBlur.Radius = 1;
+                    ContentBlur.Radius = 7;
 
                     DiscordStatus.FadeIn(700);
                 }
@@ -74,6 +77,8 @@ namespace Discord365.UI
             App.MainWnd = this;
 
             InitializeComponent();
+
+            DiscordWindowContent = DiscordWndConent.Status;
 
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;

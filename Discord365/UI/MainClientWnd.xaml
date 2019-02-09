@@ -17,8 +17,8 @@
             <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="309,0,0,0"></user:ContentBasic>
         </Grid>
 
-        <Grid x:Name="DiscordStatus" Background="#0C000000">
-            <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></TextBlock>
+        <Grid x:Name="DiscordStatus" Background="#51000000">
+            <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="18" Text="I Like This Text!"></TextBlock>
         </Grid>
     </Grid>
 </Window>
