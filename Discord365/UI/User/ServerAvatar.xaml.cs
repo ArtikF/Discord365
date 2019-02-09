@@ -46,7 +46,16 @@ namespace Discord365.UI.User
 
         public void DownloadAndSetAvatar(string url)
         {
+            if (url == null)
+            {
+                AvatarImageSource = null;
+                return;
+            }
+
             var bitmap = BitmapFrame.Create(new Uri(url, UriKind.Absolute));
+
+            if(AvatarImageSource == null)
+                this.FadeIn(500, 1000);
 
             AvatarImageSource = bitmap;
         }

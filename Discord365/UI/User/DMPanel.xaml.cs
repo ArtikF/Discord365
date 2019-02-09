@@ -35,9 +35,6 @@ namespace Discord365.UI.User
 
             b.RelatedServer = server;
 
-            b.Avatar.ServerName = server.Name;
-            b.Avatar.DownloadAndSetAvatar(server.IconUrl);
-
             ServerPanel.Children.Add(b);
         }
 

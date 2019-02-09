@@ -13,9 +13,13 @@ namespace Discord365
     /// </summary>
     public partial class App : Application
     {
+        public static UI.LoginWindow LoginWnd;
+        public static UI.MainClientWnd MainWnd;
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            new UI.LoginWindow().ShowDialog();
+            LoginWnd = new UI.LoginWindow();
+            LoginWnd.ShowDialog();
         }
     }
 }

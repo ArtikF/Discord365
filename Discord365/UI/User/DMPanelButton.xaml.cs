@@ -40,7 +40,7 @@ namespace Discord365.UI.User
             }
         }
 
-        public SocketGuild RelatedServer = null;
+        private SocketGuild relatedServer = null;
 
         private MarkStyles markStyle = MarkStyles.None;
         public MarkStyles MarkStyle
@@ -72,6 +72,28 @@ namespace Discord365.UI.User
                     MarkNewMsg.Visibility = Visibility.Visible;
                 }
             }
+        }
+
+        public SocketGuild RelatedServer
+        {
+            get => relatedServer;
+            set
+            {
+                relatedServer = value;
+
+                UpdateRelated();
+            }
+        }
+        public void UpdateRelated()
+        {
+            if(!Dispatcher.CheckAccess())
+            {
+                Dispatcher.Invoke(() => UpdateRelated());
+                return;
+            }
+
+            Avatar.ServerName = RelatedServer.Name;
+            Avatar.DownloadAndSetAvatar(RelatedServer.IconUrl);
         }
 
         public DMPanelButton()

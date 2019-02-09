@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace Discord365.UI
 {
-    public static class UIAnims
+    public static class Animations
     {
+        public static void ColorTransition(this UIElement uiElement, Color a, Color b, int durationInMS, string property = "Background.Color")
+        {
+            ColorAnimation ca = new ColorAnimation(a, b, new Duration(TimeSpan.FromMilliseconds(durationInMS)));
+            Storyboard.SetTarget(ca, uiElement);
+            Storyboard.SetTargetProperty(ca, new PropertyPath(property));
+
+            Storyboard stb = new Storyboard();
+            stb.Children.Add(ca);
+            stb.Begin();
+        }
+
         public static UIElement FadeFromTo(this UIElement uiElement, double fromOpacity,
        double toOpacity, int durationInMilliseconds, bool loopAnimation,
        bool showOnStart, bool collapseOnFinish, int startAt = 0)

@@ -13,7 +13,17 @@
         </LinearGradientBrush>
     </UserControl.Background>
     <Grid>
-        <local:UserAvatar x:Name="CurrentUserAvatar" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Width="31" Height="31"></local:UserAvatar>
+        <local:UserAvatar x:Name="CurrentUserAvatar" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Width="33" Height="33" MouseLeftButtonUp="CurrentUserAvatar_MouseLeftButtonUp">
+            <local:UserAvatar.ContextMenu>
+                <ContextMenu Tag="UserContext">
+                    <MenuItem Header="Online" Click="MenuStatusOnline_Click"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="AFK" Click="MenuStatusAFK_Click"></MenuItem>
+                    <MenuItem Header="Do Not Disturb" Click="MenuStatusDoNotDist_Click"></MenuItem>
+                    <MenuItem Header="Inivisible" Click="MenuStatusInvis_Click"></MenuItem>
+                </ContextMenu>
+            </local:UserAvatar.ContextMenu>
+        </local:UserAvatar>
         <TextBlock x:Name="tbUserName" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="58,0,0,0"  Text="Username" VerticalAlignment="Center" Foreground="White"/>
     </Grid>
 </UserControl>

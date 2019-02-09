@@ -6,15 +6,19 @@
         xmlns:local="clr-namespace:Discord365.UI"
         xmlns:user="clr-namespace:Discord365.UI.User"
         mc:Ignorable="d"
-        Title="Discord365" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#FF202225">
+        Title="Discord365" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#FF202225" Closing="Window_Closing">
     <Grid>
-        <Grid x:Name="DiscordStatus">
-            <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></TextBlock>
-        </Grid>
         <Grid x:Name="DiscordContent" Visibility="Hidden">
+            <Grid.Effect>
+                <BlurEffect x:Name="ContentBlur" Radius="0"/>
+            </Grid.Effect>
             <user:DMPanel x:Name="DMPanel" Width="69" VerticalAlignment="Stretch" HorizontalAlignment="Left"></user:DMPanel>
             <user:SideBar x:Name="Sidebar" Width="240" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="69,0,0,0"></user:SideBar>
             <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="309,0,0,0"></user:ContentBasic>
+        </Grid>
+
+        <Grid x:Name="DiscordStatus" Background="#0C000000">
+            <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></TextBlock>
         </Grid>
     </Grid>
 </Window>

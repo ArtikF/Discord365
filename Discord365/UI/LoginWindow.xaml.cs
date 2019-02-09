@@ -30,10 +30,15 @@ namespace Discord365.UI
 
             string token = tbToken.Text;
 
-            MainClientWnd mWnd = new MainClientWnd(this);
+            App.MainWnd = new MainClientWnd(this);
 
-            mWnd.StartConnection(token);
-            mWnd.ShowDialog();
+            Discord.TokenType type = Discord.TokenType.Bot;
+
+            if ((bool)rUser.IsChecked)
+                type = Discord.TokenType.User;
+
+            App.MainWnd.StartConnection(token, type);
+            App.MainWnd.ShowDialog();
 
             this.Show();
         }
