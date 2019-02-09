@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="69" Cursor="Hand">
     <Grid>
+        <Rectangle x:Name="Collision" Fill="#00000000" Height="50" Width="50"  RadiusY="25" RadiusX="25"></Rectangle>
+        
         <local:DMPanelSelected x:Name="MarkSelected" IsHitTestVisible="False" Visibility="Hidden"></local:DMPanelSelected>
         <local:DMPanelMessages x:Name="MarkNewMsg" IsHitTestVisible="False" Visibility="Hidden"></local:DMPanelMessages>
         

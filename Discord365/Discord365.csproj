@@ -150,14 +150,15 @@
     <Compile Include="UI\User\ContentBasic.xaml.cs">
       <DependentUpon>ContentBasic.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\User\ContentDM.xaml.cs">
-      <DependentUpon>ContentDM.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\User\ContentSeparator.xaml.cs">
       <DependentUpon>ContentSeparator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\User\ContentServer.xaml.cs">
-      <DependentUpon>ContentServer.xaml</DependentUpon>
+    <Compile Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml.cs">
+      <DependentUpon>DirectMessagesSidebarContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\DirectMsgsContents\DMListEntry.cs" />
+    <Compile Include="UI\User\DirectMsgsContents\SidebarHeaderSerach.xaml.cs">
+      <DependentUpon>SidebarHeaderSerach.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\DMPanel.xaml.cs">
       <DependentUpon>DMPanel.xaml</DependentUpon>
@@ -187,6 +188,9 @@
     <Compile Include="UI\User\UserAvatar.xaml.cs">
       <DependentUpon>UserAvatar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\UserNameUpdateable.xaml.cs">
+      <DependentUpon>UserNameUpdateable.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,13 +200,13 @@
     <Page Include="UI\User\ContentBasic.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\User\ContentDM.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\User\ContentSeparator.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\User\ContentServer.xaml">
+    <Page Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\DirectMsgsContents\SidebarHeaderSerach.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\DMPanel.xaml">
@@ -227,6 +231,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\UserAvatar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\UserNameUpdateable.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

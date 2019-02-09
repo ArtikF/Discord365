@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FF36393F">
+        <Grid x:Name="GridHeader" HorizontalAlignment="Stretch" Height="49" VerticalAlignment="Top"/>
+        <Grid x:Name="GridContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,51,0,0"></Grid>
         <local:ContentSeparator VerticalAlignment="Top" Margin="0,49,0,0" Height="2"></local:ContentSeparator>
     </Grid>
 </UserControl>

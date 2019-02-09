@@ -25,6 +25,29 @@ namespace Discord365.UI.User
     {
         public DMPanelButton btnDirect;
 
+        public void SetSelected(DMPanelButton btn)
+        {
+            foreach (var dm in PanelDM.Children)
+            {
+                DMPanelButton b = dm as DMPanelButton;
+
+                if (btn == null && b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
+                    b.MarkStyle = DMPanelButton.MarkStyles.None;
+                else if (b == btn)
+                    b.MarkStyle = DMPanelButton.MarkStyles.SelectedServer;
+            }
+
+            foreach (var dm in ServerPanel.Children)
+            {
+                DMPanelButton b = dm as DMPanelButton;
+
+                if (btn == null && b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
+                    b.MarkStyle = DMPanelButton.MarkStyles.None;
+                else if (b == btn)
+                    b.MarkStyle = DMPanelButton.MarkStyles.SelectedServer;
+            }
+        }
+
         public void AddServer(SocketGuild server)
         {
             DMPanelButton b = new DMPanelButton();
@@ -57,8 +80,19 @@ namespace Discord365.UI.User
             btnDirect.Width = 69;
             btnDirect.Height = 50;
             btnDirect.MarkStyle = DMPanelButton.MarkStyles.None;
+            btnDirect.MouseLeftButtonUp += BtnDirect_MouseLeftButtonUp;
 
             PanelDM.Children.Add(btnDirect);
+        }
+
+        private void BtnDirect_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SetSelected(btnDirect);
+
+            var header = new DirectMsgsContents.SidebarHeaderSerach();
+            var body = new DirectMsgsContents.DirectMessagesSidebarContent();
+
+            App.MainWnd.Sidebar.Set(header, body);
         }
     }
 }

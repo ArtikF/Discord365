@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User
+namespace Discord365.UI.User.DirectMsgsContents
 {
     /// <summary>
-    /// Interaction logic for ContentDM.xaml
+    /// Interaction logic for SidebarHeaderSerach.xaml
     /// </summary>
-    public partial class ContentDM : UserControl
+    public partial class SidebarHeaderSerach : UserControl
     {
-        public ContentDM()
+        public SidebarHeaderSerach()
         {
             InitializeComponent();
         }

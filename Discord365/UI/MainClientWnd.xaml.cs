@@ -25,6 +25,7 @@ namespace Discord365.UI
     public partial class MainClientWnd : Window
     {
         public List<User.UserAvatar> UpdateAvatars = new List<User.UserAvatar>();
+        public List<User.UserNameUpdateable> UpdateUserNames = new List<User.UserNameUpdateable>();
 
         public LoginWindow LoginWnd = null;
 
