@@ -87,7 +87,7 @@ namespace Discord365.UI.User
             if (RelatedUser == null)
                 return;
 
-
+            tbUser.Text = RelatedUser.Username;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
