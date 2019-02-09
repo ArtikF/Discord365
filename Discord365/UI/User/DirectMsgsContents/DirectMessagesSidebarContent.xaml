@@ -15,6 +15,6 @@
     </UserControl.Resources>
 
     <Grid>
-        <ListBox x:Name="DMList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="#00ABADB3"/>
+        <ListBox x:Name="DMList" SelectionChanged="DMList_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#00000000" Foreground="White" BorderBrush="#00ABADB3"/>
     </Grid>
 </UserControl>

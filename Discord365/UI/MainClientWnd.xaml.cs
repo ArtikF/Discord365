@@ -29,7 +29,7 @@ namespace Discord365.UI
 
         public LoginWindow LoginWnd = null;
 
-        public DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketConfig() { LogLevel = Discord.LogSeverity.Info, MessageCacheSize = 5 });
+        public DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketConfig() { LogLevel = Discord.LogSeverity.Info, MessageCacheSize = 50 });
 
         public enum DiscordWndConent
         {
@@ -77,6 +77,9 @@ namespace Discord365.UI
             App.MainWnd = this;
 
             InitializeComponent();
+
+            ContentBasic.Set(null, null);
+            Sidebar.Set(null, null);
 
             DiscordWindowContent = DiscordWndConent.Status;
 
@@ -203,6 +206,10 @@ namespace Discord365.UI
                 {
                     DiscordWindowContent = DiscordWndConent.Content;
                 });
+
+                Thread.Sleep(250);
+
+                Dispatcher.Invoke(() => ContentBasic.Set(null, new User.Screens.ScreenWelcomeDiscord365()));
             }).Start();
 
             Client_CurrentUserUpdated(client.CurrentUser, null);

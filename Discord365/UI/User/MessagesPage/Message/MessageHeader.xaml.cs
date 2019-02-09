@@ -14,16 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.DirectMsgsContents
+namespace Discord365.UI.User.MessagesPage.Message
 {
     /// <summary>
-    /// Interaction logic for DMUserEntry.xaml
+    /// Interaction logic for MessageHeader.xaml
     /// </summary>
-    public partial class DMUserEntry : UserControl
+    public partial class MessageHeader : UserControl
     {
-        public SocketChannel Channel = null;
-
-        public DMUserEntry()
+        public MessageHeader()
         {
             InitializeComponent();
         }
@@ -35,20 +33,6 @@ namespace Discord365.UI.User.DirectMsgsContents
                 Avatar.RelatedUser = value;
                 User.RelatedUser = value;
             }
-        }
-
-        public string GetChannelName()
-        {
-            if (Channel is SocketDMChannel)
-            {
-                return (Channel as SocketDMChannel).Recipient.Username;
-            }
-            else if (Channel is SocketGroupChannel)
-            {
-                return (Channel as SocketGroupChannel).Name;
-            }
-
-            return "Unknown Channel";
         }
     }
 }

@@ -33,13 +33,17 @@ namespace Discord365.UI.User
         public void SetHeader(UIElement header)
         {
             GridHeader.Children.Clear();
-            GridHeader.Children.Add(header);
+
+            if(header != null)
+                GridHeader.Children.Add(header);
         }
 
         public void SetContent(UIElement content)
         {
             GridContent.Children.Clear();
-            GridContent.Children.Add(content);
+            
+            if(content != null)
+                GridContent.Children.Add(content);
         }
     }
 }

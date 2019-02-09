@@ -93,6 +93,7 @@ namespace Discord365.UI.User
             var body = new DirectMsgsContents.DirectMessagesSidebarContent();
 
             App.MainWnd.Sidebar.Set(header, body);
+            App.MainWnd.ContentBasic.Set(null, new Screens.ScreenWelcomeDM());
         }
     }
 }

@@ -14,22 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.MessagesPage
+namespace Discord365.UI.User.MessagesPage.Message
 {
     /// <summary>
-    /// Interaction logic for MessagesPageBody.xaml
+    /// Interaction logic for SingleMessage.xaml
     /// </summary>
-    public partial class MessagesPageBody : UserControl
+    public partial class SingleMessage : UserControl
     {
-        public SocketChannel Channel = null;
+        public SocketMessage Message = null;
 
-        public MessagesPageBody(SocketChannel c = null)
+        public SingleMessage()
         {
-            Channel = c;
-
             InitializeComponent();
+            tbMessage.Text = "";
+        }
 
-            Sender.Channel = Channel;
+        public string MessageText
+        {
+            get => tbMessage.Text;
+            set => tbMessage.Text = value;
         }
     }
 }

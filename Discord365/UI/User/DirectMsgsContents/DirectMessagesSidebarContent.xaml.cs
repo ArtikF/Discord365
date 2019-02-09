@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Discord.WebSocket;
+using Discord365.UI.User.MessagesPage;
+using Discord365.UI.User.MessagesPage.Message;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -48,6 +51,54 @@ namespace Discord365.UI.User.DirectMsgsContents
             set
             {
                 authorFilter = value;
+            }
+        }
+
+        public void Select(DMUserEntry entry)
+        {
+            new Thread(() => {
+                if (entry.Channel is SocketDMChannel)
+                {
+                    SocketDMChannel c = (SocketDMChannel)entry.Channel;
+
+                    var msgs = c.GetCachedMessages();
+
+                    SelectEx(entry, msgs.ToArray());
+                }
+                else if (entry.Channel is SocketGroupChannel)
+                {
+                    SocketGroupChannel c = (SocketGroupChannel)entry.Channel;
+
+                    var msgs = c.GetCachedMessages();
+
+                    SelectEx(entry, msgs.ToArray());
+                }
+            }).Start();
+        }
+
+        private void SelectEx(DMUserEntry entry, SocketMessage[] msgs)
+        {
+            msgs.Reverse();
+
+            if (!Dispatcher.CheckAccess())
+            {
+                Dispatcher.Invoke(() => SelectEx(entry, msgs));
+                return;
+            }
+
+            MessagesPageHeader h = new MessagesPageHeader();
+            h.tbChannelName.Text = entry.GetChannelName();
+
+            MessagesPageBody b = new MessagesPageBody(entry.Channel);
+
+            App.MainWnd.ContentBasic.Set(h, b);
+
+            foreach (var msg in msgs.ToArray())
+            {
+                Message a = new Message();
+                a.AddMessage(msg);
+
+                b.MessagesPanel.Children.Add(a);
             }
         }
 
@@ -197,6 +248,19 @@ namespace Discord365.UI.User.DirectMsgsContents
             //{
             //    Add(e);
             //}
+        }
+
+        private void DMList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            object o = DMList.SelectedItem;
+            if (o == null)
+                return;
+
+            if (o is DMUserEntry)
+            {
+                Select(o as DMUserEntry);
+            }
+
         }
     }
 }

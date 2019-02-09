@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Discord.WebSocket;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,22 +21,34 @@ namespace Discord365.UI.User.MessagesPage
     /// </summary>
     public partial class MessageSendTextBox : UserControl
     {
+        public SocketChannel Channel = null;
+
         public MessageSendTextBox()
         {
             InitializeComponent();
             tbMessage.Text = "";
         }
 
-        public void SendMessage()
+        public async void SendMessage(string text)
         {
-
+            if (Channel is SocketDMChannel)
+            {
+                var c = Channel as SocketDMChannel;
+                await c.SendMessageAsync(text);
+            }
+            else if (Channel is SocketGroupChannel)
+            {
+                var c = Channel as SocketGroupChannel;
+                await c.SendMessageAsync(text);
+            }
         }
 
         private void TbMessage_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
             {
-                SendMessage();
+                SendMessage(tbMessage.Text);
+                tbMessage.Text = "";
             }
         }
     }

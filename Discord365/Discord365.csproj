@@ -187,6 +187,21 @@
     <Compile Include="UI\User\MessagesPage\MessagesPageHeader.xaml.cs">
       <DependentUpon>MessagesPageHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\Message.xaml.cs">
+      <DependentUpon>Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\MessageHeader.xaml.cs">
+      <DependentUpon>MessageHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\SingleMessage.xaml.cs">
+      <DependentUpon>SingleMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\Screens\ScreenWelcomeDiscord365.xaml.cs">
+      <DependentUpon>ScreenWelcomeDiscord365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\Screens\ScreenWelcomeDM.xaml.cs">
+      <DependentUpon>ScreenWelcomeDM.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\ServerAvatar.xaml.cs">
       <DependentUpon>ServerAvatar.xaml</DependentUpon>
     </Compile>
@@ -245,6 +260,21 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\MessagesPage\MessagesPageHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\Message\Message.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\Message\MessageHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\Message\SingleMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\Screens\ScreenWelcomeDiscord365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\Screens\ScreenWelcomeDM.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\ServerAvatar.xaml">

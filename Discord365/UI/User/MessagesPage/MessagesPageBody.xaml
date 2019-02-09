@@ -14,6 +14,11 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <local:MessageSendTextBox VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="16"></local:MessageSendTextBox>
+        <local:MessageSendTextBox x:Name="Sender" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="16"></local:MessageSendTextBox>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="16,16,16,107">
+            <WrapPanel x:Name="MessagesPanel" Orientation="Vertical">
+
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

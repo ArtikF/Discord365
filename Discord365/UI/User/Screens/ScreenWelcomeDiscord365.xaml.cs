@@ -1,5 +1,4 @@
-﻿using Discord.WebSocket;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.MessagesPage
+namespace Discord365.UI.User.Screens
 {
     /// <summary>
-    /// Interaction logic for MessagesPageBody.xaml
+    /// Interaction logic for ScreenWelcomeDiscord365.xaml
     /// </summary>
-    public partial class MessagesPageBody : UserControl
+    public partial class ScreenWelcomeDiscord365 : UserControl
     {
-        public SocketChannel Channel = null;
-
-        public MessagesPageBody(SocketChannel c = null)
+        public ScreenWelcomeDiscord365()
         {
-            Channel = c;
-
             InitializeComponent();
-
-            Sender.Channel = Channel;
         }
     }
 }
