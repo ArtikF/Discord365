@@ -112,7 +112,7 @@ namespace Discord365.UI.User
             if (RelatedUser == null)
                 return;
 
-            DownloadAndSetAvatar(RelatedUser.GetAvatarUrl(Discord.ImageFormat.Png, 32));
+            DownloadAndSetAvatar(RelatedUser.GetAvatarUrl(Discord.ImageFormat.Png, 64));
 
             if (RelatedUser.Status == Discord.UserStatus.Offline || RelatedUser.Status == Discord.UserStatus.Invisible)
                 OnlineMark = UserOnlineMarks.Offline;

@@ -27,7 +27,9 @@ namespace Discord365.UI.User.DirectMsgsContents
 
         private void TbSearchText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((DirectMessagesSidebarContent)App.MainWnd.Sidebar.GridContent.Children[0]).AuthorFilter = tbSearchText.Text;
+            var s = new Screens.ScreenSearch();
+            App.MainWnd.ContentBasic.Set(new TextBlock() { Text = "Search Placeholder, plesase remove it, ok?!", Margin = new Thickness(16, 0, 0, 0), Foreground = new SolidColorBrush(Colors.White), FontSize = 14, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Center }, s);
+            s.tbSearchBox.Text = tbSearchText.Text;
         }
     }
 }

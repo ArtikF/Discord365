@@ -21,6 +21,8 @@ namespace Discord365.UI.User.MessagesPage.Message
     /// </summary>
     public partial class Message : UserControl
     {
+        private SocketUser relatedUser = null;
+
         public Message()
         {
             InitializeComponent();
@@ -28,8 +30,11 @@ namespace Discord365.UI.User.MessagesPage.Message
 
         public SocketUser RelatedUser
         {
+            get => relatedUser;
             set
             {
+                relatedUser = value;
+
                 MessageHeader.RelatedUser = value;
             }
         }
@@ -37,6 +42,7 @@ namespace Discord365.UI.User.MessagesPage.Message
         public void AddSingleMessage(SocketMessage msg)
         {
             SingleMessage m = new SingleMessage();
+            m.Margin = new Thickness(0, 0, 0, 4);
 
             m.MessageText = msg.Content;
             m.Message = msg;

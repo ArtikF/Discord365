@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage.Message"
              mc:Ignorable="d">
     <Grid>
-        <TextBlock x:Name="tbMessage" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#B2FFFFFF">Message Content</TextBlock>
+        <TextBlock x:Name="tbMessage" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#8CFFFFFF">Message Content</TextBlock>
     </Grid>
 </UserControl>

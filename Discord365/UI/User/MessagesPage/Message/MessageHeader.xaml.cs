@@ -25,6 +25,7 @@ namespace Discord365.UI.User.MessagesPage.Message
         public MessageHeader()
         {
             InitializeComponent();
+            User.IsSelected = true;
         }
 
         private SocketUser relatedUser = null;
@@ -40,13 +41,14 @@ namespace Discord365.UI.User.MessagesPage.Message
 
         public void UpdateRelated()
         {
-        //    new Thread(() =>
-        //    {
-        //        var user = App.MainWnd.client.GetUser(relatedUser.Id);
-        //        relatedUser = user;
-                
-                Avatar.RelatedUser = relatedUser;
-                User.RelatedUser = relatedUser;
+            //    new Thread(() =>
+            //    {
+            //        var user = App.MainWnd.client.GetUser(relatedUser.Id);
+            //        relatedUser = user;
+
+            Avatar.RelatedUser = relatedUser;
+            User.RelatedUser = relatedUser;
+            User.IsSelected = true;
             //}).Start();
         }
     }

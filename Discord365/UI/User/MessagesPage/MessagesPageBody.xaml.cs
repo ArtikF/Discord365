@@ -35,9 +35,34 @@ namespace Discord365.UI.User.MessagesPage
 
         public void AddMessage(Message.Message e)
         {
-            e.Margin = new Thickness(0, 8, 0, 8);
-            MessagesPanel.Children.Add(e);
+            var related = GetRelatedMessage(e);
+            if (related == null)
+            {
+                e.Margin = new Thickness(0, 8, 0, 8);
+                MessagesPanel.Children.Add(e);
+            }
+            else
+            {
+                foreach(var msg in e.MessagesPanel.Children)
+                {
+                    var m = msg as Message.SingleMessage;
+                    related.AddSingleMessage(m.Message);
+                }
+            }
             MessagesScroll.ScrollToEnd();
+        }
+
+        private Message.Message GetRelatedMessage(Message.Message m)
+        {
+            if (MessagesPanel.Children.Count < 1)
+                return null;
+
+            var last = MessagesPanel.Children[MessagesPanel.Children.Count - 1] as Message.Message;
+
+            if (last.RelatedUser.Id == m.RelatedUser.Id)
+                return last;
+
+            return null;
         }
 
         public void UpdateMessagesFromCache()
