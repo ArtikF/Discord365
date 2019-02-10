@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="240" MaxWidth="240">
     <Grid>
-        <Rectangle Fill="#FF2F3136" RadiusX="5" RadiusY="5"/>
-        <Grid Background="#FF2F3136" Margin="203,0,0,0"></Grid>
+        <Grid Background="#14FFFFFF"></Grid>
 
         <Grid>
 
