@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              Width="216" Height="32">
     <Grid>
-        <TextBox x:Name="tbSearchText" Margin="6" Background="#FF25272B" BorderBrush="#FF212326" Foreground="White" TextChanged="TbSearchText_TextChanged"/>
+        <TextBox x:Name="tbSearchText" Margin="6" Background="#14000000" BorderBrush="#1E000000" Foreground="White" TextChanged="TbSearchText_TextChanged"/>
     </Grid>
 </UserControl>
