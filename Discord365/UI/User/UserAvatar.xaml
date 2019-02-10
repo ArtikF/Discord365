@@ -12,7 +12,7 @@
                 <ImageBrush x:Name="AvatarImage"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="UserStatusBorder" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="14" Height="14" Fill="#FF2F3136" RadiusY="7" RadiusX="7"/>
+        <Rectangle x:Name="UserStatusBorder" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="14" Height="14" Fill="#33000000" RadiusY="7" RadiusX="7"/>
         <Rectangle x:Name="UserStatusRect" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="10" Height="10" Fill="#FF509540" RadiusY="5" RadiusX="5" Margin="0,0,2,2"/>
     </Grid>
 </UserControl>

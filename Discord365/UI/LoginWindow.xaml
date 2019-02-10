@@ -8,7 +8,7 @@
         Title="Discord365: Login" Height="450" Width="800" Foreground="Black" Background="#FF202225">
     <Grid>
         <Label Content="Token:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="tbToken" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="442"/>
+        <PasswordBox x:Name="tbToken" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" VerticalAlignment="Top" Width="442"/>
         <RadioButton x:Name="rBot" Content="Bot" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Foreground="White" IsChecked="True"/>
         <RadioButton x:Name="rUser" Content="User Account (ban risk)" HorizontalAlignment="Left" Margin="52,64,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="btnLogin" Content="Log In" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="74" Click="BtnLogin_Click"/>

@@ -28,7 +28,7 @@ namespace Discord365.UI
         {
             this.Hide();
 
-            string token = tbToken.Text;
+            string token = tbToken.Password;
 
             App.MainWnd = new MainClientWnd(this);
 
