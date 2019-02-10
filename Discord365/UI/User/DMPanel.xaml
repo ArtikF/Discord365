@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="69" Background="#FF202225">
+             d:DesignHeight="450" d:DesignWidth="69" Background="#00000000">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
