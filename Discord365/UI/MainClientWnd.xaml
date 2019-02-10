@@ -10,13 +10,20 @@
         Title="Discord365" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closing="Window_Closing">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF289AB4" Offset="0"/>
-            <GradientStop Color="#FF691B6C" Offset="1"/>
-            <GradientStop Color="#FF443A83" Offset="0.466"/>
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform Angle="320.363" CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF1B929E" Offset="0"/>
+            <GradientStop Color="#FF196639" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <Grid x:Name="DiscordContent" Visibility="Visible" Background="#26000000">
+        <Grid x:Name="DiscordContent" Visibility="Visible" Background="#4C000000">
             <Grid.Effect>
                 <BlurEffect x:Name="ContentBlur" Radius="0"/>
             </Grid.Effect>
@@ -25,7 +32,7 @@
             <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="309,0,0,0"></user:ContentBasic>
         </Grid>
 
-        <Grid x:Name="DiscordCustom" Visibility="Visible" Background="#AD000000">
+        <Grid x:Name="DiscordCustom" Visibility="Hidden" Background="#AD000000">
             <c:CustomCtrlWnd x:Name="CustomCtrl"></c:CustomCtrlWnd>
         </Grid>
 

@@ -71,16 +71,22 @@ namespace Discord365.UI.User
 
                 if (onlineMark == UserOnlineMarks.None)
                 {
-                    UserStatusBorder.FadeOut(450);
-                    UserStatusRect.FadeOut(450);
+                    UserStatusBorder.Visibility = Visibility.Hidden;
+                    UserStatusRect.Visibility = Visibility.Hidden;
+                    //UserStatusBorder.FadeOut(450);
+                    //UserStatusRect.FadeOut(450);
                 }
                 else
                 {
-                    if(previous == UserOnlineMarks.None)
+                    UserStatusBorder.Visibility = Visibility.Visible;
+                    UserStatusRect.Visibility = Visibility.Visible;
+
+                    if (previous == UserOnlineMarks.None)
                     {
                         //UserStatusBorder.FadeIn(450);
                         //UserStatusRect.FadeIn(450);
                     }
+
 
                     if (onlineMark == UserOnlineMarks.Offline)
                         UserStatusRect.Fill = new SolidColorBrush(ColorOffline); //UserStatusRect.ColorTransition(((SolidColorBrush)UserStatusRect.Fill).Color, ColorOffline, 500, "Fill.Color");
