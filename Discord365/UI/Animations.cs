@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -10,15 +13,38 @@ namespace Discord365.UI
 {
     public static class Animations
     {
-        public static void ColorTransition(this UIElement uiElement, Color a, Color b, int durationInMS, string property = "Background.Color")
-        {
-            ColorAnimation ca = new ColorAnimation(a, b, new Duration(TimeSpan.FromMilliseconds(durationInMS)));
-            Storyboard.SetTarget(ca, uiElement);
-            Storyboard.SetTargetProperty(ca, new PropertyPath(property));
+        public const int FadeAnimationsDefaultTime = 300;
 
-            Storyboard stb = new Storyboard();
-            stb.Children.Add(ca);
-            stb.Begin();
+        public static void FadeInSize(this UIElement uiElement, int durationInMilliseconds, int startAt = 0)
+        {
+            FadeIn(uiElement, durationInMilliseconds, startAt);
+
+            //var startSize = new Size(uiElement.DesiredSize.Width / 2, uiElement.DesiredSize.Height / 2);
+            //var endSize = new Size(uiElement.DesiredSize.Width, uiElement.DesiredSize.Height);
+
+
+            //// i don't like this wpf shit
+            //new Thread(() =>
+            //{
+            //    int i = 0;
+            //    while (i < durationInMilliseconds)
+            //    {
+            //        Size n = new Size(startSize.Width + (endSize.Width / durationInMilliseconds * i), startSize.Height + (endSize.Height / durationInMilliseconds * i));
+
+            //        uiElement.Dispatcher.Invoke(() => 
+            //        {
+            //            uiElement.RenderSize = n;
+            //        });
+
+            //        Thread.Sleep(1);
+            //        i++;
+            //    }
+                
+            //}).Start();
+        }
+
+        public static void FadeOutSize(this UIElement uiElement, int durationInMilliseconds, int startAt = 0)
+        {
         }
 
         public static UIElement FadeFromTo(this UIElement uiElement, double fromOpacity,

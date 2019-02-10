@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Discord365.UI.User.CustomContent.CustomCtrlWnd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User.CustomContent"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid x:Name="SidebarGrid" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="16,16,320,16" Width="200">
+            <WrapPanel x:Name="wp" Orientation="Vertical">
+            </WrapPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="447" Background="#14FFFFFF">
+            <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="273,16,13,16" Width="354">
+            </Grid>
+        </Grid>
+        <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,32,32,0" VerticalAlignment="Top" Width="75" Height="50" Click="BtnClose_Click">
+            <WrapPanel Orientation="Vertical">
+            <TextBlock TextAlignment="Center">Close</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="9">(temporary style)</TextBlock>
+            </WrapPanel>
+        </Button>
+    </Grid>
+</UserControl>

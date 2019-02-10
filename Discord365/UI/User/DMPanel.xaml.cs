@@ -50,6 +50,8 @@ namespace Discord365.UI.User
 
         public void AddServer(SocketGuild server)
         {
+            RemoveServer(server);
+
             DMPanelButton b = new DMPanelButton();
 
             b.Width = 69;
@@ -63,9 +65,11 @@ namespace Discord365.UI.User
 
         public void RemoveServer(SocketGuild server)
         {
-            foreach(var s in ServerPanel.Children)
+            for(int i = 0; i < ServerPanel.Children.Count; i++)
             {
-                if (((DMPanelButton)s).RelatedServer == server)
+                var s = ServerPanel.Children[i];
+
+                if (((DMPanelButton)s).RelatedServer.Id == server.Id)
                     ServerPanel.Children.Remove((UIElement)s);
             }
         }
@@ -94,6 +98,16 @@ namespace Discord365.UI.User
 
             App.MainWnd.Sidebar.Set(header, body);
             App.MainWnd.ContentBasic.Set(null, new Screens.ScreenWelcomeDM());
+        }
+
+        private void WrapPanel_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void ScrollViewer_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

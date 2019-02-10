@@ -69,6 +69,10 @@ namespace Discord365.UI.User
         {
             SetStatus(Discord.UserStatus.Invisible);
         }
-        
+
+        private void BtnWrench_Click(object sender, RoutedEventArgs e)
+        {
+            App.MainWnd.DiscordWindowContent = MainClientWnd.DiscordWndConent.Custom;
+        }
     }
 }

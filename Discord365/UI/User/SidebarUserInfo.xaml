@@ -20,5 +20,7 @@
                 </ContextMenu>
             </local:UserAvatar.ContextMenu>
         </local:UserAvatar>
+        <Button x:Name="btnWrench" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,16,0" Click="BtnWrench_Click">
+            <TextBlock FontSize="6">Wrench</TextBlock></Button>
     </Grid>
 </UserControl>

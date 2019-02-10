@@ -34,9 +34,11 @@ namespace Discord365.UI
         public enum DiscordWndConent
         {
             Status,
-            Content
+            Content,
+            Custom
         };
 
+        public DiscordWndConent PreviousContent = DiscordWndConent.Content;
         private DiscordWndConent discordWindowContent = DiscordWndConent.Content;
         public DiscordWndConent DiscordWindowContent
         {
@@ -46,27 +48,46 @@ namespace Discord365.UI
                 if (discordWindowContent == value)
                     return;
 
+                PreviousContent = discordWindowContent;
                 discordWindowContent = value;
+
+                if (PreviousContent == DiscordWndConent.Status)
+                {
+                    DiscordStatus.FadeOut(FadeAnimationsDefaultTime);
+                    new Thread(() =>
+                    {
+                        Thread.Sleep(FadeAnimationsDefaultTime);
+                        Dispatcher.Invoke(() => DiscordStatus.Visibility = Visibility.Hidden);
+                    }).Start();
+                }
+                else if (PreviousContent == DiscordWndConent.Custom)
+                {
+                    DiscordCustom.FadeOut(FadeAnimationsDefaultTime);
+                    new Thread(() =>
+                    {
+                        Thread.Sleep(FadeAnimationsDefaultTime);
+                        Dispatcher.Invoke(() => DiscordCustom.Visibility = Visibility.Hidden);
+                    }).Start();
+                }
 
                 if (value == DiscordWndConent.Content)
                 {
                     DiscordContent.Visibility = Visibility.Visible;
                     ContentBlur.Radius = 0;
-
-                    DiscordStatus.FadeOut(700);
-                    new Thread(() =>
-                    {
-                        Thread.Sleep(700);
-                        Dispatcher.Invoke(() => DiscordStatus.Visibility = Visibility.Hidden);
-                    }).Start();
                 }
                 else if (value == DiscordWndConent.Status)
                 {
                     DiscordStatus.Visibility = Visibility.Visible;
-                    DiscordContent.Visibility = Visibility.Visible;
                     ContentBlur.Radius = 7;
 
-                    DiscordStatus.FadeIn(700);
+                    DiscordStatus.FadeInSize(FadeAnimationsDefaultTime);
+                }
+                else if (value == DiscordWndConent.Custom)
+                {
+                    DiscordCustom.Visibility = Visibility.Visible;
+                    ContentBlur.Radius = 7;
+
+                    DiscordCustom.FadeInSize(FadeAnimationsDefaultTime);
                 }
             }
         }
@@ -80,8 +101,11 @@ namespace Discord365.UI
 
             ContentBasic.Set(null, null);
             Sidebar.Set(null, null);
-
-            DiscordWindowContent = DiscordWndConent.Status;
+            
+            discordWindowContent = DiscordWndConent.Status;
+            DiscordContent.Visibility = Visibility.Visible;
+            DiscordStatus.Visibility = Visibility.Visible;
+            DiscordCustom.Visibility = Visibility.Hidden;
 
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;
@@ -100,27 +124,33 @@ namespace Discord365.UI
 
         private Task Client_UserUpdated(SocketUser arg1, SocketUser arg2)
         {
-            foreach(var u in UpdateAvatars)
+            new Thread(() =>
             {
-                if(u.RelatedUser != null && u.RelatedUser.Id == arg1.Id)
+                foreach (var u in UpdateAvatars)
                 {
-                    u.RelatedUser = arg1;
+                    if (u.RelatedUser != null && u.RelatedUser.Id == arg1.Id)
+                    {
+                        u.RelatedUser = arg1;
+                    }
                 }
-            }
+            }).Start();
 
             return Task.CompletedTask;
         }
 
         private Task Client_CurrentUserUpdated(SocketSelfUser arg1, SocketSelfUser arg2)
         {
-            string avatarUrl = arg1.GetAvatarUrl(Discord.ImageFormat.Auto, 32);
-
-            Dispatcher.Invoke(() =>
+            new Thread(() => 
             {
-                Sidebar.CurrentUserInfo.RelatedUser = arg1;
-                Sidebar.CurrentUserInfo.e.User.IsSelected = true;
-                Sidebar.CurrentUserInfo.e.User.ShowAdditional = true;
-            });
+                string avatarUrl = arg1.GetAvatarUrl(Discord.ImageFormat.Png, 32);
+
+                Dispatcher.Invoke(() =>
+                {
+                    Sidebar.CurrentUserInfo.RelatedUser = arg1;
+                    Sidebar.CurrentUserInfo.e.User.IsSelected = true;
+                    Sidebar.CurrentUserInfo.e.User.ShowAdditional = true;
+                });
+            }).Start();
 
             return Task.CompletedTask;
         }
@@ -133,31 +163,45 @@ namespace Discord365.UI
 
         private Task Client_GuildUpdated(SocketGuild arg1, SocketGuild arg2)
         {
-            Dispatcher.Invoke(() =>
+            new Thread(() =>
             {
-                foreach(var s in DMPanel.ServerPanel.Children)
+                Dispatcher.Invoke(() =>
                 {
-                    User.DMPanelButton btn = (User.DMPanelButton)s;
+                    foreach (var s in DMPanel.ServerPanel.Children)
+                    {
+                        User.DMPanelButton btn = (User.DMPanelButton)s;
 
-                    if (btn.RelatedServer.Id == arg1.Id)
-                        btn.RelatedServer = arg1;
-                }
-            });
+                        if (btn.RelatedServer.Id == arg1.Id)
+                            btn.RelatedServer = arg1;
+                    }
+                });
+            }).Start();
 
             return Task.CompletedTask;
         }
 
         private Task Client_GuildUnavailable(SocketGuild arg)
         {
+            new Thread(() =>
+            {
+                Dispatcher.Invoke(() => 
+                {
+                    DMPanel.RemoveServer(arg);
+                });
+            }).Start();
+
             return Task.CompletedTask;
         }
 
         private Task Client_GuildAvailable(SocketGuild arg)
         {
-            Dispatcher.Invoke(() => 
+            new Thread(() =>
             {
-                DMPanel.AddServer(arg);
-            });
+                Dispatcher.Invoke(() =>
+                {
+                    DMPanel.AddServer(arg);
+                });
+            }).Start();
 
             return Task.CompletedTask;
         }
@@ -196,11 +240,10 @@ namespace Discord365.UI
 
         private Task Client_Ready()
         {
-            SetStatus("Ready");
 
             new Thread(() =>
             {
-                Thread.Sleep(600);
+                SetStatus("Ready");
 
                 Dispatcher.Invoke(() =>
                 {
