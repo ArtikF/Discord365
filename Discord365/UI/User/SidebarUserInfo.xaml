@@ -6,13 +6,7 @@
              xmlns:local="clr-namespace:Discord365.UI.User"
              xmlns:dm="clr-namespace:Discord365.UI.User.DirectMsgsContents"
              mc:Ignorable="d" 
-             d:DesignHeight="53" d:DesignWidth="240">
-    <UserControl.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Offset="1"/>
-            <GradientStop Color="#26FFFFFF"/>
-        </LinearGradientBrush>
-    </UserControl.Background>
+             d:DesignHeight="53" d:DesignWidth="240" Background="#14000000">
     <Grid>
         <dm:DMUserEntry x:Name="e"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"></dm:DMUserEntry>
         <local:UserAvatar x:Name="CurrentUserAvatar" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Width="33" Height="33" MouseLeftButtonUp="CurrentUserAvatar_MouseLeftButtonUp">
