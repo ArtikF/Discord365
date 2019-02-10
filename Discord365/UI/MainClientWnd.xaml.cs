@@ -106,6 +106,7 @@ namespace Discord365.UI
             DiscordContent.Visibility = Visibility.Visible;
             DiscordStatus.Visibility = Visibility.Visible;
             DiscordCustom.Visibility = Visibility.Hidden;
+            ContentBlur.Radius = 7;
 
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;
