@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="600">
     <Grid>
-        <Rectangle Fill="#FF484B52" RadiusY="10" RadiusX="10"></Rectangle>
+        <Rectangle Fill="#14FFFFFF" RadiusY="10" RadiusX="10"></Rectangle>
         <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="8,28,0,27">
             <Rectangle Fill="#FF7E8085" IsHitTestVisible="False" RadiusY="10" RadiusX="10"></Rectangle>
             <Rectangle Fill="#FF484B52" IsHitTestVisible="False" Width="2" Margin="5"></Rectangle>
