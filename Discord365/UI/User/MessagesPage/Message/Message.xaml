@@ -9,7 +9,6 @@
     <Grid>
         <local:MessageHeader x:Name="MessageHeader"></local:MessageHeader>
         <WrapPanel x:Name="MessagesPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,24,0,0"  Orientation="Vertical">
-            <local:SingleMessage></local:SingleMessage>
         </WrapPanel>
     </Grid>
 </UserControl>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,13 +27,27 @@ namespace Discord365.UI.User.MessagesPage.Message
             InitializeComponent();
         }
 
+        private SocketUser relatedUser = null;
         public SocketUser RelatedUser
         {
             set
             {
-                Avatar.RelatedUser = value;
-                User.RelatedUser = value;
+                relatedUser = value;
+
+                UpdateRelated();
             }
+        }
+
+        public void UpdateRelated()
+        {
+        //    new Thread(() =>
+        //    {
+        //        var user = App.MainWnd.client.GetUser(relatedUser.Id);
+        //        relatedUser = user;
+                
+                Avatar.RelatedUser = relatedUser;
+                User.RelatedUser = relatedUser;
+            //}).Start();
         }
     }
 }

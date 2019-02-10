@@ -54,35 +54,21 @@ namespace Discord365.UI.User.DirectMsgsContents
             }
         }
 
-        public void Select(DMUserEntry entry)
+        private DMUserEntry selectedChannel = null;
+        public DMUserEntry SelectedChannel
         {
-            new Thread(() => {
-                if (entry.Channel is SocketDMChannel)
-                {
-                    SocketDMChannel c = (SocketDMChannel)entry.Channel;
-
-                    var msgs = c.GetCachedMessages();
-
-                    SelectEx(entry, msgs.ToArray());
-                }
-                else if (entry.Channel is SocketGroupChannel)
-                {
-                    SocketGroupChannel c = (SocketGroupChannel)entry.Channel;
-
-                    var msgs = c.GetCachedMessages();
-
-                    SelectEx(entry, msgs.ToArray());
-                }
-            }).Start();
+            get => selectedChannel;
+            set => Select(value);
         }
 
-        private void SelectEx(DMUserEntry entry, SocketMessage[] msgs)
+        public void Select(DMUserEntry entry)
         {
-            msgs.Reverse();
+            selectedChannel = entry;
+
 
             if (!Dispatcher.CheckAccess())
             {
-                Dispatcher.Invoke(() => SelectEx(entry, msgs));
+                Dispatcher.Invoke(() => Select(entry));
                 return;
             }
 
@@ -90,16 +76,9 @@ namespace Discord365.UI.User.DirectMsgsContents
             h.tbChannelName.Text = entry.GetChannelName();
 
             MessagesPageBody b = new MessagesPageBody(entry.Channel);
-
             App.MainWnd.ContentBasic.Set(h, b);
 
-            foreach (var msg in msgs.ToArray())
-            {
-                Message a = new Message();
-                a.AddMessage(msg);
-
-                b.MessagesPanel.Children.Add(a);
-            }
+            b.UpdateMessagesFromCache();
         }
 
         public DirectMessagesSidebarContent()

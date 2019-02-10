@@ -25,8 +25,42 @@ namespace Discord365.UI.User
     {
         public DMPanelButton btnDirect;
 
+        public DMPanelButton[] AvailableButtons
+        {
+            get
+            {
+                List<DMPanelButton> result = new List<DMPanelButton>();
+
+
+                foreach (var dm in PanelDM.Children)
+                {
+                    DMPanelButton b = dm as DMPanelButton;
+                    result.Add(b);
+                }
+
+                foreach (var dm in ServerPanel.Children)
+                {
+                    DMPanelButton b = dm as DMPanelButton;
+                    result.Add(b);
+                }
+
+                return result.ToArray();
+            }
+        }
+
+        private DMPanelButton selected = null;
+        public DMPanelButton Selected
+        {
+            get => selected;
+            set
+            {
+                SetSelected(value);
+            }
+        }
         public void SetSelected(DMPanelButton btn)
         {
+            selected = btn;
+
             foreach (var dm in PanelDM.Children)
             {
                 DMPanelButton b = dm as DMPanelButton;

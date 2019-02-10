@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,57 @@ namespace Discord365.UI.User.MessagesPage
             InitializeComponent();
 
             Sender.Channel = Channel;
+        }
+
+        public void AddMessage(Message.Message e)
+        {
+            e.Margin = new Thickness(0, 8, 0, 8);
+            MessagesPanel.Children.Add(e);
+            MessagesScroll.ScrollToEnd();
+        }
+
+        public void UpdateMessagesFromCache()
+        {
+            new Thread(() => {
+                if (Channel is SocketDMChannel)
+                {
+                    SocketDMChannel c = (SocketDMChannel)Channel;
+
+                    var msgs = c.GetCachedMessages();
+
+                    SelectEx(msgs.ToArray());
+                }
+                else if (Channel is SocketGroupChannel)
+                { 
+                    SocketGroupChannel c = (SocketGroupChannel)Channel;
+
+                    var msgs = c.GetCachedMessages();
+
+                    SelectEx(msgs.ToArray());
+                }
+            }).Start();
+        }
+
+        private void SelectEx(SocketMessage[] msgs)
+        {
+            msgs.Reverse();
+
+            if (!Dispatcher.CheckAccess())
+            {
+                Dispatcher.Invoke(() => SelectEx(msgs));
+                return;
+            }
+            
+            MessagesPanel.Children.Clear();
+
+            foreach (var msg in msgs.ToArray())
+            {
+                Message.Message a = new Message.Message();
+                a.RelatedUser = msg.Author;
+                a.AddSingleMessage(msg);
+
+                this.AddMessage(a);
+            }
         }
     }
 }

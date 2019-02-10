@@ -34,7 +34,7 @@ namespace Discord365.UI.User.MessagesPage.Message
             }
         }
 
-        public void AddMessage(SocketMessage msg)
+        public void AddSingleMessage(SocketMessage msg)
         {
             SingleMessage m = new SingleMessage();
 

@@ -209,6 +209,29 @@ namespace Discord365.UI
 
         private Task Client_MessageReceived(SocketMessage arg)
         {
+            new Thread(() =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    foreach (var c in ContentBasic.GridContent.Children)
+                    {
+                        if (c is User.MessagesPage.MessagesPageBody)
+                        {
+                            var b = c as User.MessagesPage.MessagesPageBody;
+
+                            if (b.Channel != null && b.Channel.Id == arg.Channel.Id)
+                            {
+                                var m = new User.MessagesPage.Message.Message();
+                                m.RelatedUser = arg.Author;
+                                m.AddSingleMessage(arg);
+
+                                b.AddMessage(m);
+                            }
+                        }
+                    }
+                });
+            }).Start();
+
             return Task.CompletedTask;
         }
 
