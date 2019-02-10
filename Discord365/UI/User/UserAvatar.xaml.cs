@@ -78,8 +78,8 @@ namespace Discord365.UI.User
                 {
                     if(previous == UserOnlineMarks.None)
                     {
-                        UserStatusBorder.FadeIn(450);
-                        UserStatusRect.FadeIn(450);
+                        //UserStatusBorder.FadeIn(450);
+                        //UserStatusRect.FadeIn(450);
                     }
 
                     if (onlineMark == UserOnlineMarks.Offline)
@@ -130,7 +130,7 @@ namespace Discord365.UI.User
 
             AvatarImage.ImageSource = bitmap;
 
-            this.FadeIn(500, 1000);
+           // this.FadeIn(500, 1000);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

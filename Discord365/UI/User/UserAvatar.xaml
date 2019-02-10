@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              Height="33" Width="33" Cursor="Hand" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
     <Grid>
-        <Rectangle RadiusY="15.5" RadiusX="15.5" Margin="0,0,2,2">
+        <Rectangle RadiusY="64" RadiusX="64" Margin="0,0,2,2">
             <Rectangle.Fill>
                 <ImageBrush x:Name="AvatarImage"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="UserStatusBorder" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="14" Height="14" Fill="#33000000" RadiusY="7" RadiusX="7"/>
+        <Rectangle x:Name="UserStatusBorder" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="14" Height="14" Fill="#00000000" RadiusY="7" RadiusX="7"/>
         <Rectangle x:Name="UserStatusRect" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="10" Height="10" Fill="#FF509540" RadiusY="5" RadiusX="5" Margin="0,0,2,2"/>
     </Grid>
 </UserControl>
