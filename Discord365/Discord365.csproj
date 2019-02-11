@@ -35,21 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Discord.Net.Commands, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Commands.2.0.1\lib\net46\Discord.Net.Commands.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Core">
-      <HintPath>..\Discord.Net.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Rest, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Rest.2.0.1\lib\net46\Discord.Net.Rest.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Webhook, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Webhook.2.0.1\lib\netstandard1.3\Discord.Net.Webhook.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.WebSocket, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.WebSocket.2.0.1\lib\net46\Discord.Net.WebSocket.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.1.1\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -352,6 +337,36 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Analyzers\Discord.Net.Analyzers.csproj">
+      <Project>{bba8e7fb-c834-40dc-822f-b112cb7f0140}</Project>
+      <Name>Discord.Net.Analyzers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Commands\Discord.Net.Commands.csproj">
+      <Project>{078dd7e6-943d-4d09-afc2-d2ba58b76c9c}</Project>
+      <Name>Discord.Net.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Core\Discord.Net.Core.csproj">
+      <Project>{91e9e7bd-75c9-4e98-84aa-2c271922e5c2}</Project>
+      <Name>Discord.Net.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Providers.WS4Net\Discord.Net.Providers.WS4Net.csproj">
+      <Project>{6bdeec08-417b-459f-9ca3-ff8bab18cac7}</Project>
+      <Name>Discord.Net.Providers.WS4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Rest\Discord.Net.Rest.csproj">
+      <Project>{bfc6dc28-0351-4573-926a-d4124244c04f}</Project>
+      <Name>Discord.Net.Rest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.Webhook\Discord.Net.Webhook.csproj">
+      <Project>{9afab80e-d2d3-4edb-b58c-baca78d1ea30}</Project>
+      <Name>Discord.Net.Webhook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord.Net\src\Discord.Net.WebSocket\Discord.Net.WebSocket.csproj">
+      <Project>{688fd1d8-7f01-4539-b2e9-f473c5d699c7}</Project>
+      <Name>Discord.Net.WebSocket</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
