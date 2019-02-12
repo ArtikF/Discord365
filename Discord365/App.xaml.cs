@@ -26,7 +26,9 @@ namespace Discord365
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             LoginWnd = new UI.LoginWindow();
-            LoginWnd.ShowDialog();
+
+            if(!LoginWnd.IsLoaded)
+                LoginWnd.ShowDialog();
         }
     }
 }

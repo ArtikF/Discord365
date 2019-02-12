@@ -310,13 +310,22 @@ namespace Discord365.UI
             {
                 SetStatus("Logging in...");
 
-                await client.LoginAsync(type, token, false);
-                await client.StartAsync();
+                try
+                {
+                    await client.LoginAsync(type, token, false);
+                    await client.StartAsync();
+                }
+                catch (Exception ex)
+                {
+                    CanExitNow = true;
+                    Dispatcher.Invoke(() => this.Close());
+                    App.LoginWnd.Dispatcher.Invoke(() => App.LoginWnd.SetError(ex.Message));
+                }
 
             }).Start();
         }
 
-        private bool CanExitNow = false;
+        public bool CanExitNow = false;
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -332,7 +341,8 @@ namespace Discord365.UI
                 return;
             }
             
-            CloseWndAfterConnections();
+            if(!CanExitNow)
+                CloseWndAfterConnections();
 
             if (!CanExitNow)
                 e.Cancel = true;
