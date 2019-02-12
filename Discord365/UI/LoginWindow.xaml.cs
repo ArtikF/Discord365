@@ -23,6 +23,10 @@ namespace Discord365.UI
         public LoginWindow()
         {
             InitializeComponent();
+
+            MainGrid.Opacity = 0;
+            GridBackground.Opacity = 0;
+
             SetError("");
             TokenCheck();
         }
@@ -71,6 +75,7 @@ namespace Discord365.UI
             App.MainWnd.ShowDialog();
 
             end:
+            DiscordTokenManager.SavedToken = "";
             this.Show();
         }
 
@@ -107,6 +112,12 @@ namespace Discord365.UI
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            if(this.Visibility == Visibility.Hidden || this.Visibility == Visibility.Collapsed)
+            {
+                MainGrid.Opacity = 0;
+                GridBackground.Opacity = 0;
+            }
+
             if (this.Visibility == Visibility.Visible)
             {
                 MainGrid.FadeIn(450);
