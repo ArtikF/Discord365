@@ -184,6 +184,9 @@
     <Compile Include="UI\User\MessagesPage\Message\SingleMessage.xaml.cs">
       <DependentUpon>SingleMessage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\Screens\ScreenDisclaimer.xaml.cs">
+      <DependentUpon>ScreenDisclaimer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\Screens\ScreenSearch.xaml.cs">
       <DependentUpon>ScreenSearch.xaml</DependentUpon>
     </Compile>
@@ -272,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\MessagesPage\Message\SingleMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\Screens\ScreenDisclaimer.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\Screens\ScreenSearch.xaml">
