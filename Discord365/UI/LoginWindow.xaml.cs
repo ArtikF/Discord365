@@ -120,11 +120,11 @@ namespace Discord365.UI
 
             if (this.Visibility == Visibility.Visible)
             {
-                MainGrid.FadeIn(450);
+                MainGrid.FadeIn(750);
                 //Shadows.FadeIn(250);
                 //LoginContent.FadeIn(250);
 
-                GridBackground.FadeIn(4000, 450);
+                GridBackground.FadeIn(4000, 751);
             }
         }
     }
