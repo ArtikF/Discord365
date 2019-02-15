@@ -58,22 +58,9 @@ namespace Discord365.UI
                 DiscordTokenManager.SavedToken = "";
             }
 
-            try
-            {
-                App.MainWnd.StartConnection(token, type);
-            }
-            catch (Exception ex)
-            {
-                App.MainWnd.CanExitNow = true;
-
-                SetError(ex.Message);
-                goto end;
-            }
+            App.MainWnd.StartConnection(token, type);
 
             App.AppWnd.CurrentScreen = AppWindow._Screens.Main;
-
-            end:
-            DiscordTokenManager.SavedToken = "";
         }
 
         public void SetError(string text)
@@ -103,7 +90,15 @@ namespace Discord365.UI
                 else if (type == Discord.TokenType.User)
                     rUser.IsChecked = true;
 
-                BtnLogin_Click(null, null);
+                App.AppWnd.ForceScreen(AppWindow._Screens.Main);
+                App.AppWnd.LoginGrid.Visibility = Visibility.Hidden;
+                App.AppWnd.MainGrid.Visibility = Visibility.Visible;
+                App.AppWnd.MainGrid.Opacity = 1;
+                App.MainWnd = new MainClientWnd();
+                App.AppWnd.MainGrid.Children.Clear();
+                App.AppWnd.MainGrid.Children.Add(App.MainWnd);
+                App.MainWnd.StartConnection(token, type);
+                //BtnLogin_Click(null, null);
             }
         }
 

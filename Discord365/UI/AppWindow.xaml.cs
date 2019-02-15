@@ -40,8 +40,9 @@ namespace Discord365.UI
                 if (value == _Screens.Login)
                 {
                     // change screen to login
+                    DiscordTokenManager.SavedToken = "";
 
-                    if(previous != _Screens.Login)
+                    if (previous != _Screens.Login)
                         MainGrid.FadeOut(450);
 
                     new Thread(() =>
@@ -77,11 +78,16 @@ namespace Discord365.UI
                             MainGrid.Visibility = Visibility.Visible;
 
                             MainGrid.Children.Add(App.MainWnd);
-                            App.MainWnd.FadeIn(450);
+                            MainGrid.FadeIn(450);
                         });
                     }).Start();
                 }
             }
+        }
+
+        public void ForceScreen(_Screens s)
+        {
+            currentScreen = s;
         }
 
         public string WindowTitle
