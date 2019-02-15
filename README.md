@@ -14,6 +14,10 @@ This program allows you to sign in using your account token, but it's **forbidde
 
 The purpose of Discord 365 is to show how native application can be faster than Electron/Chromium crafts, even with better UI experience in some areas.
 
+# Known Issues
+
+They are listed [here](https://github.com/discord365/Discord365/issues).
+
 # Compiling
 
 ## Discord.Net
