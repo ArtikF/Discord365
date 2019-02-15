@@ -41,6 +41,9 @@ namespace Discord365.UI.User
                 
                 foreach(var issue in issues)
                 {
+                    if (issue.Locked)
+                        continue;
+
                     Dispatcher.Invoke(() =>
                     {
                         string title = issue.Title;

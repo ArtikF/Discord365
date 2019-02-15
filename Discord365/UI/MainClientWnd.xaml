@@ -25,8 +25,8 @@
     <Grid>
         <Grid x:Name="DiscordContent" Visibility="Visible" Background="#4C000000">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="ColumnServers" Width="69" MinWidth="69"/>
-                <ColumnDefinition x:Name="ColumnSidebarLeft" Width="240" MaxWidth="240"/>
+                <ColumnDefinition x:Name="ColumnServers" Width="69" MinWidth="0" MouseRightButtonUp="ColumnServers_MouseRightButtonUp"/>
+                <ColumnDefinition x:Name="ColumnSidebarLeft" Width="240" MaxWidth="240" MouseRightButtonDown="ColumnSidebarLeft_MouseRightButtonDown"/>
                 <ColumnDefinition x:Name="ColumnContent" Width="491*"/>
             </Grid.ColumnDefinitions>
             <Grid.Effect>

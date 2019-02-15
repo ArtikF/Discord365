@@ -24,6 +24,9 @@ namespace Discord365.UI
     /// </summary>
     public partial class MainClientWnd : UserControl
     {
+        public const int ColumnServersWidth = 69;
+        public const int ColumnLeftSidebarWidth = 240;
+
         public List<User.UserAvatar> UpdateAvatars = new List<User.UserAvatar>();
         public List<User.UserNameUpdateable> UpdateUserNames = new List<User.UserNameUpdateable>();
         
@@ -379,6 +382,14 @@ namespace Discord365.UI
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             App.AppWnd.WindowTitle = "";
+        }
+
+        private void ColumnServers_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+        }
+
+        private void ColumnSidebarLeft_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
         }
     }
 }
