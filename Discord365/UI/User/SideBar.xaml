@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="240" MaxWidth="240">
+             d:DesignHeight="450" d:DesignWidth="240">
     <Grid>
         <Grid Background="#14FFFFFF"></Grid>
 

@@ -24,19 +24,24 @@
     </UserControl.Background>
     <Grid>
         <Grid x:Name="DiscordContent" Visibility="Visible" Background="#4C000000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="69" MinWidth="69"/>
+                <ColumnDefinition Width="240" MaxWidth="240"/>
+                <ColumnDefinition Width="491*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Effect>
                 <BlurEffect x:Name="ContentBlur" Radius="0"/>
             </Grid.Effect>
-            <user:DMPanel x:Name="DMPanel" Width="69" VerticalAlignment="Stretch" HorizontalAlignment="Left"></user:DMPanel>
-            <user:SideBar x:Name="Sidebar" Width="240" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="69,0,0,0"></user:SideBar>
-            <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="309,0,0,0"></user:ContentBasic>
+            <user:DMPanel x:Name="DMPanel" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></user:DMPanel>
+            <user:SideBar x:Name="Sidebar" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2"/>
         </Grid>
 
         <Grid x:Name="DiscordCustom" Visibility="Hidden" Background="#AD000000">
             <c:CustomCtrlWnd x:Name="CustomCtrl"></c:CustomCtrlWnd>
         </Grid>
 
-        <Grid x:Name="DiscordStatus" Background="#FF1F1F1F" Visibility="Visible">
+        <Grid x:Name="DiscordStatus" Background="#FF1F1F1F" Visibility="Hidden">
             <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Discord 365" Foreground="#BFFFFFFF" TextAlignment="Center" FontSize="36" Margin="0,0,0,0"></TextBlock>
                 <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" Foreground="#8CFFFFFF" FontSize="18" Text="I Like This Text!"></TextBlock>
