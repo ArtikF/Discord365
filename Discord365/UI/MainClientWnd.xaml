@@ -25,9 +25,9 @@
     <Grid>
         <Grid x:Name="DiscordContent" Visibility="Visible" Background="#4C000000">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="69" MinWidth="69"/>
-                <ColumnDefinition Width="240" MaxWidth="240"/>
-                <ColumnDefinition Width="491*"/>
+                <ColumnDefinition x:Name="ColumnServers" Width="69" MinWidth="69"/>
+                <ColumnDefinition x:Name="ColumnSidebarLeft" Width="240" MaxWidth="240"/>
+                <ColumnDefinition x:Name="ColumnContent" Width="491*"/>
             </Grid.ColumnDefinitions>
             <Grid.Effect>
                 <BlurEffect x:Name="ContentBlur" Radius="0"/>
@@ -35,6 +35,21 @@
             <user:DMPanel x:Name="DMPanel" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></user:DMPanel>
             <user:SideBar x:Name="Sidebar" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
             <user:ContentBasic x:Name="ContentBasic" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2"/>
+
+            <GridSplitter Grid.Column="0"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Stretch"
+              Background="#00000000" 
+              ShowsPreview="False"
+              Width="2"
+              />
+            <GridSplitter Grid.Column="1"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Stretch"
+              Background="#00000000" 
+              ShowsPreview="False"
+              Width="2"
+              />
         </Grid>
 
         <Grid x:Name="DiscordCustom" Visibility="Hidden" Background="#AD000000">
