@@ -73,6 +73,7 @@ namespace Discord365.UI.User
         private void BtnWrench_Click(object sender, RoutedEventArgs e)
         {
             App.MainWnd.DiscordWindowContent = MainClientWnd.DiscordWndConent.Custom;
+            App.MainWnd.CustomCtrl.SetUserSettingsContent();
         }
     }
 }

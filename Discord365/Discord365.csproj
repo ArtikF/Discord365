@@ -126,6 +126,9 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Compile Include="Stuff\DiscordTokenManager.cs" />
+    <Compile Include="UI\AppWindow.xaml.cs">
+      <DependentUpon>AppWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -140,8 +143,20 @@
     <Compile Include="UI\User\ContentSeparator.xaml.cs">
       <DependentUpon>ContentSeparator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\CustomContent\AboutDiscord365.xaml.cs">
+      <DependentUpon>AboutDiscord365.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\CustomContent\CustomCtrlWnd.xaml.cs">
       <DependentUpon>CustomCtrlWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\CustomContent\UserSettings\Debug.xaml.cs">
+      <DependentUpon>Debug.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\CustomContent\UserSettings\LogOut.xaml.cs">
+      <DependentUpon>LogOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\CustomContent\UserSettings\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml.cs">
       <DependentUpon>DirectMessagesSidebarContent.xaml</DependentUpon>
@@ -222,6 +237,10 @@
     <Compile Include="UI\User\WrapPanelBox\WrapPanelBoxMenuItem.xaml.cs">
       <DependentUpon>WrapPanelBoxMenuItem.xaml</DependentUpon>
     </Compile>
+    <Page Include="UI\AppWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +256,23 @@
     <Page Include="UI\User\ContentSeparator.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\User\CustomContent\AboutDiscord365.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\CustomContent\CustomCtrlWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\CustomContent\UserSettings\Debug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\CustomContent\UserSettings\LogOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\CustomContent\UserSettings\User.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\DirectMsgsContents\DirectMessagesSidebarContent.xaml">

@@ -18,26 +18,25 @@ namespace Discord365.UI
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindow : UserControl
     {
         public LoginWindow()
         {
+            App.LoginWnd = this;
+
             InitializeComponent();
 
             MainGrid.Opacity = 0;
             GridBackground.Opacity = 0;
 
             SetError("");
-            TokenCheck();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-
             string token = tbToken.Password;
 
-            App.MainWnd = new MainClientWnd(this);
+            App.MainWnd = new MainClientWnd();
 
             Discord.TokenType type = Discord.TokenType.Bot;
 
@@ -66,17 +65,15 @@ namespace Discord365.UI
             catch (Exception ex)
             {
                 App.MainWnd.CanExitNow = true;
-                App.MainWnd.Close();
 
                 SetError(ex.Message);
                 goto end;
             }
 
-            App.MainWnd.ShowDialog();
+            App.AppWnd.CurrentScreen = AppWindow._Screens.Main;
 
             end:
             DiscordTokenManager.SavedToken = "";
-            this.Show();
         }
 
         public void SetError(string text)
@@ -86,7 +83,7 @@ namespace Discord365.UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Show();
+            TokenCheck();
         }
 
         private void TokenCheck()
@@ -121,6 +118,7 @@ namespace Discord365.UI
             if (this.Visibility == Visibility.Visible)
             {
                 MainGrid.FadeIn(750);
+                App.AppWnd.WindowTitle = "Authorization";
                 //Shadows.FadeIn(250);
                 //LoginContent.FadeIn(250);
 

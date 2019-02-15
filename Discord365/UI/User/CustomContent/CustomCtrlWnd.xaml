@@ -16,13 +16,13 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid x:Name="SidebarGrid" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="16,16,320,16" Width="200">
+        <Grid x:Name="SidebarGrid" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,16,0,16" Width="230" >
             <WrapPanel x:Name="wp" Orientation="Vertical">
+                <ListBox x:Name="MenuBox" SelectionChanged="MenuBox_SelectionChanged" Width="230" Background="Transparent" BorderBrush="#00ABADB3" Foreground="White"></ListBox>
             </WrapPanel>
         </Grid>
-        <Grid HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="447" Background="#14FFFFFF">
-            <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="273,16,13,16" Width="354">
-            </Grid>
+        <Grid x:Name="ContentGrid" HorizontalAlignment="Stretch" Margin="232,0,0,0" VerticalAlignment="Stretch" Background="#14FFFFFF">
+            <TextBlock Foreground="#3FFFFFFF" HorizontalAlignment="Center" FontSize="18" VerticalAlignment="Center">Welcome to Discord 365 custom control!</TextBlock>
         </Grid>
         <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,32,32,0" VerticalAlignment="Top" Width="75" Height="50" Click="BtnClose_Click">
             <WrapPanel Orientation="Vertical">

@@ -15,6 +15,8 @@ namespace Discord365
     {
         public static UI.LoginWindow LoginWnd;
         public static UI.MainClientWnd MainWnd;
+        public static UI.AppWindow AppWnd;
+
         private static Random random = new Random();
         public static string RandomString(int length)
         {
@@ -25,10 +27,8 @@ namespace Discord365
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            LoginWnd = new UI.LoginWindow();
-
-            if(!LoginWnd.IsLoaded)
-                LoginWnd.ShowDialog();
+            AppWnd = new UI.AppWindow();
+            AppWnd.ShowDialog();
         }
     }
 }

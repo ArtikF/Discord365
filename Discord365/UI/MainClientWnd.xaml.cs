@@ -22,13 +22,11 @@ namespace Discord365.UI
     /// <summary>
     /// Interaction logic for MainClientWnd.xaml
     /// </summary>
-    public partial class MainClientWnd : Window
+    public partial class MainClientWnd : UserControl
     {
         public List<User.UserAvatar> UpdateAvatars = new List<User.UserAvatar>();
         public List<User.UserNameUpdateable> UpdateUserNames = new List<User.UserNameUpdateable>();
-
-        public LoginWindow LoginWnd = null;
-
+        
         public DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketConfig() { LogLevel = Discord.LogSeverity.Info, MessageCacheSize = 50 });
 
         public enum DiscordWndConent
@@ -78,12 +76,15 @@ namespace Discord365.UI
                 else if (value == DiscordWndConent.Status)
                 {
                     DiscordStatus.Visibility = Visibility.Visible;
-                    ContentBlur.Radius = 7;
+                    // ContentBlur.Radius = 7;
 
                     DiscordStatus.FadeInSize(FadeAnimationsDefaultTime);
                 }
                 else if (value == DiscordWndConent.Custom)
                 {
+                    CustomCtrl.Set(null);
+                    CustomCtrl.MenuBox.Items.Clear();
+
                     DiscordCustom.Visibility = Visibility.Visible;
                     ContentBlur.Radius = 7;
 
@@ -92,9 +93,8 @@ namespace Discord365.UI
             }
         }
 
-        public MainClientWnd(LoginWindow l)
+        public MainClientWnd()
         {
-            LoginWnd = l;
             App.MainWnd = this;
 
             InitializeComponent();
@@ -106,7 +106,6 @@ namespace Discord365.UI
             DiscordContent.Visibility = Visibility.Visible;
             DiscordStatus.Visibility = Visibility.Visible;
             DiscordCustom.Visibility = Visibility.Hidden;
-            ContentBlur.Radius = 7;
 
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;
@@ -318,7 +317,7 @@ namespace Discord365.UI
                 catch (Exception ex)
                 {
                     CanExitNow = true;
-                    Dispatcher.Invoke(() => this.Close());
+                    Dispatcher.Invoke(() => App.AppWnd.CurrentScreen = AppWindow._Screens.Login);
                     App.LoginWnd.Dispatcher.Invoke(() => App.LoginWnd.SetError(ex.Message));
                 }
 
@@ -327,7 +326,7 @@ namespace Discord365.UI
 
         public bool CanExitNow = false;
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!CanExitNow)
                 e.Cancel = true;
@@ -376,5 +375,10 @@ namespace Discord365.UI
 
         public async Task LogOut() => await client.LogoutAsync();
         public async Task StopAsync() => await client.StopAsync();
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            App.AppWnd.WindowTitle = "";
+        }
     }
 }

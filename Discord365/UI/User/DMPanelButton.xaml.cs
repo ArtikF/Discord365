@@ -84,6 +84,7 @@ namespace Discord365.UI.User
                 UpdateRelated();
             }
         }
+
         public void UpdateRelated()
         {
             if(!Dispatcher.CheckAccess())
