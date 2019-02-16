@@ -61,23 +61,14 @@ namespace Discord365.UI.User
         {
             selected = btn;
 
-            foreach (var dm in PanelDM.Children)
+            foreach (var dm in AvailableButtons)
             {
                 DMPanelButton b = dm as DMPanelButton;
 
-                if (btn == null && b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
+                if (b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
                     b.MarkStyle = DMPanelButton.MarkStyles.None;
-                else if (b == btn)
-                    b.MarkStyle = DMPanelButton.MarkStyles.SelectedServer;
-            }
 
-            foreach (var dm in ServerPanel.Children)
-            {
-                DMPanelButton b = dm as DMPanelButton;
-
-                if (btn == null && b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
-                    b.MarkStyle = DMPanelButton.MarkStyles.None;
-                else if (b == btn)
+                if (b == btn)
                     b.MarkStyle = DMPanelButton.MarkStyles.SelectedServer;
             }
         }
@@ -95,6 +86,17 @@ namespace Discord365.UI.User
             b.RelatedServer = server;
 
             ServerPanel.Children.Add(b);
+
+            b.MouseLeftButtonUp += B_MouseLeftButtonUp;
+        }
+
+        private void B_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DMPanelButton b = (DMPanelButton)sender;
+            SetSelected(b);
+            
+            App.MainWnd.Sidebar.Set(null, new ServerContent.ServerLeftSidebar() { RelatedServer =  b.RelatedServer });
+            App.MainWnd.ContentBasic.Set(null, new Screens.ScreenWelcomeDM());
         }
 
         public void RemoveServer(SocketGuild server)
@@ -127,10 +129,7 @@ namespace Discord365.UI.User
         {
             SetSelected(btnDirect);
 
-            var header = new DirectMsgsContents.SidebarHeaderSerach();
-            var body = new DirectMsgsContents.DirectMessagesSidebarContent();
-
-            App.MainWnd.Sidebar.Set(header, body);
+            App.MainWnd.Sidebar.Set(new DirectMsgsContents.SidebarHeaderSerach(), new DirectMsgsContents.DirectMessagesSidebarContent());
             App.MainWnd.ContentBasic.Set(null, new Screens.ScreenWelcomeDM());
         }
 

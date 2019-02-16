@@ -48,9 +48,9 @@ namespace Discord365.UI.User
         }
         
         private UserOnlineMarks onlineMark = UserOnlineMarks.None;
-        private SocketUser relatedUser = null;
+        private Discord.IUser relatedUser = null;
 
-        public SocketUser RelatedUser
+        public Discord.IUser RelatedUser
         {
             get => relatedUser;
             set

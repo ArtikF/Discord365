@@ -31,9 +31,9 @@ namespace Discord365.UI.User
 
         public bool IsCurrentUserInfo = false;
 
-        private SocketUser relatedUser = null;
+        private Discord.IUser relatedUser = null;
 
-        public SocketUser RelatedUser
+        public Discord.IUser RelatedUser
         {
             get => relatedUser;
             set

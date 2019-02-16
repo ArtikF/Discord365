@@ -41,6 +41,11 @@ namespace Discord365.UI.User.MessagesPage
                 var c = Channel as SocketGroupChannel;
                 await c.SendMessageAsync(text);
             }
+            else if (Channel is SocketTextChannel)
+            {
+                var c = Channel as SocketTextChannel;
+                await c.SendMessageAsync(text);
+            }
         }
 
         private void TbMessage_KeyDown(object sender, KeyEventArgs e)

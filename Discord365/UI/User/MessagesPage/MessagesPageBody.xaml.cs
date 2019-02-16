@@ -72,24 +72,35 @@ namespace Discord365.UI.User.MessagesPage
                 {
                     SocketDMChannel c = (SocketDMChannel)Channel;
 
-                    var msgs = c.GetCachedMessages();
+                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var reslt = msgs.GetAwaiter().GetResult()[1];
 
-                    SelectEx(msgs.ToArray());
+                    SelectEx(reslt.ToArray());
                 }
                 else if (Channel is SocketGroupChannel)
-                { 
+                {
                     SocketGroupChannel c = (SocketGroupChannel)Channel;
 
-                    var msgs = c.GetCachedMessages();
+                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var reslt = msgs.GetAwaiter().GetResult()[1];
+                    
+                    SelectEx(reslt.ToArray());
+                }
+                else if (Channel is SocketTextChannel)
+                {
+                    SocketTextChannel c = (SocketTextChannel)Channel;
 
-                    SelectEx(msgs.ToArray());
+                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var reslt = msgs.GetAwaiter().GetResult()[1];
+
+                    SelectEx(reslt.ToArray());
                 }
             }).Start();
         }
 
-        private void SelectEx(SocketMessage[] msgs)
+        private void SelectEx(Discord.IMessage[] msgs)
         {
-            msgs.Reverse();
+            // msgs.Reverse();
 
             if (!Dispatcher.CheckAccess())
             {
@@ -99,7 +110,7 @@ namespace Discord365.UI.User.MessagesPage
             
             MessagesPanel.Children.Clear();
 
-            foreach (var msg in msgs.ToArray())
+            foreach (var msg in msgs)
             {
                 Message.Message a = new Message.Message();
                 a.RelatedUser = msg.Author;

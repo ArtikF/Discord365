@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Discord365.UI.User.ServerContent.ServerChannelEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User.ServerContent"
+             mc:Ignorable="d" 
+             Width="224" Height="30">
+    <Grid Background="#00000000">
+        <Grid x:Name="IconGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Width="22" Margin="8,0,0,0" Height="22">
+            <Image x:Name="ChannelIcon"></Image>
+        </Grid>
+        <TextBlock x:Name="tbChannel" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="38,0,0,0" Text="unknown_channel" Foreground="#99FFFFFF"></TextBlock>
+    </Grid>
+</UserControl>

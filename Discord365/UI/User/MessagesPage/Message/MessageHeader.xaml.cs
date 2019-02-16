@@ -28,8 +28,8 @@ namespace Discord365.UI.User.MessagesPage.Message
             User.IsSelected = true;
         }
 
-        private SocketUser relatedUser = null;
-        public SocketUser RelatedUser
+        private Discord.IUser relatedUser = null;
+        public Discord.IUser RelatedUser
         {
             set
             {

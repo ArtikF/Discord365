@@ -21,7 +21,7 @@ namespace Discord365.UI.User.MessagesPage.Message
     /// </summary>
     public partial class SingleMessage : UserControl
     {
-        public SocketMessage Message = null;
+        public Discord.IMessage Message = null;
 
         public SingleMessage()
         {

@@ -222,6 +222,15 @@
     <Compile Include="UI\User\ServerAvatar.xaml.cs">
       <DependentUpon>ServerAvatar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\ServerContent\ServerCategory.xaml.cs">
+      <DependentUpon>ServerCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\ServerContent\ServerChannelEntry.xaml.cs">
+      <DependentUpon>ServerChannelEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\ServerContent\ServerLeftSidebar.xaml.cs">
+      <DependentUpon>ServerLeftSidebar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\SideBar.xaml.cs">
       <DependentUpon>SideBar.xaml</DependentUpon>
     </Compile>
@@ -233,15 +242,6 @@
     </Compile>
     <Compile Include="UI\User\UserNameUpdateable.xaml.cs">
       <DependentUpon>UserNameUpdateable.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\User\WrapPanelBox\WrapPanelBox.xaml.cs">
-      <DependentUpon>WrapPanelBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\User\WrapPanelBox\WrapPanelBoxItem.xaml.cs">
-      <DependentUpon>WrapPanelBoxItem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\User\WrapPanelBox\WrapPanelBoxMenuItem.xaml.cs">
-      <DependentUpon>WrapPanelBoxMenuItem.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\AppWindow.xaml">
       <SubType>Designer</SubType>
@@ -340,6 +340,18 @@
     <Page Include="UI\User\ServerAvatar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\User\ServerContent\ServerCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\ServerContent\ServerChannelEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\ServerContent\ServerLeftSidebar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\SideBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -350,15 +362,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\UserNameUpdateable.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\User\WrapPanelBox\WrapPanelBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\User\WrapPanelBox\WrapPanelBoxItem.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\User\WrapPanelBox\WrapPanelBoxMenuItem.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

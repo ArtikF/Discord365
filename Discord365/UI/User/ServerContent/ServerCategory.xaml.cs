@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.WrapPanelBox
+namespace Discord365.UI.User.ServerContent
 {
     /// <summary>
-    /// Interaction logic for WrapPanelBoxMenuItem.xaml
+    /// Interaction logic for ServerCategory.xaml
     /// </summary>
-    public partial class WrapPanelBoxMenuItem : UserControl
+    public partial class ServerCategory : UserControl
     {
-        public WrapPanelBoxMenuItem()
+        public ServerCategory()
         {
             InitializeComponent();
         }

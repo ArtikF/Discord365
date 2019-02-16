@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="600">
+             d:DesignHeight="45" d:DesignWidth="600">
     <Grid>
         <Rectangle Fill="#14FFFFFF" RadiusY="10" RadiusX="10"></Rectangle>
-        <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="8,28,0,27">
+        <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="8,0,0,0">
             <Rectangle Fill="#FF7E8085" IsHitTestVisible="False" RadiusY="10" RadiusX="10"></Rectangle>
             <Rectangle Fill="#FF484B52" IsHitTestVisible="False" Width="2" Margin="5"></Rectangle>
             <Rectangle Fill="#FF484B52" IsHitTestVisible="False" Height="2" Margin="5"></Rectangle>
