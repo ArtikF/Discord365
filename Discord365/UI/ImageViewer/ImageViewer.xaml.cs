@@ -60,8 +60,13 @@ namespace Discord365.UI.ImageViewer
 
         public void Select(int Index)
         {
-            if (Index >= Album.Count)
+            if (Album.Count == 0)
                 return;
+
+            if (Index >= Album.Count)
+            {
+                Index = 0;
+            }
 
             imageIndex = Index;
 
