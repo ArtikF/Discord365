@@ -229,11 +229,17 @@
     <Compile Include="UI\User\Screens\ScreenSearch.xaml.cs">
       <DependentUpon>ScreenSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\Screens\ScreenSearchHeader.xaml.cs">
+      <DependentUpon>ScreenSearchHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\Screens\ScreenWelcomeDiscord365.xaml.cs">
       <DependentUpon>ScreenWelcomeDiscord365.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\Screens\ScreenWelcomeDM.xaml.cs">
       <DependentUpon>ScreenWelcomeDM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\Screens\SearchGoCompleted.xaml.cs">
+      <DependentUpon>SearchGoCompleted.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\ServerAvatar.xaml.cs">
       <DependentUpon>ServerAvatar.xaml</DependentUpon>
@@ -367,10 +373,18 @@
     <Page Include="UI\User\Screens\ScreenSearch.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\User\Screens\ScreenSearchHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\Screens\ScreenWelcomeDiscord365.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\Screens\ScreenWelcomeDM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\Screens\SearchGoCompleted.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\ServerAvatar.xaml">

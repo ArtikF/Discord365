@@ -5,10 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.Screens"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
-        <TextBlock Foreground="#7FFFFFFF" Text="Search" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,132,0,288"></TextBlock>
-        <TextBlock Foreground="#7FFFFFFF" Text="You should know, there is no search in Discord 365 =(" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,162,0,269"></TextBlock>
-        <TextBox x:Name="tbSearchBox" HorizontalAlignment="Center" Height="25" Margin="0,186,0,239" TextWrapping="Wrap" VerticalAlignment="Center" Width="368" Background="#19000000" Foreground="#BFFFFFFF" BorderBrush="#3F000000" FontSize="16"/>
+        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Foreground="#7FFFFFFF" Text="Search" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
+            <TextBlock Foreground="#7FFFFFFF" Text="Still no search in Discord 365" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
+            <TextBox x:Name="tbSearchBox" HorizontalAlignment="Stretch" Height="25" Margin="0,16,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Background="#19000000" Foreground="#BFFFFFFF" BorderBrush="#3F000000" Width="300" FontSize="16"/>
+            <TextBlock Foreground="#7FFFFFFF" Text="You can type ID or name of something and go directly there!" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,16,0,0"></TextBlock>
+            <TextBlock Foreground="#ADFFFFFF" Text="What's this?" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"></TextBlock>
+            <WrapPanel Orientation="Horizontal">
+                <Button x:Name="ItsTextChannel" Content="Text Channel ID" Margin="4" Click="ItsTextChannel_Click"></Button>
+                <Button x:Name="ItsServerID" Content="Server ID" Margin="4" IsEnabled="False"></Button>
+                <Button x:Name="ItsVoiceID" Content="Voice Channel ID" Margin="4" IsEnabled="False"></Button>
+                <Button x:Name="ItsNice" Content="Terrible button" Margin="4" IsEnabled="False"></Button>
+                <Button x:Name="ItsNice1" Content="Nice button" Margin="4" IsEnabled="False"></Button>
+            </WrapPanel>
+        </WrapPanel>
     </Grid>
 </UserControl>

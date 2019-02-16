@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Discord365.UI.User.Screens.SearchGoCompleted"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.User.Screens"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <TextBlock Foreground="#7FFFFFFF" Text="Search" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
+            <TextBlock Foreground="#7FFFFFFF" Text="Done." FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
+            <TextBlock Foreground="#BF629BFF" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand" Text="Return to search page" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" TextDecorations="Underline"></TextBlock>
+        </WrapPanel>
+    </Grid>
+</UserControl>

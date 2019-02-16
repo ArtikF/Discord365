@@ -24,6 +24,7 @@ namespace Discord365.UI.User
     public partial class DMPanel : UserControl
     {
         public DMPanelButton btnDirect;
+        public DMPanelButton btnSearch;
 
         public DMPanelButton[] AvailableButtons
         {
@@ -68,7 +69,7 @@ namespace Discord365.UI.User
                 if (b.MarkStyle != DMPanelButton.MarkStyles.NewMessages)
                     b.MarkStyle = DMPanelButton.MarkStyles.None;
 
-                if (b == btn)
+                if (btn != null && b == btn)
                     b.MarkStyle = DMPanelButton.MarkStyles.SelectedServer;
             }
         }
@@ -121,8 +122,24 @@ namespace Discord365.UI.User
             btnDirect.Height = 50;
             btnDirect.MarkStyle = DMPanelButton.MarkStyles.None;
             btnDirect.MouseLeftButtonUp += BtnDirect_MouseLeftButtonUp;
-
             PanelDM.Children.Add(btnDirect);
+
+            btnSearch = new DMPanelButton();
+            btnSearch.Avatar.ServerName = "Search";
+            btnSearch.Margin = new Thickness(0, 4, 0, 4);
+            btnSearch.Width = 69;
+            btnSearch.Height = 50;
+            btnSearch.MarkStyle = DMPanelButton.MarkStyles.None;
+            btnSearch.MouseLeftButtonUp += BtnSearch_MouseLeftButtonUp;
+            PanelDM.Children.Add(btnSearch);
+        }
+
+        private void BtnSearch_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SetSelected(null);
+
+            App.MainWnd.Sidebar.Set(null, null);
+            App.MainWnd.ContentBasic.Set(new Screens.ScreenSearchHeader(), new Screens.ScreenSearch());
         }
 
         private void BtnDirect_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

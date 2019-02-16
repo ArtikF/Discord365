@@ -13,24 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.User.DirectMsgsContents
+namespace Discord365.UI.User.Screens
 {
     /// <summary>
-    /// Interaction logic for SidebarHeaderSerach.xaml
+    /// Interaction logic for SearchGoCompleted.xaml
     /// </summary>
-    public partial class SidebarHeaderSerach : UserControl
+    public partial class SearchGoCompleted : UserControl
     {
-        public SidebarHeaderSerach()
+        public SearchGoCompleted()
         {
             InitializeComponent();
         }
 
-        private void TbSearchText_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var s = new Screens.ScreenSearch();
-            App.MainWnd.ContentBasic.Set(new Screens.ScreenSearchHeader(), s);
-            s.tbSearchBox.Text = tbSearchText.Text;
             App.MainWnd.Sidebar.Set(null, null);
+            App.MainWnd.ContentBasic.Set(new ScreenSearchHeader(), new ScreenSearch());
         }
     }
 }
