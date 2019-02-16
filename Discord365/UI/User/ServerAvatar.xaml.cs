@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Discord365.UI.Animations;
+using static Discord365.UI.Extensions;
 
 namespace Discord365.UI.User
 {

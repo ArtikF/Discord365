@@ -78,7 +78,7 @@ namespace Discord365.UI.User.DirectMsgsContents
             MessagesPageBody b = new MessagesPageBody(entry.Channel);
             App.MainWnd.ContentBasic.Set(h, b);
 
-            b.UpdateMessagesFromCache();
+            b.UpdateMessages();
         }
 
         public DirectMessagesSidebarContent()

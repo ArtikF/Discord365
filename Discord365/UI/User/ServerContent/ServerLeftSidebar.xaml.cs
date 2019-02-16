@@ -53,7 +53,7 @@ namespace Discord365.UI.User.ServerContent
             MessagesPageBody b = new MessagesPageBody(entry.Channel);
             App.MainWnd.ContentBasic.Set(h, b);
 
-            b.UpdateMessagesFromCache();
+            b.UpdateMessages();
         }
 
         public void Add(ServerChannelEntry e)

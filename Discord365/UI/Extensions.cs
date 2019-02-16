@@ -11,8 +11,31 @@ using System.Windows.Media.Animation;
 
 namespace Discord365.UI
 {
-    public static class Animations
+    public static class Extensions
     {
+        public static Discord.IMessage[] SortMessagesByDate(Discord.IMessage[] source)
+        {
+            List<Discord.IMessage> result = new List<Discord.IMessage>();
+
+            Dictionary<DateTime, Discord.IMessage> ToSort = new Dictionary<DateTime, Discord.IMessage>();
+            List<DateTime> UnsortedTime = new List<DateTime>();
+
+            foreach (var msg in source)
+            {
+                ToSort.Add(msg.Timestamp.DateTime, msg);
+                UnsortedTime.Add(msg.Timestamp.DateTime);
+            }
+
+            DateTime[] SortedTime = UnsortedTime.ToArray();
+            
+            Array.Sort(SortedTime);
+
+            foreach (var time in SortedTime)
+                result.Add(ToSort[time]);
+
+            return result.ToArray();
+        }
+
         public const int FadeAnimationsDefaultTime = 300;
 
         public static void FadeInSize(this UIElement uiElement, int durationInMilliseconds, int startAt = 0)

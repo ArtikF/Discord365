@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Discord365.UI.Extensions;
 
 namespace Discord365.UI.User.MessagesPage
 {
@@ -65,9 +66,10 @@ namespace Discord365.UI.User.MessagesPage
             return null;
         }
 
-        public void UpdateMessagesFromCache()
+        public void UpdateMessages()
         {
-            new Thread(() => {
+            new Thread(() => 
+            {
                 if (Channel is SocketDMChannel)
                 {
                     SocketDMChannel c = (SocketDMChannel)Channel;
@@ -75,7 +77,7 @@ namespace Discord365.UI.User.MessagesPage
                     var msgs = c.GetMessagesAsync(100).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
 
-                    SelectEx(reslt.ToArray());
+                    UpdateMessagesEx(reslt.ToArray());
                 }
                 else if (Channel is SocketGroupChannel)
                 {
@@ -84,7 +86,7 @@ namespace Discord365.UI.User.MessagesPage
                     var msgs = c.GetMessagesAsync(100).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
                     
-                    SelectEx(reslt.ToArray());
+                    UpdateMessagesEx(reslt.ToArray());
                 }
                 else if (Channel is SocketTextChannel)
                 {
@@ -93,25 +95,30 @@ namespace Discord365.UI.User.MessagesPage
                     var msgs = c.GetMessagesAsync(100).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
 
-                    SelectEx(reslt.ToArray());
+                    UpdateMessagesEx(reslt.ToArray());
                 }
             }).Start();
         }
 
-        private void SelectEx(Discord.IMessage[] msgs)
+        private void UpdateMessagesEx(Discord.IMessage[] msgss)
         {
-            msgs.Reverse();
-
             if (!Dispatcher.CheckAccess())
             {
-                Dispatcher.Invoke(() => SelectEx(msgs));
+                Dispatcher.Invoke(() => UpdateMessagesEx(msgss));
                 return;
             }
             
+            var msgs = SortMessagesByDate(msgss);
+
             MessagesPanel.Children.Clear();
 
-            foreach (var msg in msgs)
+            // https://softwareengineering.stackexchange.com/questions/287369/beginners-c-question-about-array-reverse
+            // I used foreach here previously
+
+            for (int i = 0; i < msgs.Length; i++)
             {
+                var msg = msgs[i];
+
                 Message.Message a = new Message.Message();
                 a.RelatedUser = msg.Author;
                 a.AddSingleMessage(msg);

@@ -139,7 +139,7 @@
       <DependentUpon>MainClientWnd.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ShortNameTool.cs" />
-    <Compile Include="UI\Animations.cs" />
+    <Compile Include="UI\Extensions.cs" />
     <Compile Include="UI\User\ContentBasic.xaml.cs">
       <DependentUpon>ContentBasic.xaml</DependentUpon>
     </Compile>

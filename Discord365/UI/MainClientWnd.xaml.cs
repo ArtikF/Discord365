@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Discord.Net;
 using Discord.WebSocket;
-using static Discord365.UI.Animations;
+using static Discord365.UI.Extensions;
 
 namespace Discord365.UI
 {
