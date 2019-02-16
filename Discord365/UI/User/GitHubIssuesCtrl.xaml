@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Width="400" Loaded="UserControl_Loaded">
+             d:DesignHeight="450" Width="530" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,6 +15,6 @@
     </UserControl.Resources>
     <Grid>
         <TextBlock HorizontalAlignment="Left" Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Text="See Discord 365 issues on GitHub" Margin="8"  Foreground="#BFADCBFF" VerticalAlignment="Top" TextDecorations="Underline" Background="#00000000"></TextBlock>
-        <ListBox x:Name="IssuesBox" Margin="8,32,8,8" SelectionChanged="IssuesBox_SelectionChanged" Background="Transparent" BorderBrush="#00ABADB3"></ListBox>
+        <ListBox x:Name="IssuesBox" Margin="8,32,8,8" SelectionChanged="IssuesBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="#00ABADB3"></ListBox>
     </Grid>
 </UserControl>

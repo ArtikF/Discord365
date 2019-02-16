@@ -100,7 +100,7 @@ namespace Discord365.UI.User.MessagesPage
 
         private void SelectEx(Discord.IMessage[] msgs)
         {
-            // msgs.Reverse();
+            msgs.Reverse();
 
             if (!Dispatcher.CheckAccess())
             {

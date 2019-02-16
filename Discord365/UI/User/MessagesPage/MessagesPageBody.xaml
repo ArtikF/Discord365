@@ -15,8 +15,8 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="383"/>
-            <RowDefinition Height="67*"/>
+            <RowDefinition Height="383*"/>
+            <RowDefinition Height="67"/>
         </Grid.RowDefinitions>
         <ScrollViewer x:Name="MessagesScroll" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="16,16,16,10">
             <WrapPanel x:Name="MessagesPanel" Orientation="Vertical">
