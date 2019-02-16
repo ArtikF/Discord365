@@ -37,6 +37,7 @@ namespace Discord365.UI.User.MessagesPage
         public void AddMessage(Message.Message e)
         {
             var related = GetRelatedMessage(e);
+
             if (related == null)
             {
                 e.Margin = new Thickness(0, 8, 0, 8);
@@ -50,6 +51,8 @@ namespace Discord365.UI.User.MessagesPage
                     related.AddSingleMessage(m.Message);
                 }
             }
+
+            MessagesScroll.ScrollToEnd(); // fix me https://github.com/discord365/Discord365/issues/27
         }
 
         private Message.Message GetRelatedMessage(Message.Message m)
