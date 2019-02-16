@@ -21,6 +21,7 @@ namespace Discord365.UI.User.MessagesPage
     /// </summary>
     public partial class MessageSendTextBox : UserControl
     {
+        public Discord.IDMChannel DmBotChannel = null;
         public SocketChannel Channel = null;
 
         public MessageSendTextBox()
@@ -31,20 +32,27 @@ namespace Discord365.UI.User.MessagesPage
 
         public async void SendMessage(string text)
         {
-            if (Channel is SocketDMChannel)
+            if (Channel != null)
             {
-                var c = Channel as SocketDMChannel;
-                await c.SendMessageAsync(text);
+                if (Channel is SocketDMChannel)
+                {
+                    var c = Channel as SocketDMChannel;
+                    await c.SendMessageAsync(text);
+                }
+                else if (Channel is SocketGroupChannel)
+                {
+                    var c = Channel as SocketGroupChannel;
+                    await c.SendMessageAsync(text);
+                }
+                else if (Channel is SocketTextChannel)
+                {
+                    var c = Channel as SocketTextChannel;
+                    await c.SendMessageAsync(text);
+                }
             }
-            else if (Channel is SocketGroupChannel)
+            else if (DmBotChannel != null)
             {
-                var c = Channel as SocketGroupChannel;
-                await c.SendMessageAsync(text);
-            }
-            else if (Channel is SocketTextChannel)
-            {
-                var c = Channel as SocketTextChannel;
-                await c.SendMessageAsync(text);
+                await DmBotChannel.SendMessageAsync(text);
             }
         }
 

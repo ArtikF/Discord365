@@ -221,7 +221,7 @@ namespace Discord365.UI
                         {
                             var b = c as User.MessagesPage.MessagesPageBody;
 
-                            if (b.Channel != null && b.Channel.Id == arg.Channel.Id)
+                            if ((b.Channel != null && b.Channel.Id == arg.Channel.Id) || (b.DmBotChannel != null && b.DmBotChannel.Id == arg.Channel.Id))
                             {
                                 var m = new User.MessagesPage.Message.Message();
                                 m.RelatedUser = arg.Author;

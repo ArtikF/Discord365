@@ -24,6 +24,8 @@ namespace Discord365.UI.User.MessagesPage
     public partial class MessagesPageBody : UserControl
     {
         public SocketChannel Channel = null;
+        public Discord.IDMChannel DmBotChannel = null;
+        public SocketUser User = null;
 
         public MessagesPageBody(SocketChannel c = null)
         {
@@ -74,30 +76,50 @@ namespace Discord365.UI.User.MessagesPage
             {
                 const int HowManyMessagesDownload = 50;
 
-                if (Channel is SocketDMChannel)
+                if (Channel != null)
                 {
-                    SocketDMChannel c = (SocketDMChannel)Channel;
+                    if (Channel is SocketDMChannel)
+                    {
+                        SocketDMChannel c = (SocketDMChannel)Channel;
 
-                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
-                    var reslt = msgs.GetAwaiter().GetResult()[1];
+                        var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
+                        var reslt = msgs.GetAwaiter().GetResult()[1];
 
-                    UpdateMessagesEx(reslt.ToArray());
+                        UpdateMessagesEx(reslt.ToArray());
+                    }
+                    else if (Channel is SocketGroupChannel)
+                    {
+                        SocketGroupChannel c = (SocketGroupChannel)Channel;
+
+                        var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
+                        var reslt = msgs.GetAwaiter().GetResult()[1];
+
+                        UpdateMessagesEx(reslt.ToArray());
+                    }
+                    else if (Channel is SocketTextChannel)
+                    {
+                        SocketTextChannel c = (SocketTextChannel)Channel;
+
+                        var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
+                        var reslt = msgs.GetAwaiter().GetResult()[1];
+
+                        UpdateMessagesEx(reslt.ToArray());
+                    }
+                    else if (Channel is SocketChannel)
+                    {
+                        SocketTextChannel c = (SocketTextChannel)Channel;
+
+                        var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
+                        var reslt = msgs.GetAwaiter().GetResult()[1];
+
+                        UpdateMessagesEx(reslt.ToArray());
+                    }
                 }
-                else if (Channel is SocketGroupChannel)
+                else if (DmBotChannel != null)
                 {
-                    SocketGroupChannel c = (SocketGroupChannel)Channel;
-
-                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
-                    var reslt = msgs.GetAwaiter().GetResult()[1];
-                    
-                    UpdateMessagesEx(reslt.ToArray());
-                }
-                else if (Channel is SocketTextChannel)
-                {
-                    SocketTextChannel c = (SocketTextChannel)Channel;
-
-                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
-                    var reslt = msgs.GetAwaiter().GetResult()[1];
+                    var msgs = DmBotChannel.GetMessagesAsync(HowManyMessagesDownload).ToList();
+                    var reslt1 = msgs.GetAwaiter().GetResult();
+                    var reslt = reslt1[0];
 
                     UpdateMessagesEx(reslt.ToArray());
                 }

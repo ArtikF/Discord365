@@ -15,6 +15,7 @@
             <TextBlock Foreground="#ADFFFFFF" Text="What's this?" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"></TextBlock>
             <WrapPanel Orientation="Horizontal">
                 <Button x:Name="ItsTextChannel" Content="Text Channel ID" Margin="4" Click="ItsTextChannel_Click"></Button>
+                <Button x:Name="ItsDMChannel" Content="DM Channel ID" Margin="4" Click="ItsTextChannel_Click"></Button>
                 <Button x:Name="ItsServerID" Content="Server ID" Margin="4" IsEnabled="False"></Button>
                 <Button x:Name="ItsVoiceID" Content="Voice Channel ID" Margin="4" IsEnabled="False"></Button>
                 <Button x:Name="ItsNice" Content="Terrible button" Margin="4" IsEnabled="False"></Button>
