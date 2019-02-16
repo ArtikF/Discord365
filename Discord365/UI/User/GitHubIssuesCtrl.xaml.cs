@@ -38,7 +38,7 @@ namespace Discord365.UI.User
             {
                 var github = new GitHubClient(new ProductHeaderValue("Discord365"));
                 var issues = await github.Issue.GetAllForRepository("discord365", "Discord365");
-                
+
                 Dispatcher.Invoke(() => IssuesBox.Items.Clear());
 
                 foreach (var issue in issues)
@@ -103,6 +103,11 @@ namespace Discord365.UI.User
                 }
             }
 
+        }
+
+        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/discord365/Discord365/issues/new");
         }
     }
 }
