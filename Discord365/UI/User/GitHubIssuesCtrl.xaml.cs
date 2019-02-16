@@ -46,8 +46,7 @@ namespace Discord365.UI.User
 
                     Dispatcher.Invoke(() =>
                     {
-                        string title = issue.Title;
-                        IssuesBox.Items.Add(GetGrid(title, issue.HtmlUrl));
+                        IssuesBox.Items.Add(GetGrid(issue.Title, issue.HtmlUrl));
                     });
                 }
             }).Start();
