@@ -391,5 +391,17 @@ namespace Discord365.UI
         private void ColumnSidebarLeft_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
         }
+
+        private void TbQuestions_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            // <user:GitHubIssuesCtrl Height="240" Margin="0,8,0,0"></user:GitHubIssuesCtrl>
+
+            DiscordStatusPanel.Children.Remove(tbQuestions);
+
+            var issues = new User.GitHubIssuesCtrl();
+            issues.Height = 240;
+            issues.Margin = new Thickness(0, 8, 0, 0);
+            DiscordStatusPanel.Children.Add(issues);
+        }
     }
 }
