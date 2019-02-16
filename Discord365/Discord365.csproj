@@ -138,6 +138,9 @@
     <Compile Include="UI\MainClientWnd.xaml.cs">
       <DependentUpon>MainClientWnd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Resources\TextChannelImage.xaml.cs">
+      <DependentUpon>TextChannelImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ShortNameTool.cs" />
     <Compile Include="UI\Extensions.cs" />
     <Compile Include="UI\User\ContentBasic.xaml.cs">
@@ -251,6 +254,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MainClientWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\TextChannelImage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Styles.xaml">

@@ -20,10 +20,20 @@
         </Grid.RowDefinitions>
         <ScrollViewer x:Name="MessagesScroll" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="16,16,16,10">
             <WrapPanel x:Name="MessagesPanel" Orientation="Vertical">
-
+                <Grid Margin="18">
+                    <TextBlock Text="Loading messages..." Foreground="#22FFFFFF" FontSize="22"></TextBlock>
+                </Grid>
             </WrapPanel>
         </ScrollViewer>
 
         <local:MessageSendTextBox x:Name="Sender" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="16" Grid.Row="1"></local:MessageSendTextBox>
+
+        <GridSplitter Grid.Row="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Bottom"
+              Background="#00000000" 
+              ShowsPreview="False"
+              Height="2"
+              />
     </Grid>
 </UserControl>

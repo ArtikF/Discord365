@@ -28,6 +28,13 @@ namespace Discord365.UI.User.ServerContent
             tbChannel.Text = "";
         }
 
+        public void SetIcon(UIElement icon)
+        {
+            IconGrid.Children.Clear();
+
+            if(icon != null)
+                IconGrid.Children.Add(icon);
+        }
 
         private SocketGuildChannel channel = null;
         public SocketGuildChannel Channel
@@ -50,6 +57,11 @@ namespace Discord365.UI.User.ServerContent
             }
 
             tbChannel.Text = GetChannelName();
+
+            if (Channel is SocketTextChannel)
+                SetIcon(new Resources.TextChannelImage());
+            else
+                SetIcon(null);
         }
 
         public string GetChannelName()

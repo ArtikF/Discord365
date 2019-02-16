@@ -8,7 +8,7 @@
              Width="224" Height="30">
     <Grid Background="#00000000">
         <Grid x:Name="IconGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Width="22" Margin="8,0,0,0" Height="22">
-            <Image x:Name="ChannelIcon"></Image>
+            
         </Grid>
         <TextBlock x:Name="tbChannel" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="38,0,0,0" Text="unknown_channel" Foreground="#99FFFFFF"></TextBlock>
     </Grid>

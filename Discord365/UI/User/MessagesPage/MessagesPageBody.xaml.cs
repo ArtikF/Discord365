@@ -50,7 +50,6 @@ namespace Discord365.UI.User.MessagesPage
                     related.AddSingleMessage(m.Message);
                 }
             }
-            MessagesScroll.ScrollToEnd();
         }
 
         private Message.Message GetRelatedMessage(Message.Message m)
@@ -70,11 +69,13 @@ namespace Discord365.UI.User.MessagesPage
         {
             new Thread(() => 
             {
+                const int HowManyMessagesDownload = 50;
+
                 if (Channel is SocketDMChannel)
                 {
                     SocketDMChannel c = (SocketDMChannel)Channel;
 
-                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
 
                     UpdateMessagesEx(reslt.ToArray());
@@ -83,7 +84,7 @@ namespace Discord365.UI.User.MessagesPage
                 {
                     SocketGroupChannel c = (SocketGroupChannel)Channel;
 
-                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
                     
                     UpdateMessagesEx(reslt.ToArray());
@@ -92,7 +93,7 @@ namespace Discord365.UI.User.MessagesPage
                 {
                     SocketTextChannel c = (SocketTextChannel)Channel;
 
-                    var msgs = c.GetMessagesAsync(100).ToList();
+                    var msgs = c.GetMessagesAsync(HowManyMessagesDownload).ToList();
                     var reslt = msgs.GetAwaiter().GetResult()[1];
 
                     UpdateMessagesEx(reslt.ToArray());
@@ -125,6 +126,8 @@ namespace Discord365.UI.User.MessagesPage
 
                 this.AddMessage(a);
             }
+
+            MessagesScroll.ScrollToEnd();
         }
     }
 }
