@@ -11,6 +11,7 @@
             <TextBlock Foreground="#7FFFFFFF" Text="Search" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
             <TextBlock Foreground="#7FFFFFFF" Text="Done." FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></TextBlock>
             <TextBlock Foreground="#BF629BFF" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Cursor="Hand" Text="Return to search page" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" TextDecorations="Underline"></TextBlock>
+            <TextBlock Foreground="#3FFFFFFF" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1" Cursor="Hand" Text="Close" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" TextDecorations="Underline"></TextBlock>
         </WrapPanel>
     </Grid>
 </UserControl>

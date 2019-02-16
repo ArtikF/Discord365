@@ -30,5 +30,10 @@ namespace Discord365.UI.User.Screens
             App.MainWnd.Sidebar.Set(null, null);
             App.MainWnd.ContentBasic.Set(new ScreenSearchHeader(), new ScreenSearch());
         }
+
+        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        {
+            App.MainWnd.Sidebar.Set(null, null);
+        }
     }
 }
