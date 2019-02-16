@@ -42,7 +42,7 @@ namespace Discord365.UI.ImageViewer
 
         public int GetImageIndex(ImageInfo info)
         {
-            for(int i =0 ;i < Album.Count; i++)
+            for (int i = 0; i < Album.Count; i++)
             {
                 if (Album[i] == info)
                     return i;
@@ -53,6 +53,9 @@ namespace Discord365.UI.ImageViewer
 
         public void Select(int Index)
         {
+            if (Index >= Album.Count)
+                return;
+
             imageIndex = Index;
 
             ImageCanvas.Children.Clear();
@@ -67,6 +70,16 @@ namespace Discord365.UI.ImageViewer
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void LeftBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Select(ImageIndex - 1);
+        }
+
+        private void RightBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Select(ImageIndex + 1);
         }
     }
 }

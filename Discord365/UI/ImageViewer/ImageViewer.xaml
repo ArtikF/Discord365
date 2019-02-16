@@ -18,10 +18,10 @@
         <Grid x:Name="ImageCanvas">
             <TextBlock Text="Something went wrong" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center" Foreground="#BFFFFFFF"></TextBlock>
         </Grid>
-        <Button x:Name="RightBtn" HorizontalAlignment="Right" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
+        <Button x:Name="RightBtn" Click="RightBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
             <TextBlock Text="&gt;"></TextBlock>
         </Button>
-        <Button x:Name="LeftBtn" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
+        <Button x:Name="LeftBtn" Click="LeftBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
             <TextBlock Text="&lt;"></TextBlock>
         </Button>
         <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="45" Height="45" Background="#00000000" BorderBrush="{x:Null}" Foreground="White">
