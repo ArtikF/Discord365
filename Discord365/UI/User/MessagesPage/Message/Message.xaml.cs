@@ -39,10 +39,9 @@ namespace Discord365.UI.User.MessagesPage.Message
             }
         }
 
-        public void AddSingleMessage(Discord.IMessage msg)
+        public void AppendMessage(Discord.IMessage msg)
         {
             SingleMessage m = new SingleMessage();
-            m.Margin = DefaultPadding;
             m.Message = msg;
             MessagesPanel.Children.Add(m);
 

@@ -225,7 +225,7 @@ namespace Discord365.UI
                             {
                                 var m = new User.MessagesPage.Message.Message();
                                 m.RelatedUser = arg.Author;
-                                m.AddSingleMessage(arg);
+                                m.AppendMessage(arg);
 
                                 b.AddMessage(m);
                             }

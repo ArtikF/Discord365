@@ -6,10 +6,8 @@
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage.Message"
              mc:Ignorable="d">
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-            <WrapPanel x:Name="Panel" Orientation="Vertical">
-                
-            </WrapPanel>
-        </ScrollViewer>
+        <WrapPanel x:Name="Panel" Orientation="Vertical">
+
+        </WrapPanel>
     </Grid>
 </UserControl>

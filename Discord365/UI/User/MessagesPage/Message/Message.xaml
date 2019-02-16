@@ -8,9 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <local:MessageHeader x:Name="MessageHeader"></local:MessageHeader>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-            <WrapPanel x:Name="MessagesPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,24,0,0"  Orientation="Vertical">
-            </WrapPanel>
-        </ScrollViewer>
+        <WrapPanel x:Name="MessagesPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,24,0,0"  Orientation="Vertical">
+        </WrapPanel>
     </Grid>
 </UserControl>

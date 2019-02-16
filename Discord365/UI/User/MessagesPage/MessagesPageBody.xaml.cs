@@ -48,7 +48,7 @@ namespace Discord365.UI.User.MessagesPage
                 foreach(var msg in e.MessagesPanel.Children)
                 {
                     var m = msg as Message.SingleMessage;
-                    related.AddSingleMessage(m.Message);
+                    related.AppendMessage(m.Message);
                 }
             }
 
@@ -125,7 +125,7 @@ namespace Discord365.UI.User.MessagesPage
 
                 Message.Message a = new Message.Message();
                 a.RelatedUser = msg.Author;
-                a.AddSingleMessage(msg);
+                a.AppendMessage(msg);
 
                 this.AddMessage(a);
             }
