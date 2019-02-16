@@ -39,32 +39,48 @@ namespace Discord365.UI.User
                 var github = new GitHubClient(new ProductHeaderValue("Discord365"));
                 var issues = await github.Issue.GetAllForRepository("discord365", "Discord365");
                 
-                foreach(var issue in issues)
+                Dispatcher.Invoke(() => IssuesBox.Items.Clear());
+
+                foreach (var issue in issues)
                 {
                     if (issue.Locked)
                         continue;
 
                     Dispatcher.Invoke(() =>
                     {
-                        IssuesBox.Items.Add(GetGrid(issue.Title, issue.HtmlUrl));
+                        IssuesBox.Items.Add(GetGrid(issue.Number.ToString(), issue.Title, issue.HtmlUrl));
                     });
                 }
             }).Start();
         }
 
-        private Grid GetGrid(string title, string link)
+        private Grid GetGrid(string number, string title, string link)
         {
             Grid g = new Grid();
             g.Margin = new Thickness(0, 2, 0, 2);
             g.Tag = link;
 
+            WrapPanel p = new WrapPanel();
+            p.Orientation = Orientation.Horizontal;
+            g.Children.Add(p);
+
             TextBlock b = new TextBlock();
-            g.Children.Add(b);
-            b.Text = title;
-            b.HorizontalAlignment = HorizontalAlignment.Left;
-            b.VerticalAlignment = VerticalAlignment.Center;
+            p.Children.Add(b);
+            b.Text = "#" + number;
             b.Margin = new Thickness(8, 0, 0, 0);
+            b.Foreground = new SolidColorBrush(Color.FromArgb(75, 255, 255, 255));
+
+            b = new TextBlock();
+            p.Children.Add(b);
+            b.Text = title;
+            b.Margin = new Thickness(4, 0, 0, 0);
             b.Foreground = new SolidColorBrush(Color.FromArgb(155, 255, 255, 255));
+
+            //b = new TextBlock();
+            //p.Children.Add(b);
+            //b.Text = "by " + author;
+            //b.Margin = new Thickness(4, 0, 0, 0);
+            //b.Foreground = new SolidColorBrush(Color.FromArgb(75, 255, 255, 255));
 
             return g;
         }
