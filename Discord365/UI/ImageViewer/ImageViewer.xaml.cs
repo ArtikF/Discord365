@@ -38,6 +38,13 @@ namespace Discord365.UI.ImageViewer
 
             if (Album.Count == 1)
                 Select(GetImageIndex(i));
+
+            UpdateCounter();
+        }
+
+        public void UpdateCounter()
+        {
+            tbImageCounter.Text = $"{ImageIndex + 1}/{Album.Count}";
         }
 
         public int GetImageIndex(ImageInfo info)
@@ -60,6 +67,8 @@ namespace Discord365.UI.ImageViewer
 
             ImageCanvas.Children.Clear();
             ImageCanvas.Children.Add(new Image() { Source = Album[Index].ToImageSource() });
+
+            UpdateCounter();
         }
 
         private void ClickToCloseGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
