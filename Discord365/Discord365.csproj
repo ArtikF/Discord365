@@ -205,14 +205,23 @@
     <Compile Include="UI\User\MessagesPage\MessagesPageHeader.xaml.cs">
       <DependentUpon>MessagesPageHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\AttachmentContent.xaml.cs">
+      <DependentUpon>AttachmentContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\MessagesPage\Message\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\MessagesPage\Message\MessageHeader.xaml.cs">
       <DependentUpon>MessageHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\MessageImage.xaml.cs">
+      <DependentUpon>MessageImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\MessagesPage\Message\SingleMessage.xaml.cs">
       <DependentUpon>SingleMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\TextMessageContent.xaml.cs">
+      <DependentUpon>TextMessageContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\User\Screens\ScreenDisclaimer.xaml.cs">
       <DependentUpon>ScreenDisclaimer.xaml</DependentUpon>
@@ -330,13 +339,25 @@
     <Page Include="UI\User\MessagesPage\MessagesPageHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\User\MessagesPage\Message\AttachmentContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\MessagesPage\Message\Message.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\MessagesPage\Message\MessageHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\User\MessagesPage\Message\MessageImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\User\MessagesPage\Message\SingleMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\Message\TextMessageContent.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\Screens\ScreenDisclaimer.xaml">

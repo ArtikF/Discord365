@@ -1,15 +1,12 @@
-﻿<UserControl x:Class="Discord365.UI.User.MessagesPage.Message.SingleMessage"
+﻿<UserControl x:Class="Discord365.UI.User.MessagesPage.Message.MessageImage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage.Message"
-             mc:Ignorable="d">
+             mc:Ignorable="d" 
+             Height="350" Width="550">
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-            <WrapPanel x:Name="Panel" Orientation="Vertical">
-                
-            </WrapPanel>
-        </ScrollViewer>
+        <Image x:Name="MessageImageS" Cursor="Hand" MouseLeftButtonUp="MessagePhoto_MouseLeftButtonUp"></Image>
     </Grid>
 </UserControl>

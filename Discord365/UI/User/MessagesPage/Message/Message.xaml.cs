@@ -42,12 +42,35 @@ namespace Discord365.UI.User.MessagesPage.Message
         public void AddSingleMessage(Discord.IMessage msg)
         {
             SingleMessage m = new SingleMessage();
-            m.Margin = new Thickness(0, 0, 0, 4);
-
-            m.MessageText = msg.Content;
+            m.Margin = DefaultPadding;
             m.Message = msg;
-
             MessagesPanel.Children.Add(m);
+
+            if (msg.Content.Length >= 1)
+            {
+                var c = new TextMessageContent();
+                c.Margin = DefaultPadding;
+                c.MessageText = msg.Content;
+                m.Panel.Children.Add(c);
+            }
+
+            if(msg.Attachments.Count >= 1)
+            {
+                foreach(var attachment in msg.Attachments)
+                {
+                    var aobj = new AttachmentContent();
+                    aobj.Attach = attachment;
+                    aobj.Margin = DefaultPadding;
+                    m.Panel.Children.Add(aobj);
+                }
+            }
+        }
+
+        public Thickness DefaultPadding => new Thickness(0, 2, 0, 2);
+
+        public void AddImageMessage(Discord.IMessage msg)
+        {
+
         }
 
         public void RemoveMessage(SocketMessage msg)

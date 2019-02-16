@@ -1,5 +1,4 @@
-﻿using Discord.WebSocket;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,20 @@ using System.Windows.Shapes;
 namespace Discord365.UI.User.MessagesPage.Message
 {
     /// <summary>
-    /// Interaction logic for SingleMessage.xaml
+    /// Interaction logic for TextMessageContent.xaml
     /// </summary>
-    public partial class SingleMessage : UserControl
+    public partial class TextMessageContent : UserControl
     {
-        public Discord.IMessage Message = null;
-
-        public SingleMessage()
+        public TextMessageContent()
         {
             InitializeComponent();
+            MessageText = "";
+        }
+
+        public string MessageText
+        {
+            get => tbMessage.Text;
+            set => tbMessage.Text = value;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Discord.WebSocket;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,22 @@ using System.Windows.Shapes;
 namespace Discord365.UI.User.MessagesPage.Message
 {
     /// <summary>
-    /// Interaction logic for SingleMessage.xaml
+    /// Interaction logic for MessagePhoto.xaml
     /// </summary>
-    public partial class SingleMessage : UserControl
+    public partial class MessageImage : UserControl
     {
-        public Discord.IMessage Message = null;
-
-        public SingleMessage()
+        public MessageImage()
         {
             InitializeComponent();
+        }
+
+        private void MessagePhoto_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (MessageImageS.Tag == null || MessageImageS.Tag.GetType() != typeof(string))
+                return;
+
+            var viewer = new UI.ImageViewer.ImageViewer();
+            viewer.AddImage(new ImageViewer.ImageInfo(MessageImageS.Tag as string));
         }
     }
 }
