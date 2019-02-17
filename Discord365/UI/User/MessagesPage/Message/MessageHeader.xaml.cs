@@ -22,6 +22,12 @@ namespace Discord365.UI.User.MessagesPage.Message
     /// </summary>
     public partial class MessageHeader : UserControl
     {
+        public DateTime TimeStamp
+        {
+            get => (DateTime)tbTimeStamp.Tag;
+            set { tbTimeStamp.Text = value.ToString(); tbTimeStamp.Tag = value; }
+        }
+
         public MessageHeader()
         {
             InitializeComponent();

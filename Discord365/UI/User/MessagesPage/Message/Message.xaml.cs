@@ -24,11 +24,8 @@ namespace Discord365.UI.User.MessagesPage.Message
         private Discord.IUser relatedUser = null;
         public DateTime TimeStamp
         {
-            get => DateTime.MinValue;
-            set
-            {
-
-            }
+            get => MessageHeader.TimeStamp;
+            set => MessageHeader.TimeStamp = value;
         }
 
         public Message()
