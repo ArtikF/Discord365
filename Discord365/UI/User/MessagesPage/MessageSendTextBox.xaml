@@ -6,6 +6,15 @@
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage"
              mc:Ignorable="d" 
              d:DesignHeight="45" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
         <Rectangle Fill="#14FFFFFF" RadiusY="10" RadiusX="10"></Rectangle>
         <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="8,0,0,0">

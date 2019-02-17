@@ -146,6 +146,7 @@ namespace Discord365.UI.User.MessagesPage
                 var msg = msgs[i];
 
                 Message.Message a = new Message.Message();
+                a.TimeStamp = msg.Timestamp.DateTime;
                 a.RelatedUser = msg.Author;
                 a.AppendMessage(msg);
 

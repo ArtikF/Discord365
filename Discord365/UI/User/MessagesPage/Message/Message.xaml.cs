@@ -22,6 +22,14 @@ namespace Discord365.UI.User.MessagesPage.Message
     public partial class Message : UserControl
     {
         private Discord.IUser relatedUser = null;
+        public DateTime TimeStamp
+        {
+            get => DateTime.MinValue;
+            set
+            {
+
+            }
+        }
 
         public Message()
         {

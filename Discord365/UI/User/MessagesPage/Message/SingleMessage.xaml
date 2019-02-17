@@ -5,9 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage.Message"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <WrapPanel x:Name="Panel" Orientation="Vertical">
 
         </WrapPanel>
+        <!--<TextBox x:Name="tbTimeStamp" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top" ></TextBox>!-->
     </Grid>
 </UserControl>
