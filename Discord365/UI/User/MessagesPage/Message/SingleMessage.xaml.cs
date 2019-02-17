@@ -27,5 +27,10 @@ namespace Discord365.UI.User.MessagesPage.Message
         {
             InitializeComponent();
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

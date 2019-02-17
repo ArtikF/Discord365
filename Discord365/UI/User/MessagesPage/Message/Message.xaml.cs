@@ -69,6 +69,17 @@ namespace Discord365.UI.User.MessagesPage.Message
                     m.Panel.Children.Add(aobj);
                 }
             }
+
+            if(msg.Embeds.Count >= 1)
+            {
+                foreach (var embed in msg.Embeds)
+                {
+                    var aobj = new MessageEmbed();
+                    aobj.Related = embed;
+                    aobj.Margin = DefaultPadding;
+                    m.Panel.Children.Add(aobj);
+                }
+            }
         }
 
         public Thickness DefaultPadding => new Thickness(0, 2, 0, 2);

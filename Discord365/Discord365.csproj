@@ -219,6 +219,9 @@
     <Compile Include="UI\User\MessagesPage\Message\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\MessagesPage\Message\MessageEmbed.xaml.cs">
+      <DependentUpon>MessageEmbed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\MessagesPage\Message\MessageHeader.xaml.cs">
       <DependentUpon>MessageHeader.xaml</DependentUpon>
     </Compile>
@@ -362,6 +365,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\MessagesPage\Message\Message.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\MessagesPage\Message\MessageEmbed.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\MessagesPage\Message\MessageHeader.xaml">

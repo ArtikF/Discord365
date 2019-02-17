@@ -40,7 +40,7 @@ namespace Discord365.UI.User.MessagesPage
         {
             var related = GetRelatedMessage(e);
 
-            if (related == null || related.TimeStamp.AddMinutes(1) > e.TimeStamp)
+            if (related == null || related.TimeStamp.AddMinutes(3) > e.TimeStamp)
             {
                 e.Margin = new Thickness(0, 8, 0, 8);
                 MessagesPanel.Children.Add(e);
@@ -64,7 +64,7 @@ namespace Discord365.UI.User.MessagesPage
 
             var last = MessagesPanel.Children[MessagesPanel.Children.Count - 1] as Message.Message;
 
-            if (last.RelatedUser.Id == m.RelatedUser.Id)
+            if (last.RelatedUser != null && last.RelatedUser.Id == m.RelatedUser.Id)
                 return last;
 
             return null;
