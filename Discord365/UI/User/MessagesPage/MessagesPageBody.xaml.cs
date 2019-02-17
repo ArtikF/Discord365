@@ -40,7 +40,7 @@ namespace Discord365.UI.User.MessagesPage
         {
             var related = GetRelatedMessage(e);
 
-            if (related == null || related.TimeStamp.AddMinutes(3) > e.TimeStamp)
+            if (related == null || related.TimeStamp.AddMinutes(3) < e.TimeStamp)
             {
                 e.Margin = new Thickness(0, 8, 0, 8);
                 MessagesPanel.Children.Add(e);
