@@ -1,5 +1,5 @@
 # Discord 365
-Discord 365 - is a Discord API client for Windows. .NET Framework 4.7.1 is required. Powered by [Discord.Net](https://github.com/discord-net/Discord.Net)
+Discord 365 - is a Discord API client for Windows. .NET Framework 4.7.1 is required. Powered by [Discord.Net](https://github.com/discord-net/Discord.Net).
 
 ### Modified Discord.Net
 Discord365 solution contains Discord.Net projects. They are [original](https://github.com/discord-net/Discord.Net), but ours has enabled self-botting feature. See section below for details.
@@ -32,6 +32,6 @@ See [Discord.Net](https://github.com/discord-net/Discord.Net)'s compiling sectio
 # Credits
  - [Dz3n](https://github.com/feel-the-dz3n)
 
-Discord 365 is powered by [Discord.Net](https://github.com/discord-net/Discord.Net)
+Discord 365 is powered by [Discord.Net](https://github.com/discord-net/Discord.Net) and [Octokit](https://github.com/octokit/octokit.net).
 
 *it will not work on [ReactOS](https://github/reactos/reactos) unless they have .NET 4.7.1 and WPF*
