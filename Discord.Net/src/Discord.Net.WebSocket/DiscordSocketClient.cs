@@ -717,7 +717,7 @@ namespace Discord.WebSocket
                                         {
                                             await GuildUnavailableAsync(guild).ConfigureAwait(false);
                                             await TimedInvokeAsync(_leftGuildEvent, nameof(LeftGuild), guild).ConfigureAwait(false);
-                                            (guild as IDisposable).Dispose();
+                                            // (guild as IDisposable).Dispose();
                                         }
                                         else
                                         {

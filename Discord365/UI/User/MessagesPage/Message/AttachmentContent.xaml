@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.MessagesPage.Message"
              mc:Ignorable="d" 
-             Height="62" Width="521">
+             Height="62" MaxWidth="521">
     <Grid>
         <Rectangle RadiusY="5" RadiusX="5" Fill="#1E000000" Stroke="#38000000"></Rectangle>
         <Grid x:Name="Icon" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,0,0,0" Width="28" Height="35" Background="#14FFFFFF"></Grid>

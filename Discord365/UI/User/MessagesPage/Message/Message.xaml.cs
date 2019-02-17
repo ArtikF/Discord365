@@ -58,6 +58,7 @@ namespace Discord365.UI.User.MessagesPage.Message
                 foreach(var attachment in msg.Attachments)
                 {
                     var aobj = new AttachmentContent();
+                    aobj.HorizontalAlignment = HorizontalAlignment.Stretch;
                     aobj.Attach = attachment;
                     aobj.Margin = DefaultPadding;
                     m.Panel.Children.Add(aobj);
