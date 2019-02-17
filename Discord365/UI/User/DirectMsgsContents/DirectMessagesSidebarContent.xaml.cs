@@ -101,8 +101,6 @@ namespace Discord365.UI.User.DirectMsgsContents
             }
 
             DMList.Items.Add(e);
-
-            ResortMessages();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -114,120 +112,100 @@ namespace Discord365.UI.User.DirectMsgsContents
         {
             new Thread(() =>
             {
-                List<DMUserEntry> list = new List<DMUserEntry>();
-
+                List<SocketChannel> channels = new List<SocketChannel>();
                 var client = App.MainWnd.client;
 
+                for(int i = 0; i < client.DMChannels.Count; i++)
+                    channels.Add(client.DMChannels.ElementAt(i));
 
-                foreach (var c in client.DMChannels)
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        DMUserEntry e = new DMUserEntry();
-                        e.RelatedUser = c.Recipient;
-                        e.Channel = c;
+                for (int i = 0; i < client.GroupChannels.Count; i++)
+                    channels.Add(client.GroupChannels.ElementAt(i));
 
-                        list.Add(e);
-                    });
-                }
+                // var sorted = ResortMessages(channels); // TAKES AROUND 1 MINUTE TO DOWNLOAD ALL CONVERSATION, LET'S NOT USE SORTING, OK :/
 
-                foreach (var c in client.GroupChannels)
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        DMUserEntry e = new DMUserEntry();
-                        e.User.tbUser.Text = c.Name;
-                        e.User.ShowAdditional = true;
-                        e.User.tbAdditional.Text = c.Recipients.Count + " members";
-                        e.Channel = c;
-
-                        list.Add(e);
-                    });
-                }
-                
-                //foreach (var c in client.PrivateChannels)
-                //{
-                //    if (c.Recipients.Count > 1)
-                //        continue;
-
-                //    Dispatcher.Invoke(() =>
-                //    {
-                //        var avatar = new UserAvatar();
-                //        avatar.RelatedUser = c.Recipients.First();
-
-                //        var username = new UserNameUpdateable();
-                //        username.RelatedUser = c.Recipients.First();
-
-                //        DMListEntry e = new DMListEntry(avatar, username);
-                //        e.PrivateChannel = c;
-                //        list.Add(e);
-                //    });
-                //}
-
-                foreach (var l in list)
-                {
-                    Add(l);
-                }
-
+                FinishUpdate(channels);
             }).Start();
         }
-
-        public void ResortMessages()
+        
+        private List<SocketChannel> ResortMessages(List<SocketChannel> original)
         {
-            return; // idk
+            List<SocketChannel> result = new List<SocketChannel>();
 
-            //if (!Dispatcher.CheckAccess())
-            //{
-            //    Dispatcher.Invoke(() => ResortMessages());
-            //    return;
-            //}
+            var Dict = new Dictionary<DateTime, ChannelDate>();
+            var UnsortedTime = new List<DateTime>();
 
-            //List<DMListEntry> SortedMessages = new List<DMListEntry>();
-            //Dictionary<DateTime, DMListEntry> UnsortedMessages = new Dictionary<DateTime, DMListEntry>();
+            foreach(var c in original)
+            {
+                if (c is SocketDMChannel)
+                {
+                    var dm = c as SocketDMChannel;
 
-            //foreach(var element in DMList.Items)
-            //{
-            //    if(element is Grid)
-            //    {
-            //        if (((Grid)element).Tag == null)
-            //            continue;
+                    var msgs = dm.GetMessagesAsync(1).ToList(); // get latest message from channel
+                    var reslt = msgs.GetAwaiter().GetResult()[1];
 
-            //        DMListEntry e = (DMListEntry)((Grid)element).Tag;
+                    if (reslt.Count >= 1)
+                    {
+                        Dict.Add(reslt.ToList()[0].Timestamp.DateTime, new ChannelDate(dm, reslt.ToList()[0]));
+                        UnsortedTime.Add(reslt.ToList()[0].Timestamp.DateTime);
+                    }
+                    else
+                    {
+                        Dict.Add(dm.CreatedAt.DateTime, new ChannelDate(dm, null));
+                        UnsortedTime.Add(dm.CreatedAt.DateTime);
+                    }
+                }
+                else if (c is SocketGroupChannel)
+                {
+                    var dm = c as SocketGroupChannel;
 
-            //        if (e.DMChannel != null)
-            //        {
-            //            var d = e.DMChannel.CreatedAt.Date;
-            //            UnsortedMessages.Add(d, e);
-            //        }
-            //        else if (e.GroupChannel != null)
-            //        {
-            //            var d = e.GroupChannel.CreatedAt.Date;
-            //            UnsortedMessages.Add(d, e);
-            //        }
-            //    }
-            //}
+                    var msgs = dm.GetMessagesAsync(1).ToList(); // get latest message from channel
+                    var reslt = msgs.GetAwaiter().GetResult()[1];
 
-            //DateTime[] Dates = UnsortedMessages.Keys.ToArray();
-            //Array.Sort(Dates);
+                    if (reslt.Count >= 1)
+                    {
+                        Dict.Add(reslt.ToList()[0].Timestamp.DateTime, new ChannelDate(dm, reslt.ToList()[0]));
+                        UnsortedTime.Add(reslt.ToList()[0].Timestamp.DateTime);
+                    }
+                    else
+                    {
+                        Dict.Add(dm.CreatedAt.DateTime, new ChannelDate(dm, null));
+                        UnsortedTime.Add(dm.CreatedAt.DateTime);
+                    }
+                }
+            }
 
-            //foreach(var time in Dates)
-            //{
-            //    SortedMessages.Add(UnsortedMessages[time]);
-            //}
 
-            //SortedMessages.Reverse();
+            DateTime[] SortedTime = UnsortedTime.ToArray();
 
+            Array.Sort(SortedTime);
             
-            //for (int i = 1; i < DMList.Items.Count; i++)
-            //{
-            //    DMList.Items.Remove(DMList.Items[i]);
-            //}
+            foreach (var time in SortedTime)
+                result.Add(Dict[time].channel);
 
-            //foreach(var e in SortedMessages)
-            //{
-            //    Add(e);
-            //}
+            result.Reverse();
+
+            return result;
         }
+
+        private void FinishUpdate(List<SocketChannel> sorted)
+        {
+            List<DMUserEntry> list = new List<DMUserEntry>();
+
+            var client = App.MainWnd.client;
+
+            for(int i = 0; i < sorted.Count; i++)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    DMUserEntry e = new DMUserEntry();
+                    e.Channel = sorted[i];
+                    e.UpdateMe();
+
+                    Add(e);
+                });
+            }
+        }
+
 
         private void DMList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -240,6 +218,18 @@ namespace Discord365.UI.User.DirectMsgsContents
                 Select(o as DMUserEntry);
             }
 
+        }
+    }
+
+    public class ChannelDate
+    {
+        public SocketChannel channel;
+        public Discord.IMessage message;
+
+        public ChannelDate(SocketChannel c, Discord.IMessage m)
+        {
+            channel = c;
+            message = m;
         }
     }
 }

@@ -28,6 +28,25 @@ namespace Discord365.UI.User.DirectMsgsContents
             InitializeComponent();
         }
 
+        public void UpdateMe()
+        {
+            if (Channel == null)
+                return;
+
+            if (Channel is SocketDMChannel)
+            {
+                var dm = Channel as SocketDMChannel;
+                RelatedUser = dm.Recipient;
+            }
+            else if (Channel is SocketGroupChannel)
+            {
+                var dm = Channel as SocketGroupChannel;
+                User.tbUser.Text = dm.Name;
+                User.ShowAdditional = true;
+                User.tbAdditional.Text = dm.Recipients.Count + " members";
+            }
+        }
+
         public SocketUser RelatedUser
         {
             set

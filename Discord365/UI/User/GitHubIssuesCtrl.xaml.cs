@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Discord365.UI.Extensions;
 
 namespace Discord365.UI.User
 {
@@ -25,6 +26,8 @@ namespace Discord365.UI.User
         public GitHubIssuesCtrl()
         {
             InitializeComponent();
+
+            this.FadeIn(500);
         }
 
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -34,10 +37,15 @@ namespace Discord365.UI.User
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            new Thread(async () => 
+            new Thread(async () =>
             {
                 var github = new GitHubClient(new ProductHeaderValue("Discord365"));
                 var issues = await github.Issue.GetAllForRepository("discord365", "Discord365");
+                int start = 0;
+
+                Dispatcher.Invoke(() => tbLoading.FadeOut(250));
+
+                Thread.Sleep(250);
 
                 Dispatcher.Invoke(() => IssuesBox.Items.Clear());
 
@@ -48,8 +56,12 @@ namespace Discord365.UI.User
 
                     Dispatcher.Invoke(() =>
                     {
-                        IssuesBox.Items.Add(GetGrid(issue.Number.ToString(), issue.Title, issue.HtmlUrl));
+                        var grid = GetGrid(issue.Number.ToString(), issue.Title, issue.HtmlUrl);
+                        IssuesBox.Items.Add(grid);
+                        grid.FadeIn(350, start);
                     });
+
+                    start += 50;
                 }
             }).Start();
         }

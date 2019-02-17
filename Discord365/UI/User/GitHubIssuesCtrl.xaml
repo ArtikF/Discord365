@@ -17,7 +17,7 @@
         <TextBlock HorizontalAlignment="Left" Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Text="See Discord 365 issues on GitHub" Margin="22,8,0,0"  Foreground="#BFADCBFF" VerticalAlignment="Top" TextDecorations="Underline" Background="#00000000"></TextBlock>
         <TextBlock HorizontalAlignment="Right" Cursor="Hand" Text="Report new issue" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1" Margin="0,8,22,0"  Foreground="#BFADCBFF" VerticalAlignment="Top" TextDecorations="Underline" Background="#00000000"></TextBlock>
         <ListBox x:Name="IssuesBox" Margin="8,32,8,8" SelectionChanged="IssuesBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderBrush="#00ABADB3">
-            <TextBlock Foreground="#26FFFFFF" FontSize="18" Margin="8,2,8,2" Text="Loading issues..."></TextBlock>
+            <TextBlock x:Name="tbLoading" Foreground="#26FFFFFF" FontSize="18" Margin="8,2,8,2" Text="Loading issues..."></TextBlock>
         </ListBox>
     </Grid>
 </UserControl>
