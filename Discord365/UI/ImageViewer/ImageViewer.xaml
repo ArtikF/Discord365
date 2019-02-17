@@ -31,7 +31,7 @@
             <res:IconClose></res:IconClose>
         </Button>
         <Grid  HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Margin="10">
-            <Border  Background="#D8000000" CornerRadius="3"></Border>
+            <Border  Background="#14FFFFFF" CornerRadius="3"></Border>
             <WrapPanel>
                 <TextBlock x:Name="tbShowOriginal" Cursor="Hand" Margin="15,10,10,10" TextWrapping="Wrap" MouseLeftButtonUp="TbShowOriginal_MouseLeftButtonUp" Text="Show original" Foreground="#FF5BA6FF" TextDecorations="Underline" Background="#00000000"/>
                 <Button x:Name="btnDownload" ToolTip="The image will be saved in Downloads folder" Click="BtnDownload_Click" Margin="0,0,0,0" Content="Download" Width="85" Foreground="#BFFFFFFF" Background="#00000000"></Button>
