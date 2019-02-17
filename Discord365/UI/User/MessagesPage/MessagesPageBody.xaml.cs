@@ -36,12 +36,23 @@ namespace Discord365.UI.User.MessagesPage
             Sender.Channel = Channel;
         }
 
+        public static Border GetSeparator()
+        {
+            Border b = new Border();
+            b.Margin = new Thickness(0, 8, 0, 8);
+            b.HorizontalAlignment = HorizontalAlignment.Stretch;
+            b.Height = 1;
+            b.Background = new SolidColorBrush(Color.FromArgb(0x7, 0xFF, 0xFF, 0xFF));
+            return b;
+        }
+
         public void AddMessage(Message.Message e)
         {
             var related = GetRelatedMessage(e);
 
             if (related == null || related.TimeStamp.AddMinutes(3) < e.TimeStamp)
             {
+                MessagesPanel.Children.Add(GetSeparator());
                 e.Margin = new Thickness(0, 8, 0, 8);
                 MessagesPanel.Children.Add(e);
             }

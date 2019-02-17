@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <local:MessageHeader x:Name="MessageHeader"></local:MessageHeader>
+        <local:MessageHeader x:Name="MessageHeader" HorizontalAlignment="Left" VerticalAlignment="Top"></local:MessageHeader>
         <WrapPanel x:Name="MessagesPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,24,0,0"  Orientation="Vertical">
         </WrapPanel>
     </Grid>
