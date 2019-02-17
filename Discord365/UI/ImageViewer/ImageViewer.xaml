@@ -17,7 +17,7 @@
     <Grid>
         <Grid x:Name="ClickToCloseGrid" Background="Transparent" MouseLeftButtonUp="ClickToCloseGrid_MouseLeftButtonUp">
         </Grid>
-        <Grid x:Name="ImageCanvas">
+        <Grid x:Name="ImageCanvas" Margin="0,75,0,55">
             <TextBlock Text="Something went wrong" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center" Foreground="#BFFFFFFF"></TextBlock>
         </Grid>
         <Button x:Name="RightBtn" Visibility="Hidden" Click="RightBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
@@ -27,7 +27,7 @@
             <TextBlock Text="&lt;"></TextBlock>
         </Button>
         <TextBlock Visibility="Hidden" x:Name="tbImageCounter" Text="0/0" Foreground="#7FFFFFFF" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8"></TextBlock>
-        <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Height="75" Background="#F21F0808" Margin="0" BorderBrush="{x:Null}" Foreground="White">
+        <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Height="75" Margin="0" BorderBrush="{x:Null}" Foreground="White">
             <res:IconClose></res:IconClose>
         </Button>
         <Grid  HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Margin="10">
