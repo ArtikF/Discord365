@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Discord365.UI.ImageViewer"
+        xmlns:res="clr-namespace:Discord365.UI.Resources"
         mc:Ignorable="d"
         Title="Image - Discord 365" Height="600" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#59000000">
     <Window.Resources>
@@ -26,28 +27,7 @@
         </Button>
         <TextBlock x:Name="tbImageCounter" Text="0/0" Foreground="#7FFFFFFF" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8"></TextBlock>
         <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="45" Height="45" Background="#00000000" BorderBrush="{x:Null}" Foreground="White">
-            <Grid>
-                <Rectangle Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15" Height="1" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="45"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15" Height="1" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-45"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-            </Grid>
+            <res:IconClose></res:IconClose>
         </Button>
     </Grid>
 </Window>

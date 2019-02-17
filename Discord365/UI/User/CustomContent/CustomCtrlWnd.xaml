@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.CustomContent"
+             xmlns:res="clr-namespace:Discord365.UI.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
 
@@ -24,11 +25,8 @@
         <Grid x:Name="ContentGrid" HorizontalAlignment="Stretch" Margin="232,0,0,0" VerticalAlignment="Stretch" Background="#14FFFFFF">
             <TextBlock Foreground="#3FFFFFFF" HorizontalAlignment="Center" FontSize="18" VerticalAlignment="Center">Welcome to Discord 365 custom control!</TextBlock>
         </Grid>
-        <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,32,32,0" VerticalAlignment="Top" Width="75" Height="50" Click="BtnClose_Click">
-            <WrapPanel Orientation="Vertical">
-            <TextBlock TextAlignment="Center">Close</TextBlock>
-                <TextBlock TextAlignment="Center" FontSize="9">(temporary style)</TextBlock>
-            </WrapPanel>
+        <Button x:Name="BtnClose" HorizontalAlignment="Right" Margin="0,8,8,0" VerticalAlignment="Top" Width="45" Height="45" Click="BtnClose_Click" Foreground="#8CFFFFFF">
+            <res:IconClose></res:IconClose>
         </Button>
     </Grid>
 </UserControl>

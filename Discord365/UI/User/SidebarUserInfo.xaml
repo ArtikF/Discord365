@@ -7,6 +7,15 @@
              xmlns:dm="clr-namespace:Discord365.UI.User.DirectMsgsContents"
              mc:Ignorable="d" 
              d:DesignHeight="53" d:DesignWidth="240" Background="#14000000">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
         <dm:DMUserEntry x:Name="e"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"></dm:DMUserEntry>
         <local:UserAvatar x:Name="CurrentUserAvatar" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Center" Width="33" Height="33" MouseLeftButtonUp="CurrentUserAvatar_MouseLeftButtonUp">
@@ -20,7 +29,7 @@
                 </ContextMenu>
             </local:UserAvatar.ContextMenu>
         </local:UserAvatar>
-        <Button x:Name="btnWrench" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,16,0" Click="BtnWrench_Click">
-            <TextBlock FontSize="6">Wrench</TextBlock></Button>
+        <Button x:Name="btnWrench" HorizontalAlignment="Right" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,16,0" Click="BtnWrench_Click" Foreground="#A8FFFFFF" Background="Transparent">
+            <TextBlock FontSize="5">Wrench</TextBlock></Button>
     </Grid>
 </UserControl>

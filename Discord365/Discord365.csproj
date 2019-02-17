@@ -147,6 +147,9 @@
     <Compile Include="UI\MainClientWnd.xaml.cs">
       <DependentUpon>MainClientWnd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Resources\IconClose.xaml.cs">
+      <DependentUpon>IconClose.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Resources\TextChannelImage.xaml.cs">
       <DependentUpon>TextChannelImage.xaml</DependentUpon>
     </Compile>
@@ -282,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MainClientWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Resources\IconClose.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Resources\TextChannelImage.xaml">
