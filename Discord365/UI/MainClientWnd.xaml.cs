@@ -224,6 +224,7 @@ namespace Discord365.UI
                             if ((b.Channel != null && b.Channel.Id == arg.Channel.Id) || (b.DmBotChannel != null && b.DmBotChannel.Id == arg.Channel.Id))
                             {
                                 var m = new User.MessagesPage.Message.Message();
+                                m.TimeStamp = arg.Timestamp.DateTime;
                                 m.RelatedUser = arg.Author;
                                 m.AppendMessage(arg);
 
