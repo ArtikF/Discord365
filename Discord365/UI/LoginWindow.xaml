@@ -16,16 +16,13 @@
     </UserControl.Resources>
 
     <Grid x:Name="MainGrid">
-        <Grid x:Name="GridBackground">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF7288D3" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Image></Image>
+        <Grid x:Name="GridBackground" Background="#FF191C21">
+            <Image x:Name="ImageBackground" Stretch="UniformToFill">
+            </Image>
+            <TextBlock x:Name="ImageTitle" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="" Margin="10,10,10,30" Foreground="#BFFFFFFF" TextDecorations="{x:Null}" FontSize="14"/>
+            <TextBlock x:Name="CopyrightInfo" MouseLeftButtonUp="CopyrightInfo_MouseLeftButtonUp" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="" Margin="10" Foreground="#FF74CCFF" TextDecorations="Underline"></TextBlock>
         </Grid>
-        <Grid Opacity="0.45" x:Name="Shadows" HorizontalAlignment="Center" VerticalAlignment="Center" Height="284" Width="508">
+        <Grid Opacity="0.45" Visibility="Hidden" x:Name="Shadows" HorizontalAlignment="Center" VerticalAlignment="Center" Height="284" Width="508">
             <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="16" Width="16">
                 <Grid.OpacityMask>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -212,7 +209,8 @@
                 </Grid.Background>
             </Grid>
         </Grid>
-        <Grid x:Name="LoginContent" HorizontalAlignment="Center" VerticalAlignment="Center" Height="252" Width="476" Background="#7229344D">
+        <Grid x:Name="LoginContent" HorizontalAlignment="Center" VerticalAlignment="Center" Height="252" Width="476">
+            <Border Background="#BF000000" CornerRadius="4" BorderThickness="1" BorderBrush="#F2000000"></Border>
             <TextBlock Text="Token:" HorizontalAlignment="Center" Margin="9,104,433,0" VerticalAlignment="Top" Foreground="#4CFFFFFF"/>
             <PasswordBox x:Name="tbToken" Height="23" Margin="10,123,10,106" VerticalAlignment="Center"/>
             <RadioButton x:Name="rBot" Content="Bot" HorizontalAlignment="Left" Margin="10,0,0,15" VerticalAlignment="Bottom" Foreground="White" IsChecked="True"/>

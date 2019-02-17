@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,6 +72,29 @@ namespace Discord365.UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //new Thread(() => 
+            //{
+            //    try
+            //    {
+            //        string url = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1";
+
+            //        using (WebClient c = new WebClient())
+            //        {
+            //            string json = c.DownloadString(url);
+            //            var message = Newtonsoft.Json.JsonConvert.DeserializeObject<BingImage>(json);
+
+            //            Dispatcher.Invoke(() =>
+            //            {
+            //                ImageBackground.Source = BitmapFrame.Create(new Uri("https://www.bing.com" + message.images[0].url));
+            //                CopyrightInfo.Tag = message.images[0].copyrightlink;
+            //                CopyrightInfo.Text = message.images[0].copyright;
+            //                ImageTitle.Text = message.images[0].title;
+            //            });
+            //        }
+            //    }
+            //    catch { }
+            //}).Start();
+
             TokenCheck();
         }
 
@@ -117,7 +142,19 @@ namespace Discord365.UI
                 //Shadows.FadeIn(250);
                 //LoginContent.FadeIn(250);
 
-                GridBackground.FadeIn(4000, 751);
+                GridBackground.FadeIn(5000, 1500);
+            }
+        }
+
+        private void CopyrightInfo_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (CopyrightInfo.Tag != null && CopyrightInfo.Tag is string)
+            {
+                System.Diagnostics.Process.Start((string)CopyrightInfo.Tag);
+            }
+            else if (CopyrightInfo.Tag != null && CopyrightInfo.Tag is Uri)
+            {
+                System.Diagnostics.Process.Start(((Uri)CopyrightInfo.Tag).ToString());
             }
         }
     }

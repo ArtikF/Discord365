@@ -137,6 +137,7 @@
     <Compile Include="UI\AppWindow.xaml.cs">
       <DependentUpon>AppWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\BingImage.cs" />
     <Compile Include="UI\ImageViewer\ImageInfo.cs" />
     <Compile Include="UI\ImageViewer\ImageViewer.xaml.cs">
       <DependentUpon>ImageViewer.xaml</DependentUpon>
