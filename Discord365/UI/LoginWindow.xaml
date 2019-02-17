@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Discord365.UI"
         mc:Ignorable="d"
-        d:DesignHeight="600" d:DesignWidth="800" Foreground="Black" Background="Black" Loaded="Window_Loaded" IsVisibleChanged="Window_IsVisibleChanged">
+        d:DesignHeight="600" d:DesignWidth="800" Foreground="#B2FFFFFF" Background="Black" Loaded="Window_Loaded" IsVisibleChanged="Window_IsVisibleChanged">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid x:Name="MainGrid">
         <Grid x:Name="GridBackground">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF226C78" Offset="1"/>
+                    <GradientStop Color="#FF7288D3" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Image></Image>
