@@ -153,7 +153,7 @@
                 <ControlTemplate TargetType="Button">
                     <Border TextBlock.Foreground="{TemplateBinding Foreground}"
                 x:Name="Border"
-                CornerRadius="2"
+                CornerRadius="3"
                 BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="#00000000">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
