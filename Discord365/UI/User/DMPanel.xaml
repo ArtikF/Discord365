@@ -19,8 +19,8 @@
             <WrapPanel Orientation="Vertical">
                 <WrapPanel x:Name="PanelDM" Orientation="Vertical">
                 </WrapPanel>
-                <TextBlock x:Name="tbOnline" Text="0 online" Foreground="#26FFFFFF" Margin="0,2,0,2" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Stretch" Width="68"/>
-                <Rectangle Stroke="#26FFFFFF"  Margin="0,2,0,0" Width="30" Height="1"/>
+                <TextBlock x:Name="tbOnline" Text="0 online" Foreground="#26FFFFFF" Margin="0,2,0,2" TextAlignment="Center" HorizontalAlignment="Center"/>
+                <Border Background="#26FFFFFF"  Margin="16,2,16,0" HorizontalAlignment="Stretch" Height="1"/>
                 <WrapPanel x:Name="ServerPanel">
                 </WrapPanel>
             </WrapPanel>
