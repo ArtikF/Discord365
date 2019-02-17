@@ -10,10 +10,12 @@ namespace Discord365.UI.ImageViewer
 {
     public class ImageInfo
     {
+        public string filename = "";
         public string source = "";
 
-        public ImageInfo(string sourceUri)
+        public ImageInfo(string f, string sourceUri)
         {
+            filename = f;
             source = sourceUri;
         }
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Discord365.UI.ImageViewer"
         xmlns:res="clr-namespace:Discord365.UI.Resources"
         mc:Ignorable="d"
-        Title="Image - Discord 365" Height="600" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#59000000">
+        Title="Image - Discord 365" Height="600" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#BF000000">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,19 +15,27 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Grid x:Name="ClickToCloseGrid" Background="Transparent" MouseLeftButtonUp="ClickToCloseGrid_MouseLeftButtonUp"></Grid>
+        <Grid x:Name="ClickToCloseGrid" Background="Transparent" MouseLeftButtonUp="ClickToCloseGrid_MouseLeftButtonUp">
+        </Grid>
         <Grid x:Name="ImageCanvas">
             <TextBlock Text="Something went wrong" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center" Foreground="#BFFFFFFF"></TextBlock>
         </Grid>
-        <Button x:Name="RightBtn" Click="RightBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
+        <Button x:Name="RightBtn" Visibility="Hidden" Click="RightBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
             <TextBlock Text="&gt;"></TextBlock>
         </Button>
-        <Button x:Name="LeftBtn" Click="LeftBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
+        <Button x:Name="LeftBtn" Visibility="Hidden" Click="LeftBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Stretch" Height="380" Width="45"  Background="#00000000" Foreground="White" BorderBrush="{x:Null}">
             <TextBlock Text="&lt;"></TextBlock>
         </Button>
-        <TextBlock x:Name="tbImageCounter" Text="0/0" Foreground="#7FFFFFFF" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8"></TextBlock>
-        <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="45" Height="45" Background="#00000000" BorderBrush="{x:Null}" Foreground="White">
+        <TextBlock Visibility="Hidden" x:Name="tbImageCounter" Text="0/0" Foreground="#7FFFFFFF" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8"></TextBlock>
+        <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Height="75" Background="#F21F0808" Margin="0" BorderBrush="{x:Null}" Foreground="White">
             <res:IconClose></res:IconClose>
         </Button>
+        <Grid  HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Margin="10">
+            <Border  Background="#D8000000" CornerRadius="3"></Border>
+            <WrapPanel>
+                <TextBlock x:Name="tbShowOriginal" Cursor="Hand" Margin="15,10,10,10" TextWrapping="Wrap" MouseLeftButtonUp="TbShowOriginal_MouseLeftButtonUp" Text="Show original" Foreground="#FF5BA6FF" TextDecorations="Underline" Background="#00000000"/>
+                <Button x:Name="btnDownload" ToolTip="The image will be saved in Downloads folder" Click="BtnDownload_Click" Margin="0,0,0,0" Content="Download" Width="85" Foreground="#BFFFFFFF" Background="#00000000"></Button>
+            </WrapPanel>
+        </Grid>
     </Grid>
 </Window>

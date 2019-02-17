@@ -13,6 +13,22 @@ namespace Discord365.UI
 {
     public static class Extensions
     {
+        public static string[] ImageExtensions = { ".jpg", ".jpeg", ".bpm", ".tif", ".tiff", ".gif", ".png" };
+        public static string[] VideoExtensions = { ".mp4", ".avi", ".webm" };
+
+        public static bool CheckForEnding(this string str, string[] array)
+        {
+            foreach (var img in array)
+            {
+                if (str.ToLower().EndsWith(img.ToLower()))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public static Discord.IMessage[] SortMessagesByDate(Discord.IMessage[] source)
         {
             List<Discord.IMessage> result = new List<Discord.IMessage>();

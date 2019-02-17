@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Discord365.UI.Extensions;
 
 namespace Discord365.UI.User.MessagesPage.Message
 {
@@ -62,11 +63,21 @@ namespace Discord365.UI.User.MessagesPage.Message
             {
                 foreach(var attachment in msg.Attachments)
                 {
-                    var aobj = new AttachmentContent();
-                    aobj.HorizontalAlignment = HorizontalAlignment.Stretch;
-                    aobj.Attach = attachment;
-                    aobj.Margin = DefaultPadding;
-                    m.Panel.Children.Add(aobj);
+                    if (attachment.Filename.CheckForEnding(ImageExtensions))
+                    {
+                        var img = new MessageImage(attachment.Filename);
+                        img.SetImage(attachment.Url);
+                        img.Margin = DefaultPadding;
+                        m.Panel.Children.Add(img);
+                    }
+                    else
+                    {
+                        var aobj = new AttachmentContent();
+                        aobj.HorizontalAlignment = HorizontalAlignment.Stretch;
+                        aobj.Attach = attachment;
+                        aobj.Margin = DefaultPadding;
+                        m.Panel.Children.Add(aobj);
+                    }
                 }
             }
 

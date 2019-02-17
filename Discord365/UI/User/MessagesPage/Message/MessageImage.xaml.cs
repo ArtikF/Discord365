@@ -20,9 +20,18 @@ namespace Discord365.UI.User.MessagesPage.Message
     /// </summary>
     public partial class MessageImage : UserControl
     {
-        public MessageImage()
+        public string filename = "";
+
+        public MessageImage(string file = "")
         {
+            filename = file;
             InitializeComponent();
+        }
+
+        public void SetImage(string url)
+        {
+            MessageImageS.Source = BitmapFrame.Create(new Uri(url + "?width=400&height=225"));
+            MessageImageS.Tag = url;
         }
 
         private void MessagePhoto_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -31,7 +40,8 @@ namespace Discord365.UI.User.MessagesPage.Message
                 return;
 
             var viewer = new UI.ImageViewer.ImageViewer();
-            viewer.AddImage(new ImageViewer.ImageInfo(MessageImageS.Tag as string));
+            viewer.AddImage(new ImageViewer.ImageInfo(filename, MessageImageS.Tag as string));
+            viewer.ShowDialog();
         }
     }
 }

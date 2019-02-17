@@ -24,7 +24,13 @@ namespace Discord365.UI.User.MessagesPage.Message
     {
         public DateTime TimeStamp
         {
-            get => (DateTime)tbTimeStamp.Tag;
+            get
+            {
+                if (tbTimeStamp.Tag != null && tbTimeStamp.Tag is DateTime)
+                    return (DateTime)tbTimeStamp.Tag;
+                else
+                    return DateTime.MinValue;
+            }
             set { tbTimeStamp.Text = value.ToString(); tbTimeStamp.Tag = value; }
         }
 
