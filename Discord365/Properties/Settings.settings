@@ -5,5 +5,11 @@
     <Setting Name="TokenType" Type="Discord.TokenType" Scope="User">
       <Value Profile="(Default)">Bot</Value>
     </Setting>
+    <Setting Name="LanguageLocale" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PlainTextInsteadOfMarkdown" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

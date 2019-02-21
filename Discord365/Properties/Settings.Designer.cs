@@ -34,5 +34,29 @@ namespace Discord365.Properties {
                 this["TokenType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LanguageLocale {
+            get {
+                return ((string)(this["LanguageLocale"]));
+            }
+            set {
+                this["LanguageLocale"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PlainTextInsteadOfMarkdown {
+            get {
+                return ((bool)(this["PlainTextInsteadOfMarkdown"]));
+            }
+            set {
+                this["PlainTextInsteadOfMarkdown"] = value;
+            }
+        }
     }
 }

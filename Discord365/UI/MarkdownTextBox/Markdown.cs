@@ -19,6 +19,15 @@ namespace Discord365.UI.MarkdownTextBox
         public static Grid GetContentFromText(string text)
         {
             Grid g = new Grid();
+
+            if (Properties.Settings.Default.PlainTextInsteadOfMarkdown)
+            {
+                PlainTextBox tb = new PlainTextBox();
+                tb.Text = text;
+                g.Children.Add(tb);
+                return g;
+            }
+
             WrapPanel w = new WrapPanel();
             g.Children.Add(w);
 
