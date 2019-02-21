@@ -148,6 +148,11 @@
     <Compile Include="UI\MainClientWnd.xaml.cs">
       <DependentUpon>MainClientWnd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\MarkdownTextBox\Markdown.cs" />
+    <Compile Include="UI\MarkdownTextBox\MarkdownBox.xaml.cs">
+      <DependentUpon>MarkdownBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MarkdownTextBox\MarkdownInfo.cs" />
     <Compile Include="UI\Resources\IconClose.xaml.cs">
       <DependentUpon>IconClose.xaml</DependentUpon>
     </Compile>
@@ -289,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MainClientWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MarkdownTextBox\MarkdownBox.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Resources\IconClose.xaml">
