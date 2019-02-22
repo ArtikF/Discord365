@@ -49,7 +49,7 @@ namespace Discord365.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool PlainTextInsteadOfMarkdown {
             get {
                 return ((bool)(this["PlainTextInsteadOfMarkdown"]));
