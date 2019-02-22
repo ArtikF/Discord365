@@ -176,6 +176,9 @@
     <Compile Include="UI\User\CustomContent\CustomCtrlWnd.xaml.cs">
       <DependentUpon>CustomCtrlWnd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\User\CustomContent\UserSettings\Appearance.xaml.cs">
+      <DependentUpon>Appearance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\CustomContent\UserSettings\Debug.xaml.cs">
       <DependentUpon>Debug.xaml</DependentUpon>
     </Compile>
@@ -329,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\CustomContent\CustomCtrlWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\User\CustomContent\UserSettings\Appearance.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\CustomContent\UserSettings\Debug.xaml">

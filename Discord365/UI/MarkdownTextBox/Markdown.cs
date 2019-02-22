@@ -45,7 +45,7 @@ namespace Discord365.UI.MarkdownTextBox
 
             // Placeholder
             FlowDocument flow = new FlowDocument();
-            flow.Blocks.Add(new Paragraph(new Run(text) { FontFamily = new FontFamily("Segoe UI"), FontSize = 12 }));
+            flow.Blocks.Add(new Paragraph(new Run(text) { FontFamily = new FontFamily("Segoe UI"), FontSize = 14 }));
             w.Children.Add(new MarkdownBox(flow));
 
             return g;

@@ -45,8 +45,7 @@ namespace Discord365.UI.User.CustomContent
 
                 if (element is Grid)
                     grid.Tag = ((Grid)element).Tag;
-
-
+                
                 MenuBox.Items.Add(grid);
             }
         }
@@ -70,12 +69,15 @@ namespace Discord365.UI.User.CustomContent
         public void SetUserSettingsContent()
         {
             MenuBox.Items.Clear();
-            Set(null);
 
+            var def = GetLinkGrid("Appearance", new UserSettings.Appearance());
+            AddMenuElement(def);
             AddMenuElement(GetLinkGrid("My Account", new Settings.User()));
             AddMenuElement(GetLinkGrid("Debug", new Settings.Debug()));
             AddMenuElement(GetLinkGrid("Log Out", new UserSettings.LogOut()));
             AddMenuElement(GetLinkGrid("About Discord 365", new AboutDiscord365()));
+
+            Set(((LinkTag)def.Tag).link);
         }
 
         public Grid GetLinkGrid(string Text, UIElement link)
