@@ -35,6 +35,9 @@ namespace Discord365.UI.User.MessagesPage
 
         public async void SendMessage(string text)
         {
+            if (text == null || text.Length <= 0)
+                return;
+
             // DoGhostAnimation(text); // temporary disabled
 
             if (Channel != null)
