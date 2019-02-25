@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discord.net", "Discord.net"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord365.Resources", "Discord365.Resources\Discord365.Resources.csproj", "{BF63CC86-A839-4075-81A2-833097A6EA8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord365.CrashHandler", "Discord365.CrashHandler\Discord365.CrashHandler.csproj", "{23D1E330-91C7-47C7-9A46-03A9243EB5A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -190,6 +192,18 @@ Global
 		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x64.Build.0 = Release|Any CPU
 		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x86.ActiveCfg = Release|Any CPU
 		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x86.Build.0 = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|x64.Build.0 = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Debug|x86.Build.0 = Debug|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|x64.ActiveCfg = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|x64.Build.0 = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|x86.ActiveCfg = Release|Any CPU
+		{23D1E330-91C7-47C7-9A46-03A9243EB5A5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -15,6 +17,7 @@ namespace Discord365
     public partial class App : Application
     {
         public const string ErrorLogFile = "discord365_crash.log";
+        public const string CrashHandlerExe = "Discord365.CrashHandler.exe";
 
         public static UI.LoginWindow LoginWnd;
         public static UI.MainClientWnd MainWnd;
@@ -37,34 +40,44 @@ namespace Discord365
             AppWnd.ShowDialog();
         }
 
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
         private void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
         {
             if (System.Diagnostics.Debugger.IsAttached)
                 return;
 
+            StringBuilder b = new StringBuilder();
+            b.AppendLine("Unhandled Exception Happened at " + DateTime.Now.ToString());
+            b.AppendLine("Send this file there: https://github.com/discord365/Discord365/issues/new");
+            b.AppendLine();
+            b.AppendLine("Author: " + Environment.UserName);
+            b.AppendLine("Receiver: https://github.com/discord365/Discord365/issues");
+            b.AppendLine("Topic: " + ((Exception)e.ExceptionObject).Message);
+            b.AppendLine();
+            b.AppendLine(((Exception)e.ExceptionObject).ToString());
+
             try
             {
                 using(StreamWriter w = new StreamWriter(ErrorLogFile))
                 {
-                    w.WriteLine("Unhandled Exception Happened at " + DateTime.Now.ToString());
-                    w.WriteLine("Send this file there: https://github.com/discord365/Discord365/issues/new");
-                    w.WriteLine();
-                    w.WriteLine("Author: " + Environment.UserName);
-                    w.WriteLine("Receiver: https://github.com/discord365/Discord365/issues");
-                    w.WriteLine("Topic: " + ((Exception)e.ExceptionObject).Message);
-                    w.WriteLine();
-                    w.WriteLine(((Exception)e.ExceptionObject).ToString());
-                }
-
-                var dialog = MessageBox.Show($"Discord 365 just made a big WHOOPSIE.\r\n\r\nCrash information and instructions are saved in {ErrorLogFile}.\r\n\r\nPress 'Yes' to close the application and open this file.\r\nPress 'No' if you want to start the default debugger.", "Discord 365 Crashed", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-
-                if (dialog == MessageBoxResult.Yes)
-                {
-                    System.Diagnostics.Process.Start(ErrorLogFile);
-                    Environment.Exit(1);
+                    w.Write(b.ToString());
                 }
             }
             catch { }
+
+            try
+            {
+                if (File.Exists(CrashHandlerExe))
+                    Process.Start(CrashHandlerExe, "\"" + Base64Encode(b.ToString()) + "\"");
+            }
+            catch { }
+
+            Environment.Exit(1);
         }
     }
 }

@@ -493,6 +493,10 @@
       <Project>{688fd1d8-7f01-4539-b2e9-f473c5d699c7}</Project>
       <Name>Discord.Net.WebSocket</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Discord365.CrashHandler\Discord365.CrashHandler.csproj">
+      <Project>{23d1e330-91c7-47c7-9a46-03a9243eb5a5}</Project>
+      <Name>Discord365.CrashHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Discord365.Resources\Discord365.Resources.csproj">
       <Project>{bf63cc86-a839-4075-81a2-833097a6ea8e}</Project>
       <Name>Discord365.Resources</Name>

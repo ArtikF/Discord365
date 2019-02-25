@@ -1,0 +1,27 @@
+﻿<Window x:Class="Discord365.CrashHandler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Discord365.CrashHandler"
+        mc:Ignorable="d"
+        Title="Discord 365 - Application Crashed" Height="450" Width="800" Background="#FF1B1515" WindowStartupLocation="CenterScreen" Foreground="#B2FFFFFF">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Discord365.Resources;component/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <TextBlock FontSize="20" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Foreground="#D8FFFFFF">Discord 365 made a <Run FontWeight="Bold">BIG WHOOPSIE</Run>.</TextBlock>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Margin="10,40,10,10" FontSize="14">
+            Something just crashed in the application.<LineBreak/>
+            It would be nice if you <Run TextDecorations="Underline" MouseLeftButtonUp="Run_MouseLeftButtonUp" Cursor="Hand" Foreground="#FF8D97FF" Background="#00000000">create an issue</Run> with this crash-report on  <Run TextDecorations="Underline" MouseLeftButtonUp="Run_MouseLeftButtonUp" Cursor="Hand" Foreground="#FF8D97FF" Background="#00000000">our GitHub repository</Run>.<LineBreak/>
+            We'll answer you as soon as possible.<LineBreak/>
+            <Run x:Name="cCopy" MouseLeftButtonUp="CCopy_MouseLeftButtonUp" TextDecorations="Underline" Cursor="Hand" Foreground="#FF8D97FF" Background="#00000000">Copy</Run> - <Run x:Name="cSave" MouseLeftButtonUp="CSave_MouseLeftButtonUp" TextDecorations="Underline" Cursor="Hand" Foreground="#FF8D97FF" Background="#00000000">Save As File</Run> - <Run x:Name="cSelectAll" MouseLeftButtonUp="CSelectAll_MouseLeftButtonUp" TextDecorations="Underline" Cursor="Hand" Foreground="#FF8D97FF" Background="#00000000">Select All</Run></TextBlock>
+        <TextBox x:Name="BugTb" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" FontFamily="Courier New" FontSize="12" IsReadOnly="True" Margin="10,125,10,10"/>
+    </Grid>
+</Window>
