@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_sharded_client", "Discor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discord.net", "Discord.net", "{DF7AC561-17B8-457D-915E-FE306B12E503}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord365.Resources", "Discord365.Resources\Discord365.Resources.csproj", "{BF63CC86-A839-4075-81A2-833097A6EA8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,6 +178,18 @@ Global
 		{9B4C4AFB-3D15-44C6-9E36-12ED625AAA26}.Release|x64.Build.0 = Release|Any CPU
 		{9B4C4AFB-3D15-44C6-9E36-12ED625AAA26}.Release|x86.ActiveCfg = Release|Any CPU
 		{9B4C4AFB-3D15-44C6-9E36-12ED625AAA26}.Release|x86.Build.0 = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x64.Build.0 = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{BF63CC86-A839-4075-81A2-833097A6EA8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,14 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Discord365.UI.User.Screens"
-             xmlns:Resources="clr-namespace:Discord365.UI.Resources" x:Class="Discord365.UI.User.Screens.SearchGoCompleted"
+             xmlns:Resources="clr-namespace:Discord365.Resources;assembly=Discord365.Resources" x:Class="Discord365.UI.User.Screens.SearchGoCompleted"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Styles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Discord365.Resources;component/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>

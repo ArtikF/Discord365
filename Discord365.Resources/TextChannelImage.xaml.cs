@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Discord365.UI.Resources
+namespace Discord365.Resources
 {
     /// <summary>
     /// Interaction logic for TextChannelImage.xaml

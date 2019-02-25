@@ -153,12 +153,6 @@
     <Compile Include="UI\MarkdownTextBox\PlainTextBox.xaml.cs">
       <DependentUpon>PlainTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Resources\IconClose.xaml.cs">
-      <DependentUpon>IconClose.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Resources\TextChannelImage.xaml.cs">
-      <DependentUpon>TextChannelImage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\ShortNameTool.cs" />
     <Compile Include="UI\Extensions.cs" />
     <Compile Include="UI\User\ContentBasic.xaml.cs">
@@ -301,17 +295,6 @@
     </Page>
     <Page Include="UI\MarkdownTextBox\PlainTextBox.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Resources\IconClose.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Resources\TextChannelImage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\User\ContentBasic.xaml">
@@ -509,6 +492,10 @@
     <ProjectReference Include="..\Discord.Net\src\Discord.Net.WebSocket\Discord.Net.WebSocket.csproj">
       <Project>{688fd1d8-7f01-4539-b2e9-f473c5d699c7}</Project>
       <Name>Discord.Net.WebSocket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Discord365.Resources\Discord365.Resources.csproj">
+      <Project>{bf63cc86-a839-4075-81a2-833097a6ea8e}</Project>
+      <Name>Discord365.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Discord365.UI.ImageViewer"
-        xmlns:res="clr-namespace:Discord365.UI.Resources"
+        xmlns:res="clr-namespace:Discord365.Resources;assembly=Discord365.Resources"
         mc:Ignorable="d"
         Title="Image - Discord 365" Height="600" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#BF000000">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Styles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Discord365.Resources;component/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>

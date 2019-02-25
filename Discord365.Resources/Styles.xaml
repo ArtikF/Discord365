@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Discord365.UI">
+                    xmlns:local="clr-namespace:Discord365.Resources">
 
     <Style x:Key="MessageRichTextBox" TargetType="{x:Type RichTextBox}">
         <Setter Property="SnapsToDevicePixels"
