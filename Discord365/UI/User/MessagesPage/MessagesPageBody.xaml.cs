@@ -74,6 +74,8 @@ namespace Discord365.UI.User.MessagesPage
                 return null;
 
             var last = MessagesPanel.Children[MessagesPanel.Children.Count - 1] as Message.Message;
+            if (last == null)
+                return null;
 
             if (last.RelatedUser != null && last.RelatedUser.Id == m.RelatedUser.Id)
                 return last;
