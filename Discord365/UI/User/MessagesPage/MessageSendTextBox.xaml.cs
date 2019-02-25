@@ -35,7 +35,7 @@ namespace Discord365.UI.User.MessagesPage
 
         public async void SendMessage(string text)
         {
-            DoGhostAnimation(text);
+            // DoGhostAnimation(text); // temporary disabled
 
             if (Channel != null)
             {
@@ -95,7 +95,14 @@ namespace Discord365.UI.User.MessagesPage
                     tbMessage.Text = "";
                 }
                 else
-                    tbMessage.AppendText(Environment.NewLine);
+                {
+                    tbMessage.AppendText("\r\n");
+                    try
+                    {
+                        tbMessage.Select(tbMessage.SelectionStart + 1, 0);
+                    }
+                    catch { }
+                }
             }
         }
     }
