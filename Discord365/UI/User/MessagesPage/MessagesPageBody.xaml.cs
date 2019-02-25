@@ -39,7 +39,7 @@ namespace Discord365.UI.User.MessagesPage
         public static Border GetSeparator()
         {
             Border b = new Border();
-            b.Margin = new Thickness(0, 8, 0, 8);
+            b.Margin = new Thickness(0, 5, 0, 5);
             b.HorizontalAlignment = HorizontalAlignment.Stretch;
             b.Height = 1;
             b.Background = new SolidColorBrush(Color.FromArgb(0x9, 0xFF, 0xFF, 0xFF));
@@ -53,7 +53,7 @@ namespace Discord365.UI.User.MessagesPage
             if (related == null || related.TimeStamp.AddMinutes(3) < e.TimeStamp)
             {
                 MessagesPanel.Children.Add(GetSeparator());
-                e.Margin = new Thickness(0, 8, 0, 8);
+                e.Margin = new Thickness(0, 5, 0, 5);
                 MessagesPanel.Children.Add(e);
             }
             else
