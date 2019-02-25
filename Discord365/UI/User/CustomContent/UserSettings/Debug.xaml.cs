@@ -24,5 +24,15 @@ namespace Discord365.UI.User.CustomContent.Settings
         {
             InitializeComponent();
         }
+
+        private void BtnAttachDebug_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debugger.Launch();
+        }
+
+        private void BtnCrashApp_Click(object sender, RoutedEventArgs e)
+        {
+            throw new Exception("Manually crashed application.");
+        }
     }
 }
