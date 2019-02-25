@@ -133,8 +133,10 @@ namespace Discord365.UI
         {
             new Thread(() =>
             {
-                foreach (var u in UpdateAvatars)
+                for(int i = 0; i < UpdateAvatars.Count; i++)
                 {
+                    var u = UpdateAvatars[i];
+
                     if (u.RelatedUser != null && u.RelatedUser.Id == arg1.Id)
                     {
                         u.RelatedUser = arg1;
@@ -174,8 +176,10 @@ namespace Discord365.UI
             {
                 Dispatcher.Invoke(() =>
                 {
-                    foreach (var s in DMPanel.ServerPanel.Children)
+                    for(int i = 0; i < DMPanel.ServerPanel.Children.Count; i++)
                     {
+                        var s = DMPanel.ServerPanel.Children[i];
+
                         User.DMPanelButton btn = (User.DMPanelButton)s;
 
                         if (btn.RelatedServer.Id == arg1.Id)
@@ -219,8 +223,10 @@ namespace Discord365.UI
             {
                 Dispatcher.Invoke(() =>
                 {
-                    foreach (var c in ContentBasic.GridContent.Children)
+                    for(int i = 0; i < ContentBasic.GridContent.Children.Count; i++)
                     {
+                        var c = ContentBasic.GridContent.Children[i];
+
                         if (c is User.MessagesPage.MessagesPageBody)
                         {
                             var b = c as User.MessagesPage.MessagesPageBody;

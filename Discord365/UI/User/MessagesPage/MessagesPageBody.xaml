@@ -16,9 +16,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="383*"/>
-            <RowDefinition Height="67"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="MessagesScroll" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="16,16,16,10">
+        <ScrollViewer x:Name="MessagesScroll" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="15,15,15,15">
             <WrapPanel x:Name="MessagesPanel" Orientation="Vertical">
                 <Grid Margin="18">
                     <TextBlock Text="Loading messages..." Foreground="#22FFFFFF" FontSize="18"></TextBlock>
@@ -26,14 +26,15 @@
             </WrapPanel>
         </ScrollViewer>
 
-        <local:MessageSendTextBox x:Name="Sender" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="16" Grid.Row="1"></local:MessageSendTextBox>
+        <local:MessageSendTextBox x:Name="Sender" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="15" Grid.Row="1"></local:MessageSendTextBox>
 
+        <Border Grid.Row="0" VerticalAlignment="Bottom" Margin="15,0,15,0"  Height="1" HorizontalAlignment="Stretch" Background="#0CFFFFFF"></Border>
         <GridSplitter Grid.Row="0"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Bottom"
               Background="#00000000" 
               ShowsPreview="False"
-              Height="2"
+              Height="2" Foreground="White"
               />
     </Grid>
 </UserControl>

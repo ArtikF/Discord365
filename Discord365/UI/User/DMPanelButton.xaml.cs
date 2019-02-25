@@ -94,7 +94,14 @@ namespace Discord365.UI.User
             }
 
             Avatar.ServerName = RelatedServer.Name;
-            Avatar.DownloadAndSetAvatar(RelatedServer.IconUrl);
+
+            string url = RelatedServer.IconUrl;
+
+            string jpg = ".jpg";
+            if (url != null && url.EndsWith(jpg))
+                url = url.Remove(url.Length - jpg.Length) + ".png"; // ultra hack
+
+            Avatar.DownloadAndSetAvatar(url);
         }
 
         public DMPanelButton()

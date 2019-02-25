@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,8 @@ namespace Discord365.UI.User.MessagesPage
     {
         public Discord.IDMChannel DmBotChannel = null;
         public SocketChannel Channel = null;
+        public const int AnimationLen = 350;
+        public bool AnimationDone = true;
 
         public MessageSendTextBox()
         {
@@ -32,6 +35,8 @@ namespace Discord365.UI.User.MessagesPage
 
         public async void SendMessage(string text)
         {
+            DoGhostAnimation(text);
+
             if (Channel != null)
             {
                 if (Channel is SocketDMChannel)
@@ -56,12 +61,41 @@ namespace Discord365.UI.User.MessagesPage
             }
         }
 
+        public void DoGhostAnimation(string text)
+        {
+            tbMessageGhost.Text = text;
+
+            if (AnimationDone)
+            {
+                AnimationDone = false;
+                tbMessageGhost.Visibility = Visibility.Visible;
+                tbMessageGhost.FadeOut(AnimationLen);
+                new Thread(() => { Thread.Sleep(AnimationLen); AnimationDone = true; }).Start();
+            }
+
+            //new Thread(() => 
+            //{
+            //    double opacity = tbMessageGhost.Dispatcher.Invoke(() => tbMessageGhost.Opacity);
+            //    Thickness margin = tbMessageGhost.Dispatcher.Invoke(() => tbMessageGhost.Margin);
+
+            //    while (opacity > 0)
+            //    {
+
+            //    }
+            //});
+        }
+
         private void TbMessage_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
             {
-                SendMessage(tbMessage.Text);
-                tbMessage.Text = "";
+                if (!Keyboard.IsKeyDown(Key.LeftShift) && !Keyboard.IsKeyDown(Key.RightShift))
+                {
+                    SendMessage(tbMessage.Text);
+                    tbMessage.Text = "";
+                }
+                else
+                    tbMessage.AppendText(Environment.NewLine);
             }
         }
     }

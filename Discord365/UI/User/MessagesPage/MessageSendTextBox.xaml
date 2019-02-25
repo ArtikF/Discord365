@@ -17,11 +17,12 @@
 
     <Grid>
         <Rectangle Fill="#14FFFFFF" RadiusY="10" RadiusX="10"></Rectangle>
-        <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="8,0,0,0">
+        <Grid x:Name="PlusButton" VerticalAlignment="Center" HorizontalAlignment="Left" Width="20" Height="20" Background="#00000000" Margin="5,0,0,0">
             <Rectangle Fill="#FF7E8085" IsHitTestVisible="False" RadiusY="10" RadiusX="10"></Rectangle>
             <Rectangle Fill="#FF484B52" IsHitTestVisible="False" Width="2" Margin="5"></Rectangle>
             <Rectangle Fill="#FF484B52" IsHitTestVisible="False" Height="2" Margin="5"></Rectangle>
         </Grid>
-        <TextBox x:Name="tbMessage" Background="#00000000" Foreground="White" BorderBrush="#00000000" Margin="36,8,8,8" Text="Text" KeyDown="TbMessage_KeyDown"></TextBox>
+        <TextBox x:Name="tbMessage" Background="#00000000" Foreground="White" BorderBrush="#00000000" Margin="30,5,5,5" Text="Text" KeyDown="TbMessage_KeyDown"></TextBox>
+        <TextBox x:Name="tbMessageGhost" Background="#00000000" Foreground="#72FFFFFF" BorderBrush="#00000000" Margin="30,-3,5,5" FontSize="12" Opacity="0" Text="Ghost Message" IsHitTestVisible="False"></TextBox>
     </Grid>
 </UserControl>
