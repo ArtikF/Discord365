@@ -55,6 +55,7 @@ namespace Discord365.UI.User.MessagesPage.Message
             {
                 var c = new TextMessageContent();
                 c.Margin = DefaultPadding;
+                c.HorizontalAlignment = HorizontalAlignment.Left;
                 c.MessageText = msg.Content;
                 m.Panel.Children.Add(c);
             }
@@ -68,6 +69,7 @@ namespace Discord365.UI.User.MessagesPage.Message
                         var img = new MessageImage(attachment.Filename);
                         img.SetImage(attachment.Url);
                         img.Margin = DefaultPadding;
+                        img.HorizontalAlignment = HorizontalAlignment.Left;
                         m.Panel.Children.Add(img);
                     }
                     else
@@ -76,6 +78,7 @@ namespace Discord365.UI.User.MessagesPage.Message
                         aobj.HorizontalAlignment = HorizontalAlignment.Stretch;
                         aobj.Attach = attachment;
                         aobj.Margin = DefaultPadding;
+                        aobj.HorizontalAlignment = HorizontalAlignment.Left;
                         m.Panel.Children.Add(aobj);
                     }
                 }
