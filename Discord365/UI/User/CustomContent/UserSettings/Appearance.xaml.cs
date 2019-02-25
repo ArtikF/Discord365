@@ -23,14 +23,6 @@ namespace Discord365.UI.User.CustomContent.UserSettings
         public Appearance()
         {
             InitializeComponent();
-
-            DoNotUseMarkdown.IsChecked = Properties.Settings.Default.PlainTextInsteadOfMarkdown;
-        }
-
-        private void DoNotUseMarkdown_Click(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default.PlainTextInsteadOfMarkdown = (bool)DoNotUseMarkdown.IsChecked;
-            Properties.Settings.Default.Save();
         }
     }
 }

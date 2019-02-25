@@ -16,47 +16,47 @@ namespace Discord365.UI.MarkdownTextBox
 {
     public class Markdown
     {
-        public static Grid GetContentFromText(string text)
-        {
-            Grid g = new Grid();
+        //public static Grid GetContentFromText(string text)
+        //{
+        //    Grid g = new Grid();
 
-            if (Properties.Settings.Default.PlainTextInsteadOfMarkdown)
-            {
-                PlainTextBox tb = new PlainTextBox();
-                tb.Text = text;
-                g.Children.Add(tb);
-                return g;
-            }
+        //    if (Properties.Settings.Default.PlainTextInsteadOfMarkdown)
+        //    {
+        //        PlainTextBox tb = new PlainTextBox();
+        //        tb.Text = text;
+        //        g.Children.Add(tb);
+        //        return g;
+        //    }
 
-            WrapPanel w = new WrapPanel();
-            g.Children.Add(w);
+        //    WrapPanel w = new WrapPanel();
+        //    g.Children.Add(w);
 
-            foreach(var md in GetMarkdownFormatting(text))
-            {
-                if (md.IsBreakingTextBox())
-                {
+        //    foreach(var md in GetMarkdownFormatting(text))
+        //    {
+        //        if (md.IsBreakingTextBox())
+        //        {
 
-                }
+        //        }
 
-                if(md.Type == MarkdownInfo.MarkdownType.PlainText)
-                {
-                }
-            }
+        //        if(md.Type == MarkdownInfo.MarkdownType.PlainText)
+        //        {
+        //        }
+        //    }
 
-            // Placeholder
-            FlowDocument flow = new FlowDocument();
-            flow.Blocks.Add(new Paragraph(new Run(text) { FontFamily = new FontFamily("Segoe UI"), FontSize = 14 }));
-            w.Children.Add(new MarkdownBox(flow));
+        //    // Placeholder
+        //    FlowDocument flow = new FlowDocument();
+        //    flow.Blocks.Add(new Paragraph(new Run(text) { FontFamily = new FontFamily("Segoe UI"), FontSize = 14 }));
+        //    w.Children.Add(new MarkdownBox(flow));
 
-            return g;
-        }
+        //    return g;
+        //}
 
-        public static List<MarkdownInfo> GetMarkdownFormatting(string source)
-        {
-            List<MarkdownInfo> result = new List<MarkdownInfo>();
+        //public static List<MarkdownInfo> GetMarkdownFormatting(string source)
+        //{
+        //    List<MarkdownInfo> result = new List<MarkdownInfo>();
 
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

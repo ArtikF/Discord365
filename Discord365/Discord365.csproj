@@ -149,9 +149,6 @@
       <DependentUpon>MainClientWnd.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\MarkdownTextBox\Markdown.cs" />
-    <Compile Include="UI\MarkdownTextBox\MarkdownBox.xaml.cs">
-      <DependentUpon>MarkdownBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\MarkdownTextBox\MarkdownInfo.cs" />
     <Compile Include="UI\MarkdownTextBox\PlainTextBox.xaml.cs">
       <DependentUpon>PlainTextBox.xaml</DependentUpon>
@@ -300,10 +297,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MainClientWnd.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\MarkdownTextBox\MarkdownBox.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MarkdownTextBox\PlainTextBox.xaml">

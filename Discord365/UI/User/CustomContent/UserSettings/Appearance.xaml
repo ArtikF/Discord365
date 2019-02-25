@@ -18,7 +18,6 @@
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <WrapPanel Orientation="Vertical" Margin="15">
-                <CheckBox x:Name="DoNotUseMarkdown" Margin="5" Click="DoNotUseMarkdown_Click" Foreground="#B2FFFFFF">Do not use Markdown messages text formatting (will increase performance)</CheckBox>
             </WrapPanel>
         </ScrollViewer>
     </Grid>
