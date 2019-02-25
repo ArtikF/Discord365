@@ -17,7 +17,7 @@
 
     
     <Grid>
-        <RichTextBox x:Name="tbMessage" Style="{DynamicResource MessageRichTextBox}" HorizontalAlignment="Left" Margin="-2,0,0,0" IsReadOnly="True" IsReadOnlyCaretVisible="False" VerticalAlignment="Top" Foreground="#8CFFFFFF" Background="#00000000" BorderBrush="#00ABADB3">
+        <RichTextBox x:Name="tbMessage" Style="{DynamicResource MessageRichTextBox}" HorizontalAlignment="Left" Margin="-2,0,0,0" IsReadOnly="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" IsReadOnlyCaretVisible="False" VerticalAlignment="Top" Foreground="#8CFFFFFF" Background="#00000000" BorderBrush="#00ABADB3">
         </RichTextBox> 
     </Grid>
 </UserControl>
