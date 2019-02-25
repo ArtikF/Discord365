@@ -15,6 +15,7 @@ namespace Discord365.UI
     {
         public static string[] ImageExtensions = { ".jpg", ".jpeg", ".bpm", ".tif", ".tiff", ".gif", ".png" };
         public static string[] VideoExtensions = { ".mp4", ".avi", ".webm" };
+        public static int ContentFadeDuration = 150;
 
         public static bool CheckForEnding(this string str, string[] array)
         {

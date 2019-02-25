@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,18 +34,42 @@ namespace Discord365.UI.User
 
         public void SetHeader(UIElement header)
         {
-            GridHeader.Children.Clear();
+            GridHeader.FadeOut(Extensions.ContentFadeDuration);
 
-            if (header != null)
-                GridHeader.Children.Add(header);
+            new Thread(() =>
+            {
+                Thread.Sleep(Extensions.ContentFadeDuration);
+
+                GridHeader.Dispatcher.Invoke(() =>
+                {
+                    GridHeader.Children.Clear();
+
+                    if (header != null)
+                        GridHeader.Children.Add(header);
+
+                    GridHeader.FadeIn(Extensions.ContentFadeDuration);
+                });
+            }).Start();
         }
 
         public void SetContent(UIElement content)
         {
-            GridContent.Children.Clear();
+            GridContent.FadeOut(Extensions.ContentFadeDuration);
 
-            if (content != null)
-                GridContent.Children.Add(content);
+            new Thread(() =>
+            {
+                Thread.Sleep(Extensions.ContentFadeDuration);
+
+                GridContent.Dispatcher.Invoke(() =>
+                {
+                    GridContent.Children.Clear();
+
+                    if (content != null)
+                        GridContent.Children.Add(content);
+
+                    GridContent.FadeIn(Extensions.ContentFadeDuration);
+                });
+            }).Start();
         }
     }
 }
