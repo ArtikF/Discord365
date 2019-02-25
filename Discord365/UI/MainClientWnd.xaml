@@ -42,11 +42,18 @@
             <c:CustomCtrlWnd x:Name="CustomCtrl"></c:CustomCtrlWnd>
         </Grid>
 
-        <Grid x:Name="DiscordStatus" Background="#FF1F1F1F" Visibility="Visible">
-            <WrapPanel x:Name="DiscordStatusPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" TextAlignment="Center" Foreground="#BFFFFFFF" FontSize="24" Text="Starting Discord 365!"></TextBlock>
-                <TextBlock x:Name="tbQuestions" MouseLeftButtonUp="TbQuestions_MouseLeftButtonUp" TextAlignment="Center" Text="Issues or questions?" Background="Transparent" Cursor="Hand" Foreground="#2CFFFFFF" FontSize="10"  Margin="0,4,0,0"></TextBlock>
-            </WrapPanel>
-        </Grid>
+        <Grid x:Name="StatusBackground" Background="#FF1f1f1f" IsHitTestVisible="False" Visibility="Collapsed"></Grid>
+        <Border x:Name="DiscordStatus" Visibility="Visible" HorizontalAlignment="Left" Margin="10" IsHitTestVisible="False" VerticalAlignment="Bottom" >
+            <Grid>
+                <Border x:Name="DiscordStatusSubBorder" CornerRadius="4" Background="#FFFFFFFF"  BorderBrush="#FFFFFFFF" BorderThickness="1"/>
+                <WrapPanel x:Name="DiscordStatusPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                    <Grid Margin="0,0,3,0" Width="19" Visibility="Collapsed">
+                        <Ellipse Margin="3" Stroke="Black"></Ellipse>
+                    </Grid>
+                    <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" TextAlignment="Center" Foreground="Black" FontSize="13" Text="Starting Discord 365!"></TextBlock>
+                    <!--<TextBlock x:Name="tbQuestions" MouseLeftButtonUp="TbQuestions_MouseLeftButtonUp" TextAlignment="Center" Text="Issues or questions?" Background="Transparent" Cursor="Hand" Foreground="#2CFFFFFF" FontSize="10"  Margin="0,4,0,0"></TextBlock>!-->
+                </WrapPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -113,6 +113,7 @@ namespace Discord365.UI
             DiscordContent.Visibility = Visibility.Visible;
             DiscordStatus.Visibility = Visibility.Visible;
             DiscordCustom.Visibility = Visibility.Hidden;
+            SetStatusAccessContent(false);
 
             client.LoggedIn += Client_LoggedIn;
             client.Ready += Client_Ready;
@@ -167,6 +168,7 @@ namespace Discord365.UI
         private Task Client_Connected()
         {
             SetStatus("Connected");
+            SetStatusAccessContent(true);
             return Task.CompletedTask;
         }
 
@@ -252,6 +254,7 @@ namespace Discord365.UI
         {
             DiscordWindowContent = DiscordWndConent.Status;
             SetStatus("Logged out");
+            SetStatusAccessContent(false);
 
             return Task.CompletedTask;
         }
@@ -270,6 +273,7 @@ namespace Discord365.UI
             {
                 DiscordWindowContent = DiscordWndConent.Status;
                 SetStatus("Reconnecting...");
+                SetStatusAccessContent(false);
             });
 
             return Task.CompletedTask;
@@ -281,16 +285,18 @@ namespace Discord365.UI
             new Thread(() =>
             {
                 SetStatus("Ready");
+                SetStatusAccessContent(true);
+
+                Dispatcher.Invoke(() => ContentBasic.Set(null, new User.Screens.ScreenWelcomeDiscord365()));
+
+                Thread.Sleep(500);
 
                 Dispatcher.Invoke(() =>
                 {
                     DiscordWindowContent = DiscordWndConent.Content;
                 });
 
-                Thread.Sleep(250);
-
-                Dispatcher.Invoke(() => ContentBasic.Set(null, new User.Screens.ScreenWelcomeDiscord365()));
-            }).Start();
+                }).Start();
 
             Client_CurrentUserUpdated(client.CurrentUser, null);
 
@@ -299,7 +305,7 @@ namespace Discord365.UI
 
         private Task Client_LoggedIn()
         {
-            SetStatus("Logged in");
+            SetStatus("Fetching user data...");
 
             return Task.CompletedTask;
         }
@@ -322,6 +328,7 @@ namespace Discord365.UI
             new Thread(async () =>
             {
                 SetStatus("Logging in...");
+                SetStatusAccessContent(false);
 
                 try
                 {
@@ -339,6 +346,41 @@ namespace Discord365.UI
         }
 
         public bool CanExitNow = false;
+
+        public void SetStatusAccessContent(bool access)
+        {
+            if (!Dispatcher.CheckAccess())
+            {
+                Dispatcher.Invoke(() => SetStatusAccessContent(access));
+                return;
+            }
+
+            if (access)
+            {
+                if(StatusBackground.Opacity > 0)
+                    StatusBackground.FadeOut(385);
+
+                DiscordStatus.HorizontalAlignment = HorizontalAlignment.Left;
+                DiscordStatus.VerticalAlignment = VerticalAlignment.Bottom;
+                tbDiscordStatus.FontSize = 13;
+                DiscordContent.IsHitTestVisible = true;
+                // ContentBlur.Radius = 0;
+                DiscordStatusSubBorder.Visibility = Visibility.Visible;
+                tbDiscordStatus.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                StatusBackground.Visibility = Visibility.Visible;
+                StatusBackground.Opacity = 1;
+                DiscordStatus.HorizontalAlignment = HorizontalAlignment.Center;
+                DiscordStatus.VerticalAlignment = VerticalAlignment.Center;
+                DiscordContent.IsHitTestVisible = false;
+                tbDiscordStatus.FontSize = 28;
+                // ContentBlur.Radius = 8;
+                DiscordStatusSubBorder.Visibility = Visibility.Hidden;
+                tbDiscordStatus.Foreground = new SolidColorBrush(Color.FromArgb(0x8C, 0xFF, 0xFF, 0xFF));
+            }
+        }
 
         public void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -403,16 +445,16 @@ namespace Discord365.UI
         {
         }
 
-        private void TbQuestions_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            // <user:GitHubIssuesCtrl Height="240" Margin="0,8,0,0"></user:GitHubIssuesCtrl>
+        //private void TbQuestions_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    // <user:GitHubIssuesCtrl Height="240" Margin="0,8,0,0"></user:GitHubIssuesCtrl>
 
-            DiscordStatusPanel.Children.Remove(tbQuestions);
+        //    DiscordStatusPanel.Children.Remove(tbQuestions);
 
-            var issues = new User.GitHubIssuesCtrl();
-            issues.Height = 240;
-            issues.Margin = new Thickness(0, 8, 0, 0);
-            DiscordStatusPanel.Children.Add(issues);
-        }
+        //    var issues = new User.GitHubIssuesCtrl();
+        //    issues.Height = 240;
+        //    issues.Margin = new Thickness(0, 8, 0, 0);
+        //    DiscordStatusPanel.Children.Add(issues);
+        //}
     }
 }
