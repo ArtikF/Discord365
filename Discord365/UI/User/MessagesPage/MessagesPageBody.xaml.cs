@@ -25,7 +25,7 @@ namespace Discord365.UI.User.MessagesPage
     {
         public SocketChannel Channel = null;
         public Discord.IDMChannel DmBotChannel = null;
-        public SocketUser User = null;
+        public Discord.IUser User = null;
 
         public MessagesPageBody(SocketChannel c = null)
         {
@@ -85,7 +85,7 @@ namespace Discord365.UI.User.MessagesPage
         {
             new Thread(() => 
             {
-                const int HowManyMessagesDownload = 50;
+                const int HowManyMessagesDownload = 25;
 
                 if (Channel != null)
                 {
@@ -126,7 +126,8 @@ namespace Discord365.UI.User.MessagesPage
                         UpdateMessagesEx(reslt.ToArray());
                     }
                 }
-                else if (DmBotChannel != null)
+
+                if (DmBotChannel != null)
                 {
                     var msgs = DmBotChannel.GetMessagesAsync(HowManyMessagesDownload).ToList();
                     var reslt1 = msgs.GetAwaiter().GetResult();
@@ -139,13 +140,17 @@ namespace Discord365.UI.User.MessagesPage
 
         private void UpdateMessagesEx(Discord.IMessage[] msgss)
         {
+            var msgs = SortMessagesByDate(msgss);
+            UpdateMessagesEx2(msgs);
+        }
+
+        private void UpdateMessagesEx2(Discord.IMessage[] msgs)
+        {
             if (!Dispatcher.CheckAccess())
             {
-                Dispatcher.Invoke(() => UpdateMessagesEx(msgss));
+                Dispatcher.Invoke(() => UpdateMessagesEx2(msgs));
                 return;
             }
-            
-            var msgs = SortMessagesByDate(msgss);
 
             MessagesPanel.Children.Clear();
 
@@ -164,7 +169,7 @@ namespace Discord365.UI.User.MessagesPage
                 this.AddMessage(a);
             }
 
-            MessagesScroll.ScrollToEnd();
+            MessagesScroll.ScrollToEnd(); // fix me
         }
     }
 }

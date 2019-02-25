@@ -74,8 +74,15 @@ namespace Discord365.UI.User.DirectMsgsContents
 
             MessagesPageHeader h = new MessagesPageHeader();
             h.tbChannelName.Text = entry.GetChannelName();
-
+            
             MessagesPageBody b = new MessagesPageBody(entry.Channel);
+
+            //if (entry.Channel is SocketDMChannel)
+            //{
+            //    b.DmBotChannel = entry.User.RelatedUser.GetOrCreateDMChannelAsync().GetAwaiter().GetResult();
+            //    b.User = entry.User.RelatedUser;
+            //}
+
             App.MainWnd.ContentBasic.Set(h, b);
 
             b.UpdateMessages();
@@ -105,10 +112,10 @@ namespace Discord365.UI.User.DirectMsgsContents
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            GetMessages();
+            UpdateMessages();
         }
 
-        private void GetMessages()
+        private void UpdateMessages()
         {
             new Thread(() =>
             {

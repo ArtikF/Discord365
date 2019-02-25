@@ -30,7 +30,11 @@ namespace Discord365.UI
         public List<User.UserAvatar> UpdateAvatars = new List<User.UserAvatar>();
         public List<User.UserNameUpdateable> UpdateUserNames = new List<User.UserNameUpdateable>();
         
-        public DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketConfig() { LogLevel = Discord.LogSeverity.Info, MessageCacheSize = 50 });
+        public DiscordSocketClient client = new DiscordSocketClient(new DiscordSocketConfig()
+        {
+            LogLevel = Discord.LogSeverity.Info,
+            MessageCacheSize = 500
+        });
 
         public enum DiscordWndConent
         {
