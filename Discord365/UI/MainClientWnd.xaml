@@ -44,7 +44,7 @@
 
         <Grid x:Name="DiscordStatus" Background="#FF1F1F1F" Visibility="Visible">
             <WrapPanel x:Name="DiscordStatusPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" Foreground="#BFFFFFFF" FontSize="24" Text="Starting Discord 365!"></TextBlock>
+                <TextBlock x:Name="tbDiscordStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" TextAlignment="Center" Foreground="#BFFFFFFF" FontSize="24" Text="Starting Discord 365!"></TextBlock>
                 <TextBlock x:Name="tbQuestions" MouseLeftButtonUp="TbQuestions_MouseLeftButtonUp" TextAlignment="Center" Text="Issues or questions?" Background="Transparent" Cursor="Hand" Foreground="#2CFFFFFF" FontSize="10"  Margin="0,4,0,0"></TextBlock>
             </WrapPanel>
         </Grid>

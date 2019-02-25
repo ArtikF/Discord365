@@ -269,7 +269,7 @@ namespace Discord365.UI
             Dispatcher.Invoke(() =>
             {
                 DiscordWindowContent = DiscordWndConent.Status;
-                SetStatus("Disconnected: " + arg.ToString());
+                SetStatus("Reconnecting...");
             });
 
             return Task.CompletedTask;
