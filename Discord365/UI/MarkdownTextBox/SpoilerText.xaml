@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Discord365.UI.MarkdownTextBox.SpoilerText"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Discord365.UI.MarkdownTextBox"
+             mc:Ignorable="d" Foreground="#B2FFFFFF" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Discord365.Resources;component/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border Background="#FF4A4D53" CornerRadius="4">
+        <Grid>
+            <TextBox x:Name="tbSecretText" Style="{DynamicResource MessageTextBox}" IsReadOnly="True" TextWrapping="Wrap" IsReadOnlyCaretVisible="False" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" Text="The secret text"></TextBox>
+            <Border x:Name="BorderReveal" MouseLeftButtonUp="BorderReveal_MouseLeftButtonUp" Cursor="Hand" CornerRadius="4" Background="#FF202225"></Border>
+        </Grid>
+    </Border>
+</UserControl>

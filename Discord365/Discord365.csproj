@@ -153,6 +153,9 @@
     <Compile Include="UI\MarkdownTextBox\PlainTextBox.xaml.cs">
       <DependentUpon>PlainTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\MarkdownTextBox\SpoilerText.xaml.cs">
+      <DependentUpon>SpoilerText.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ShortNameTool.cs" />
     <Compile Include="UI\Extensions.cs" />
     <Compile Include="UI\User\ContentBasic.xaml.cs">
@@ -294,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\MarkdownTextBox\PlainTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MarkdownTextBox\SpoilerText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
