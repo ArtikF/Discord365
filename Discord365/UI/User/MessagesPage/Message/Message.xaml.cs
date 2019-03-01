@@ -47,16 +47,17 @@ namespace Discord365.UI.User.MessagesPage.Message
 
         public void AppendMessage(Discord.IMessage msg)
         {
-            SingleMessage m = new SingleMessage();
-            m.Message = msg;
+            SingleMessage m = new SingleMessage { Message = msg };
             MessagesPanel.Children.Add(m);
 
             if (msg.Content.Length >= 1)
             {
-                var c = new TextMessageContent();
-                c.Margin = DefaultPadding;
-                c.HorizontalAlignment = HorizontalAlignment.Left;
-                c.MessageText = msg.Content;
+                var c = new TextMessageContent
+                {
+                    Margin = DefaultPadding,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    MessageText = msg.Content
+                };
                 m.Panel.Children.Add(c);
             }
 
@@ -66,19 +67,22 @@ namespace Discord365.UI.User.MessagesPage.Message
                 {
                     if (attachment.Filename.CheckForEnding(ImageExtensions))
                     {
-                        var img = new MessageImage(attachment.Filename);
+                        var img = new MessageImage(attachment.Filename)
+                        {
+                            Margin = DefaultPadding,
+                            HorizontalAlignment = HorizontalAlignment.Left
+                        };
                         img.SetImage(attachment.Url);
-                        img.Margin = DefaultPadding;
-                        img.HorizontalAlignment = HorizontalAlignment.Left;
                         m.Panel.Children.Add(img);
                     }
                     else
                     {
-                        var aobj = new AttachmentContent();
-                        aobj.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        aobj.Attach = attachment;
-                        aobj.Margin = DefaultPadding;
-                        aobj.HorizontalAlignment = HorizontalAlignment.Left;
+                        var aobj = new AttachmentContent
+                        {
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            Attach = attachment,
+                            Margin = DefaultPadding
+                        };
                         m.Panel.Children.Add(aobj);
                     }
                 }
@@ -88,9 +92,11 @@ namespace Discord365.UI.User.MessagesPage.Message
             {
                 foreach (var embed in msg.Embeds)
                 {
-                    var aobj = new MessageEmbed();
-                    aobj.Related = embed;
-                    aobj.Margin = DefaultPadding;
+                    var aobj = new MessageEmbed
+                    {
+                        Related = embed,
+                        Margin = DefaultPadding
+                    };
                     m.Panel.Children.Add(aobj);
                 }
             }

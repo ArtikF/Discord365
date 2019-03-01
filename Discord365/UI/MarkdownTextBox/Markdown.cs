@@ -18,11 +18,12 @@ namespace Discord365.UI.MarkdownTextBox
     {
         public static TextBlock GetContentFromText(string text)
         {
-            TextBlock t = new TextBlock();
-
-            t.FontSize = MarkdownInfo.DefaultFontSize;
-            t.Foreground = MarkdownInfo.DefaultForeground;
-            t.Text = text;
+            TextBlock t = new TextBlock
+            {
+                FontSize = MarkdownInfo.DefaultFontSize,
+                Foreground = MarkdownInfo.DefaultForeground,
+                Text = text
+            };
             return t;
             // unimplemented
 

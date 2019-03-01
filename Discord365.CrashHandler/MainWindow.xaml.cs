@@ -35,8 +35,10 @@ namespace Discord365.CrashHandler
 
         private void CSave_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog s = new Microsoft.Win32.SaveFileDialog();
-            s.Filter = "Text Files (*.txt)|*.txt|Log Files (*.log)|*.log|All Files (*.*)|*.*";
+            Microsoft.Win32.SaveFileDialog s = new Microsoft.Win32.SaveFileDialog
+            {
+                Filter = "Text Files (*.txt)|*.txt|Log Files (*.log)|*.log|All Files (*.*)|*.*"
+            };
 
             if ((bool)s.ShowDialog())
             {

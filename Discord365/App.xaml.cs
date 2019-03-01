@@ -22,7 +22,7 @@ namespace Discord365
         public static UI.LoginWindow LoginWnd;
         public static UI.MainClientWnd MainWnd;
         public static UI.AppWindow AppWnd;
-        public static Discord.WebSocket.DiscordSocketClient client => MainWnd.client; 
+        public static Discord.WebSocket.DiscordSocketClient Client => MainWnd.client; 
 
         private static Random random = new Random();
         public static string RandomString(int length)
