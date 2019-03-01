@@ -14,7 +14,7 @@
     </UserControl.Resources>
     <Border Background="#FF4A4D53" CornerRadius="4">
         <Grid>
-            <TextBox x:Name="tbSecretText" Style="{DynamicResource MessageTextBox}" IsReadOnly="True" TextWrapping="Wrap" IsReadOnlyCaretVisible="False" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" Text="The secret text"></TextBox>
+            <TextBlock x:Name="tbSecretText" TextWrapping="Wrap" Text="The secret text"></TextBlock>
             <Border x:Name="BorderReveal" MouseLeftButtonUp="BorderReveal_MouseLeftButtonUp" Cursor="Hand" CornerRadius="4" Background="#FF202225"></Border>
         </Grid>
     </Border>

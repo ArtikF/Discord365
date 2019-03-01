@@ -16,47 +16,144 @@ namespace Discord365.UI.MarkdownTextBox
 {
     public class Markdown
     {
-        //public static Grid GetContentFromText(string text)
-        //{
-        //    Grid g = new Grid();
+        public static TextBlock GetContentFromText(string text)
+        {
+            TextBlock t = new TextBlock();
 
-        //    if (Properties.Settings.Default.PlainTextInsteadOfMarkdown)
-        //    {
-        //        PlainTextBox tb = new PlainTextBox();
-        //        tb.Text = text;
-        //        g.Children.Add(tb);
-        //        return g;
-        //    }
+            t.FontSize = MarkdownInfo.DefaultFontSize;
+            t.Foreground = MarkdownInfo.DefaultForeground;
+            t.Text = text;
+            return t;
+            // unimplemented
 
-        //    WrapPanel w = new WrapPanel();
-        //    g.Children.Add(w);
+            var mds = GetMarkdownFormatting(text);
+            var controls = GetControlsFromMarkdown(mds);
 
-        //    foreach(var md in GetMarkdownFormatting(text))
-        //    {
-        //        if (md.IsBreakingTextBox())
-        //        {
+            for (int i = 0; i < controls.Count; i++)
+            {
+                var c = controls[i];
 
-        //        }
+                if (c is Inline)
+                    t.Inlines.Add((Inline)c);
+                else if (c is UIElement)
+                    t.Inlines.Add((UIElement)c);
+            }
 
-        //        if(md.Type == MarkdownInfo.MarkdownType.PlainText)
-        //        {
-        //        }
-        //    }
+            return t;
+        }
 
-        //    // Placeholder
-        //    FlowDocument flow = new FlowDocument();
-        //    flow.Blocks.Add(new Paragraph(new Run(text) { FontFamily = new FontFamily("Segoe UI"), FontSize = 14 }));
-        //    w.Children.Add(new MarkdownBox(flow));
+        public static List<DependencyObject> GetControlsFromMarkdown(List<MarkdownInfo> mds)
+        {
+            List<DependencyObject> l = new List<DependencyObject>();
 
-        //    return g;
-        //}
+            for (int i = 0; i < mds.Count; i++)
+            {
+                var md = mds[i];
+                l.Add(md.GetControl());
+            }
 
-        //public static List<MarkdownInfo> GetMarkdownFormatting(string source)
-        //{
-        //    List<MarkdownInfo> result = new List<MarkdownInfo>();
+            return l;
+        }
 
+        public static List<MarkdownInfo> GetMarkdownFormatting(string source)
+        {
+            List<MarkdownInfo> result = new List<MarkdownInfo>();
 
-        //    return result;
-        //}
+            for(int i = 0; i < source.Length; i++)
+            {
+                char c = SafeGetChar(source, i);
+                char c1 = SafeGetChar(source, i + 1);
+                char c2 = SafeGetChar(source, i + 2);
+
+                if (c == '*' && c1 != '*') // italic
+                {
+                    int start = i + 2;
+                    int end = LookForTheEnd(source, i, "*") + 1;
+
+                    if (end >= 0 && end < source.Length)
+                    {
+                        MarkdownInfo info = new MarkdownInfo(MarkdownInfo.MarkdownType.Italic, GetStringFromIdx(source, start, end));
+                        result.Add(info);
+                    }
+                }
+                else if (c == '*' && c1 == '*') // bold
+                {
+                    int start = i + 2;
+                    int end = LookForTheEnd(source, i, "**") + 2;
+
+                    if (end >= 0 && end < source.Length)
+                    {
+                    }
+                }
+                else if (c == '|' && c1 == '|') // spoiler
+                {
+                    int start = i + 2;
+                    int end = LookForTheEnd(source, i, "||") + 2;
+
+                    if (end >= 0 && end < source.Length)
+                    {
+                        MarkdownInfo info = new MarkdownInfo(MarkdownInfo.MarkdownType.Spoiler, GetStringFromIdx(source, start, end));
+                        result.Add(info);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private static string GetStringFromIdx(string text, int start, int end)
+        {
+            StringBuilder b = new StringBuilder();
+
+            for(int i = start; i < end; i++)
+            {
+                b.Append(SafeGetChar(text, i));
+            }
+
+            return b.ToString();
+        }
+
+        private static int LookForTheEnd(string text, int start, string endchars)
+        {
+            for (int i = start; i < text.Length; i++)
+            {
+                char c = SafeGetChar(text, i);
+                char c1 = SafeGetChar(text, i + 1);
+                char c2 = SafeGetChar(text, i + 2);
+
+                if (CheckForEnding(c, c1, c2, endchars))
+                    return i + endchars.Length - 1;
+            }
+
+            return start;
+        }
+
+        private static bool CheckForEnding(char c, char c1, char c2, string endchars)
+        {
+            if (c == SafeGetChar(endchars, 0)) // 0
+            {
+                if (endchars.Length == 1)
+                    return true;
+
+                if (c1 == SafeGetChar(endchars, 1)) // 1
+                {
+                    if (endchars.Length == 2)
+                        return true;
+
+                    if (c2 == SafeGetChar(endchars, 2)) // 2
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static char SafeGetChar(string text, int index)
+        {
+            if(index >= 0 && text.Length > index)
+                return text[index];
+
+            return '\0';
+        }
     }
 }

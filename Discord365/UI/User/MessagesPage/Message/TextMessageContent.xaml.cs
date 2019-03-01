@@ -37,8 +37,9 @@ namespace Discord365.UI.User.MessagesPage.Message
 
                 GridContent.Children.Clear();
 
-                var content = new MarkdownTextBox.PlainTextBox() { Text = value }; //MarkdownTextBox.Markdown.GetContentFromText(value);
-                content.Margin = new Thickness(-2, 0, 0, 0);
+                //var content = new MarkdownTextBox.PlainTextBox() { Text = value }; //MarkdownTextBox.Markdown.GetContentFromText(value);
+                var content = MarkdownTextBox.Markdown.GetContentFromText(value);
+                // content.Margin = new Thickness(-2, 0, 0, 0);
 
                 GridContent.Children.Add(content);
             }
