@@ -261,7 +261,8 @@ namespace Discord365.UI
 
         private Task Client_Log(Discord.LogMessage arg)
         {
-            Debugger.Log(0, Debugger.DefaultCategory, arg.ToString() + Environment.NewLine);
+            // Debugger.Log(0, Debugger.DefaultCategory, arg.ToString() + Environment.NewLine);
+            Log.WriteLine(arg.ToString());
             return Task.CompletedTask;
         }
 

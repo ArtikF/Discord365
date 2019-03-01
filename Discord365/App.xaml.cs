@@ -35,6 +35,7 @@ namespace Discord365
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
+            Log.Initialize();
 
             AppWnd = new UI.AppWindow();
             AppWnd.ShowDialog();
@@ -50,6 +51,8 @@ namespace Discord365
         {
             if (System.Diagnostics.Debugger.IsAttached)
                 return;
+
+            Log.Dispose();
 
             StringBuilder b = new StringBuilder();
             b.AppendLine("Unhandled Exception Happened at " + DateTime.Now.ToString());
@@ -73,7 +76,14 @@ namespace Discord365
             try
             {
                 if (File.Exists(CrashHandlerExe))
-                    Process.Start(CrashHandlerExe, "\"" + Base64Encode(b.ToString()) + "\"");
+                {
+                    string args = "\"base64:" + Base64Encode(b.ToString()) + "\"";
+
+                    if (File.Exists(Log.FileName))
+                        args += " \"txt:" + Log.FileName + "\"";
+
+                    Process.Start(CrashHandlerExe, args);
+                }
             }
             catch { }
 

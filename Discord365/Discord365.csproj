@@ -134,6 +134,7 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Compile Include="Stuff\DiscordTokenManager.cs" />
+    <Compile Include="Stuff\LogTool.cs" />
     <Compile Include="UI\AppWindow.xaml.cs">
       <DependentUpon>AppWindow.xaml</DependentUpon>
     </Compile>
