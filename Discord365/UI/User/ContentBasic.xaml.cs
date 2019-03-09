@@ -47,6 +47,9 @@ namespace Discord365.UI.User
                         GridHeader.Children.Add(header);
 
                     GridHeader.FadeIn(Extensions.ContentFadeDuration);
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 });
             }).Start();
         }
@@ -67,6 +70,9 @@ namespace Discord365.UI.User
                         GridContent.Children.Add(content);
 
                     GridContent.FadeIn(Extensions.ContentFadeDuration);
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 });
             }).Start();
         }
