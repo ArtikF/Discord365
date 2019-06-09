@@ -32,7 +32,7 @@ namespace Discord365.UI.User
 
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/discord365/Discord365/issues");
+            System.Diagnostics.Process.Start("https://github.com/feel-the-dz3n/Discord365/issues");
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace Discord365.UI.User
             new Thread(async () =>
             {
                 var github = new GitHubClient(new ProductHeaderValue("Discord365"));
-                var issues = await github.Issue.GetAllForRepository("discord365", "Discord365");
+                var issues = await github.Issue.GetAllForRepository("feel-the-dz3n", "Discord365");
                 int start = 0;
 
                 Dispatcher.Invoke(() => tbLoading.FadeOut(250));
@@ -119,7 +119,7 @@ namespace Discord365.UI.User
 
         private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/discord365/Discord365/issues/new");
+            System.Diagnostics.Process.Start("https://github.com/feel-the-dz3n/Discord365/issues/new");
         }
     }
 }
