@@ -56,10 +56,10 @@ namespace Discord365
 
             StringBuilder b = new StringBuilder();
             b.AppendLine("Unhandled Exception Happened at " + DateTime.Now.ToString());
-            b.AppendLine("Send this file there: https://github.com/discord365/Discord365/issues/new");
+            b.AppendLine("Send this file there: https://github.com/feel-the-dz3n/Discord365/issues/new");
             b.AppendLine();
             b.AppendLine("Author: " + Environment.UserName);
-            b.AppendLine("Receiver: https://github.com/discord365/Discord365/issues");
+            b.AppendLine("Receiver: https://github.com/feel-the-dz3n/Discord365/issues");
             b.AppendLine("Topic: " + ((Exception)e.ExceptionObject).Message);
             b.AppendLine();
             b.AppendLine(((Exception)e.ExceptionObject).ToString());
