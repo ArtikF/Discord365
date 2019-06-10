@@ -15,8 +15,8 @@ namespace Discord365.CrashHandler
     /// </summary>
     public partial class App : Application
     {
-        public const string IssuesPage = "https://github.com/Discord365/Discord365/issues";
-        public const string IssuesPageNew = "https://github.com/Discord365/Discord365/issues/new";
+        public const string IssuesPage = "https://github.com/feel-the-dz3n/Discord365/issues";
+        public const string IssuesPageNew = "https://github.com/feel-the-dz3n/Discord365/issues/new";
 
         public static string Base64Decode(string base64EncodedData)
         {
