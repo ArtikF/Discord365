@@ -1,3 +1,4 @@
+# Development Abandoned
 # Why Discord365 is bad?
 1. Violates Discord rules
 2. Targets outdated framework and required Windows 10
