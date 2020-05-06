@@ -1,3 +1,8 @@
+# Why Discord365 is bad?
+1. Violates Discord rules
+2. Targets outdated framework and required Windows 10
+3. Bad code 
+
 # Discord 365 [![Build status](https://ci.appveyor.com/api/projects/status/ri96nriwgo5ehpj7?svg=true)](https://ci.appveyor.com/project/feel-the-dz3n/discord365)
 Discord 365 - is a Discord API client for Windows. .NET Framework 4.7.1 is required. Powered by [Discord.Net](https://github.com/discord-net/Discord.Net).
 
